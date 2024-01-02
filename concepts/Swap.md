@@ -23,3 +23,25 @@ b = temp
 
 # After swap
 print("After swap: a =", a, ", b =", b)
+```
+
+### Example Code in JavaScript (Array Elements)
+
+```js
+let array = [10, 30, 40, 55]
+
+let x = 0
+let y = array.length - 1
+
+let temp;
+
+while (x <= y) {
+  temp = array[x]
+  array[x] = array[y]
+  array[y] = temp
+  x++;
+  y--;
+}
+
+console.log('The swapped array', array)
+```
