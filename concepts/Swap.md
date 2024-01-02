@@ -28,17 +28,26 @@ print("After swap: a =", a, ", b =", b)
 ### Example Code in JavaScript (Array Elements)
 
 ```js
+// Array declaration
 let array = [10, 30, 40, 55]
 
+// X is the starting point and Y is the ending point
 let x = 0
 let y = array.length - 1
 
+// Temporary variable
 let temp;
 
+
+// Condition: as long as X is less than or equal to Y
 while (x <= y) {
   temp = array[x]
+
+  // Swapping values using a temporary variable
   array[x] = array[y]
   array[y] = temp
+
+  // Increment and decremet
   x++;
   y--;
 }
