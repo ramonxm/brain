@@ -16,6 +16,7 @@ Welcome to the Algorithms and Data Structures repository! Please note that this 
     - [Linked Lists](#linked-lists)
     - [Trees](#trees)
     - [Hash Tables](#hash-tables)
+  - [Concepts](#concepts)
   - [License](#license)
 ## Introduction
 
@@ -25,41 +26,29 @@ Understanding algorithms and data structures is fundamental for any programmer. 
 
 ### Sorting
 
-- [Bubble Sort](algorithms/sorting/bubble_sort.py)
-- [Quick Sort](algorithms/sorting/quick_sort.py)
-- [Merge Sort](algorithms/sorting/merge_sort.py)
+- [Quick Sort](algorithms/sorting/quicksort/quicksort_recursive.py)
 
 ### Searching
 
-- [Binary Search](algorithms/searching/binary_search.py)
-- [Linear Search](algorithms/searching/linear_search.py)
-
 ### Graph Algorithms
-
-- [Depth-First Search (DFS)](algorithms/graph/dfs.py)
-- [Breadth-First Search (BFS)](algorithms/graph/bfs.py)
 
 ## Data Structures
 
-### Arrays
+- [Stack](data-structures/stack/stack.kt)
+- [Queue](data-structures/queue/queue.cpp)
 
-- [Dynamic Array](data_structures/arrays/dynamic_array.py)
-- [Sparse Array](data_structures/arrays/sparse_array.py)
+### Arrays
 
 ### Linked Lists
 
-- [Singly Linked List](data_structures/linked_lists/singly_linked_list.py)
-- [Doubly Linked List](data_structures/linked_lists/doubly_linked_list.py)
-
 ### Trees
-
-- [Binary Search Tree (BST)](data_structures/trees/binary_search_tree.py)
-- [Heap](data_structures/trees/heap.py)
 
 ### Hash Tables
 
-- [Hash Table](data_structures/hash_tables/hash_table.py)
+## Concepts
 
+- [LIFO](concepts/LIFO.md)
+- [SWAP](concepts/Swap.md)
 
 ## License
 
