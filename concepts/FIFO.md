@@ -1,4 +1,4 @@
-**FIFO (First In, First Out)**
+# FIFO (First In, First Out)
 
 *FIFO*, which stands for "First In, First Out," is a method commonly used in computer programming and data structures. It refers to a type of data structure or processing where the first element that is added to a collection is the first one to be removed. This principle is similar to a queue in real-world scenarios, like standing in line at a grocery store. The person who arrives first is the first to be served.
 
