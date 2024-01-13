@@ -48,6 +48,7 @@ Understanding algorithms and data structures is fundamental for any programmer. 
 ## Concepts
 
 - [LIFO](concepts/LIFO.md)
+- [FIFO](concepts/FIFO.md)
 - [SWAP](concepts/Swap.md)
 
 ## License
