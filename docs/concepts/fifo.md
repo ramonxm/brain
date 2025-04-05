@@ -1,15 +1,15 @@
 # FIFO (First In, First Out)
 
-*FIFO*, which stands for "First In, First Out," is a method commonly used in computer programming and data structures. It refers to a type of data structure or processing where the first element that is added to a collection is the first one to be removed. This principle is similar to a queue in real-world scenarios, like standing in line at a grocery store. The person who arrives first is the first to be served.
+*FIFO*, que significa "Primeiro a Entrar, Primeiro a Sair" (First In, First Out), é um método comumente usado em programação de computadores e estruturas de dados. Refere-se a um tipo de estrutura de dados ou processamento onde o primeiro elemento adicionado a uma coleção é o primeiro a ser removido. Este princípio é semelhante a uma fila no mundo real, como pessoas esperando em uma fila de supermercado. A pessoa que chega primeiro é a primeira a ser atendida.
 
-In programming, FIFO is often implemented using a data structure called a queue.
+Na programação, FIFO é frequentemente implementado usando uma estrutura de dados chamada fila (queue).
 
-1. **Enqueue:** Adds an element to the end of the queue.
-2. **Dequeue:** Removes the element from the front of the queue.
+1. **Enqueue:** Adiciona um elemento ao final da fila.
+2. **Dequeue:** Remove o elemento do início da fila.
 
-This process ensures that elements are processed in the order they are added, maintaining the FIFO order.
+Este processo garante que os elementos sejam processados na ordem em que foram adicionados, mantendo a ordem FIFO.
 
-Here's a simple example in Python using a list as a basic queue:
+Aqui está um exemplo simples em Python usando uma lista como uma fila básica:
 
 ```python
 class Queue:
@@ -31,11 +31,12 @@ class Queue:
     def size(self):
         return len(self.items)
 
-# Example Usage:
+# Exemplo de Uso:
 my_queue = Queue()
 my_queue.enqueue(1)
 my_queue.enqueue(2)
 my_queue.enqueue(3)
 
-print(my_queue.dequeue())  # Output: 1
-print(my_queue.dequeue())  # Output: 2
+print(my_queue.dequeue())  # Saída: 1
+print(my_queue.dequeue())  # Saída: 2
+```

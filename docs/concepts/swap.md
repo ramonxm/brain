@@ -1,56 +1,56 @@
 # Swap
 
-"Swap" is a common term used in programming and computer science, referring to the exchange or interchange of values between two variables. This operation involves switching the content of two variables, effectively swapping their values.
+"Swap" é um termo comum usado em programação e ciência da computação, referindo-se à troca ou intercâmbio de valores entre duas variáveis. Esta operação envolve a troca do conteúdo de duas variáveis, efetivamente trocando seus valores.
 
-## Purpose of Swap
+## Propósito do Swap
 
-The swap operation is frequently used for reordering, sorting, and optimizing algorithms. It allows for the rearrangement of values without the need for additional temporary variables.
+A operação de swap é frequentemente usada para reordenação, ordenação e otimização de algoritmos. Ela permite o rearranjo de valores sem a necessidade de variáveis temporárias adicionais.
 
-### Example Code in Python
+### Exemplo de Código em Python
 
 ```python
-# Swapping values in Python
+# Trocando valores em Python
 a = 5
 b = 10
 
-# Before swap
-print("Before swap: a =", a, ", b =", b)
+# Antes da troca
+print("Antes da troca: a =", a, ", b =", b)
 
-# Swapping values using a temporary variable
+# Trocando valores usando uma variável temporária
 temp = a
 a = b
 b = temp
 
-# After swap
-print("After swap: a =", a, ", b =", b)
+# Depois da troca
+print("Depois da troca: a =", a, ", b =", b)
 ```
 
-### Example Code in JavaScript (Array Elements)
+### Exemplo de Código em JavaScript (Elementos do Array)
 
 ```js
-// Array declaration
+// Declaração do array
 let array = [10, 30, 40, 55]
 
-// X is the starting point and Y is the ending point
+// X é o ponto inicial e Y é o ponto final
 let x = 0
 let y = array.length - 1
 
-// Temporary variable
+// Variável temporária
 let temp;
 
 
-// Condition: as long as X is less than or equal to Y
+// Condição: enquanto X for menor ou igual a Y
 while (x <= y) {
   temp = array[x]
 
-  // Swapping values using a temporary variable
+  // Trocando valores usando uma variável temporária
   array[x] = array[y]
   array[y] = temp
 
-  // Increment and decremet
+  // Incremento e decremento
   x++;
   y--;
 }
 
-console.log('The swapped array', array)
+console.log('O array trocado', array)
 ```

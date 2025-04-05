@@ -1,17 +1,17 @@
-# LIFO (Last In, First Out)
+# LIFO (Último a Entrar, Primeiro a Sair)
 
-LIFO, or "Last In, First Out," is a data organization method where the last element added is the first one to be removed. This concept is commonly applied in data structures such as stacks.
+LIFO, ou "Último a Entrar, Primeiro a Sair", é um método de organização de dados onde o último elemento adicionado é o primeiro a ser removido. Este conceito é comumente aplicado em estruturas de dados como pilhas.
 
-## Stacks
+## Pilhas
 
-A stack is a collection of elements where insertion and removal operations occur only at one end, known as the top. When an element is added to the stack, it becomes the new top, and when an element is removed, it is always the element at the top that is taken out.
+Uma pilha é uma coleção de elementos onde as operações de inserção e remoção ocorrem apenas em uma extremidade, conhecida como topo. Quando um elemento é adicionado à pilha, ele se torna o novo topo, e quando um elemento é removido, é sempre o elemento do topo que é retirado.
 
-### LIFO Operation in Stacks
+### Operação LIFO em Pilhas
 
-- **Insertion (Push):** New elements are added to the top of the stack.
-- **Removal (Pop):** Removal also happens at the top, taking out the most recently added element.
+- **Inserção (Push):** Novos elementos são adicionados ao topo da pilha.
+- **Remoção (Pop):** A remoção também acontece no topo, retirando o elemento mais recentemente adicionado.
 
-### Example Code in Python
+### Exemplo de Código em Python
 
 ```python
 class Stack:
@@ -28,11 +28,12 @@ class Stack:
     def is_empty(self):
         return len(self.items) == 0
 
-# Using the Stack
+# Usando a Pilha
 stack_example = Stack()
 stack_example.push(1)
 stack_example.push(2)
 stack_example.push(3)
 
-print(stack_example.pop())  # Output: 3
-print(stack_example.pop())  # Output: 2
+print(stack_example.pop())  # Saída: 3
+print(stack_example.pop())  # Saída: 2
+```
