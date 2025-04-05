@@ -13,16 +13,24 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
+        <div className={styles.heroContent}>
+          <Heading as="h1" className="hero__title">
+            Algoritmos e Estruturas de Dados
+          </Heading>
+          <p className="hero__subtitle">
+            Um guia completo sobre implementações, conceitos e boas práticas em programação
+          </p>
+          <p className={styles.heroDescription}>
+            Explore uma coleção organizada de recursos e exemplos práticos para aprofundar
+            seus conhecimentos em computação e desenvolvimento de software.
+          </p>
+          <div className={styles.buttons}>
+            <Link
+              className="button button--secondary button--lg"
+              to="/docs/intro">
+              Começar Agora
+            </Link>
+          </div>
         </div>
       </div>
     </header>
@@ -33,7 +41,7 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={`${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
