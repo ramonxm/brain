@@ -1,0 +1,22 @@
+{
+  "title": {
+    "message": "Algorithms and Data Structures",
+    "description": "The title in the navigation bar"
+  },
+  "item.label.Documentation": {
+    "message": "Documentation",
+    "description": "Navbar item with label Documentation"
+  },
+  "item.label.Data Structures": {
+    "message": "Data Structures",
+    "description": "Navbar item with label Data Structures"
+  },
+  "item.label.Algorithms": {
+    "message": "Algorithms",
+    "description": "Navbar item with label Algorithms"
+  },
+  "item.label.Concepts": {
+    "message": "Concepts",
+    "description": "Navbar item with label Concepts"
+  }
+}

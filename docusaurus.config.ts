@@ -27,8 +27,8 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'pt-BR',
-    locales: ['pt-BR'],
+    defaultLocale: 'pt',
+    locales: ['en', 'pt']
   },
 
   presets: [
@@ -37,10 +37,11 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          routeBasePath: 'docs',
+          editUrl: 'https://github.com/ramonxm/algorithm-and-data-structures/tree/main/',
+          path: 'docs',
+          // Configure docs for i18n
+          includeCurrentVersion: true,
         },
     
         theme: {
@@ -65,6 +66,10 @@ const config: Config = {
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'Conteúdo',
+        },
+        {
+          type: 'localeDropdown',
+          position: 'right',
         },
         {
           href: 'https://github.com/ramonxm/algorithm-and-data-structures',
