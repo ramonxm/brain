@@ -1,59 +1,41 @@
-# Algorithms and Data Structures (Under Construction)
+# Website
 
-Welcome to the Algorithms and Data Structures repository! Please note that this repository is currently under construction, and content is being actively developed. Feel free to check back periodically for updates. We're working hard to bring you a comprehensive collection of algorithms and data structures with clear explanations and examples.
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
-## Table of Contents
+### Installation
 
-- [Algorithms and Data Structures (Under Construction)](#algorithms-and-data-structures-under-construction)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Algorithms](#algorithms)
-    - [Sorting](#sorting)
-    - [Searching](#searching)
-    - [Graph Algorithms](#graph-algorithms)
-  - [Data Structures](#data-structures)
-    - [Arrays](#arrays)
-    - [Linked Lists](#linked-lists)
-    - [Trees](#trees)
-    - [Hash Tables](#hash-tables)
-  - [Concepts](#concepts)
-  - [License](#license)
-## Introduction
+```
+$ yarn
+```
 
-Understanding algorithms and data structures is fundamental for any programmer. This repository aims to provide a comprehensive collection of implementations with clear explanations and examples.
+### Local Development
 
-## Algorithms
+```
+$ yarn start
+```
 
-### Sorting
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-- [Quick Sort](algorithms/sorting/quicksort/quicksort_recursive.py)
+### Build
 
-### Searching
+```
+$ yarn build
+```
 
-### Graph Algorithms
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-## Data Structures
+### Deployment
 
-- [Stack](data-structures/stack/stack.kt)
-- [Queue](data-structures/queue/queue.cpp)
+Using SSH:
 
-### Arrays
+```
+$ USE_SSH=true yarn deploy
+```
 
-### Linked Lists
+Not using SSH:
 
-### Trees
+```
+$ GIT_USER=<Your GitHub username> yarn deploy
+```
 
-### Hash Tables
-
-## Concepts
-
-- [LIFO](concepts/LIFO.md)
-- [FIFO](concepts/FIFO.md)
-- [SWAP](concepts/Swap.md)
-- [Thread](concepts/Thread.md)
-
-## License
-
-This repository is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-Thank you for your patience, and stay tuned for more content! 🚧✨
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
