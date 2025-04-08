@@ -1,0 +1,42 @@
+{
+  "homepage.title": {
+    "message": "Algoritmos e Estruturas de Dados",
+    "description": "O título da página inicial"
+  },
+  "homepage.subtitle": {
+    "message": "Um guia completo sobre implementações, conceitos e boas práticas em programação",
+    "description": "O subtítulo da página inicial"
+  },
+  "homepage.description": {
+    "message": "Explore uma coleção organizada de recursos e exemplos práticos para aprofundar seus conhecimentos em computação e desenvolvimento de software.",
+    "description": "A descrição da página inicial"
+  },
+  "homepage.start": {
+    "message": "Começar Agora",
+    "description": "O texto do botão de início"
+  },
+  "homepage.features.algorithms.title": {
+    "message": "Algoritmos Avançados",
+    "description": "Título para a característica de algoritmos"
+  },
+  "homepage.features.algorithms.description": {
+    "message": "Domine algoritmos essenciais de ordenação, busca e otimização com exemplos práticos e análises detalhadas de complexidade. Aprenda a escolher a melhor solução para cada cenário.",
+    "description": "Descrição para a característica de algoritmos"
+  },
+  "homepage.features.datastructures.title": {
+    "message": "Estruturas de Dados Eficientes",
+    "description": "Título para a característica de estruturas de dados"
+  },
+  "homepage.features.datastructures.description": {
+    "message": "Explore implementações modernas de estruturas como árvores, grafos, tabelas hash e muito mais. Entenda quando e como aplicá-las para maximizar o desempenho de suas aplicações.",
+    "description": "Descrição para a característica de estruturas de dados"
+  },
+  "homepage.features.concepts.title": {
+    "message": "Fundamentos da Computação",
+    "description": "Título para a característica de conceitos de computação"
+  },
+  "homepage.features.concepts.description": {
+    "message": "Aprofunde-se em conceitos cruciais como análise assintótica, paradigmas de programação, recursão e otimização. Base sólida para se tornar um desenvolvedor mais completo.",
+    "description": "Descrição para a característica de conceitos de computação"
+  }
+}

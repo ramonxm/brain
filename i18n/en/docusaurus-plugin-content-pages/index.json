@@ -1,0 +1,42 @@
+{
+  "homepage.title": {
+    "message": "Algorithms and Data Structures",
+    "description": "The title of the homepage"
+  },
+  "homepage.subtitle": {
+    "message": "A comprehensive guide on implementations, concepts, and best practices in programming",
+    "description": "The subtitle of the homepage"
+  },
+  "homepage.description": {
+    "message": "Explore an organized collection of resources and practical examples to deepen your knowledge in computing and software development.",
+    "description": "The description of the homepage"
+  },
+  "homepage.start": {
+    "message": "Get Started",
+    "description": "The start button text"
+  },
+  "homepage.features.algorithms.title": {
+    "message": "Advanced Algorithms",
+    "description": "Title for algorithms feature"
+  },
+  "homepage.features.algorithms.description": {
+    "message": "Master essential sorting, searching, and optimization algorithms with practical examples and detailed complexity analysis. Learn to choose the best solution for each scenario.",
+    "description": "Description for algorithms feature"
+  },
+  "homepage.features.datastructures.title": {
+    "message": "Efficient Data Structures",
+    "description": "Title for data structures feature"
+  },
+  "homepage.features.datastructures.description": {
+    "message": "Explore modern implementations of structures like trees, graphs, hash tables, and more. Understand when and how to apply them to maximize the performance of your applications.",
+    "description": "Description for data structures feature"
+  },
+  "homepage.features.concepts.title": {
+    "message": "Computing Fundamentals",
+    "description": "Title for computing concepts feature"
+  },
+  "homepage.features.concepts.description": {
+    "message": "Dive deep into crucial concepts such as asymptotic analysis, programming paradigms, recursion, and optimization. A solid foundation to become a more complete developer.",
+    "description": "Description for computing concepts feature"
+  }
+}

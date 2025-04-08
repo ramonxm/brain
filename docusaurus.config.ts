@@ -18,17 +18,25 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'ramonxm', // Usually your GitHub org/user name.
-  projectName: 'Ramon', // Usually your repo name.
+  projectName: 'algorithm-and-data-structures', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  // Internationalization configuration
   i18n: {
     defaultLocale: 'pt',
-    locales: ['en', 'pt']
+    locales: ['en', 'pt'],
+    localeConfigs: {
+      en: {
+        htmlLang: 'en-US',
+        label: 'English',
+      },
+      pt: {
+        htmlLang: 'pt-BR',
+        label: 'Português',
+      },
+    },
   },
 
   presets: [
@@ -65,7 +73,22 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Conteúdo',
+          label: 'Documentation',
+        },
+        {
+          to: '/docs/concepts',
+          position: 'left',
+          label: 'Concepts',
+        },
+        {
+          to: '/docs/data-structures',
+          position: 'left',
+          label: 'Data Structures',
+        },
+        {
+          to: '/docs/algorithms',
+          position: 'left',
+          label: 'Algorithms',
         },
         {
           type: 'localeDropdown',
