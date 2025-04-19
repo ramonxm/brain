@@ -1,5 +1,0 @@
-# Algorithms
-
-## Sorting
-
-## Contests

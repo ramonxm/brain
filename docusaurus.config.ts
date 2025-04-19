@@ -23,21 +23,6 @@ const config: Config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
-  // Internationalization configuration
-  i18n: {
-    defaultLocale: 'pt',
-    locales: ['en', 'pt'],
-    localeConfigs: {
-      en: {
-        htmlLang: 'en-US',
-        label: 'English',
-      },
-      pt: {
-        htmlLang: 'pt-BR',
-        label: 'Português',
-      },
-    },
-  },
 
   presets: [
     [
@@ -48,8 +33,6 @@ const config: Config = {
           routeBasePath: 'docs',
           editUrl: 'https://github.com/ramonxm/algorithm-and-data-structures/tree/main/',
           path: 'docs',
-          // Configure docs for i18n
-          includeCurrentVersion: true,
         },
     
         theme: {
@@ -70,25 +53,19 @@ const config: Config = {
       title: 'Ramon Xavier',
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Documentation',
-        },
-        {
           to: '/docs/concepts',
           position: 'left',
-          label: 'Concepts',
+          label: 'Conceitos',
         },
         {
           to: '/docs/data-structures',
           position: 'left',
-          label: 'Data Structures',
+          label: 'Estruturas de Dados',
         },
         {
           to: '/docs/algorithms',
           position: 'left',
-          label: 'Algorithms',
+          label: 'Algoritmos',
         },
         {
           type: 'localeDropdown',
