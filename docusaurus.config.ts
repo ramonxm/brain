@@ -6,23 +6,14 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Ramon Xavier',
+  baseUrl: '/',
   tagline: 'Documentação de estudos e implementações',
   favicon: 'img/favicon.ico',
-
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'ramonxm', // Usually your GitHub org/user name.
-  projectName: 'algorithm-and-data-structures', // Usually your repo name.
-
+  url: 'https://ramonxm.github.io',
+  organizationName: 'ramonxm',
+  projectName: 'brain', 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-
 
   presets: [
     [
@@ -106,20 +97,7 @@ const config: Config = {
               href: 'https://x.com/ramonxavierm',
             },
           ],
-        },
-        {
-          title: 'Mais',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'Repositório',
-              href: 'https://github.com/ramonxm/algorithm-and-data-structures',
-            },
-          ],
-        },
+        }
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Ramon Xavier. Feito com Docusaurus.`,
     },
