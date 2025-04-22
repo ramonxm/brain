@@ -1,5 +1,5 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+# Workflow for building and deploying a Docusaurus site to GitHub Pages
+name: Deploy Docusaurus site to GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -21,7 +21,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-# (...)
 jobs:
   deploy:
     environment:
@@ -31,23 +30,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      # 👇 Build steps
+      # Build steps
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          # Use a current LTS version of Node.js
+          node-version: 18.x
           cache: yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile --non-interactive
-      - name: Build
+      - name: Build Docusaurus site
         run: yarn build
-      # 👆 Build steps
+      # Deployment steps
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        # Update to the latest version of upload-pages-artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          # 👇 Specify build output path
+          # Upload the Docusaurus build directory
           path: build
       - name: Deploy to GitHub Pages
         id: deployment
