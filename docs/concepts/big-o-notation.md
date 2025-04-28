@@ -3,17 +3,11 @@
 ### Big O **fala sobre como os algoritmos ESCALAM** dependendo do **tamanho** da **entrada**, e **não** necessariamente sobre o **desempenho** do **algoritmo**.
 
 <aside>
-💡
-
 É uma forma de **denotar o desempenho do algoritmo**, mas **não** é uma **medida de desempenho**
-
 </aside>
 
 <aside>
-💡
-
 Big O **não mede o tempo exato de execução** de um algoritmo, mas sim **como o tempo cresce** conforme o tamanho da entrada aumenta. 📈
-
 </aside>
 
 ---
