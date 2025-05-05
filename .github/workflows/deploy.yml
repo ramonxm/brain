@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+    pages: write      # to deploy to Pages
+    id-token: write
+
 concurrency:
   group: "pages"
   cancel-in-progress: false
