@@ -1,4 +1,4 @@
-# Memória Heap e Stack
+# 🧠 Memória Heap e Stack
 
 Quando um programa é executado, a memória é alocada para armazenar variáveis e dados temporários. Duas áreas principais de memória são comumente utilizadas: heap e stack.
 

@@ -1,4 +1,4 @@
-# 📚 Guia Completo de Notação Big O
+# 📚 Notação Big O
 
 ## Introdução
 **Big O** é uma forma de medir a eficiência de algoritmos em termos de **tempo** (velocidade) ou **espaço** (memória) **conforme o tamanho da entrada cresce**.

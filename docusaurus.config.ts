@@ -7,7 +7,7 @@ const projectName = "brain";
 
 
 const config: Config = {
-  title: "Brain - Algoritmos e Estruturas de Dados",
+  title: "brain.xavier",
   baseUrl: "/brain/",
   tagline: "Documentação completa sobre algoritmos, estruturas de dados e conceitos fundamentais de computação",
   favicon: "img/favicon.ico",
@@ -139,79 +139,50 @@ const config: Config = {
     },
     
     footer: {
-      style: "dark",
+      style: 'dark',
       links: [
         {
-          title: "📚 Documentação",
+          title: 'Content',
           items: [
             {
-              label: "Introdução",
-              to: "/docs/intro",
-            },
-            {
-              label: "Conceitos Fundamentais",
-              to: "/docs/concepts",
-            },
-            {
-              label: "Estruturas de Dados",
-              to: "/docs/data-structures/array",
-            },
-            {
-              label: "Algoritmos",
-              to: "/docs/algorithms/greedy/index",
+              label: 'Intro',
+              to: '/docs/concepts',
             },
           ],
         },
         {
-          title: "🌐 Comunidade",
+          title: 'Community',
           items: [
             {
-              label: "GitHub Discussions",
-              href: `https://github.com/${organizationName}/${projectName}/discussions`,
+              label: 'Twitter',
+              href: 'https://twitter.com/ramonxavierm',
             },
             {
-              label: "Contribuir",
-              href: `https://github.com/${organizationName}/${projectName}/blob/main/CONTRIBUTING.md`,
+              label: 'GitHub',
+              href: 'https://github.com/ramonxm/brain',
             },
             {
-              label: "Issues",
-              href: `https://github.com/${organizationName}/${projectName}/issues`,
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/in/ramonxm/',
             },
+            
           ],
         },
         {
-          title: "👨‍💻 Social",
+          title: 'More',
           items: [
             {
-              label: "LinkedIn",
-              href: "https://linkedin.com/in/ramonxm",
+              label: 'Dev.to',
+              href: 'https://dev.to/ramonxm',
             },
             {
-              label: "GitHub",
-              href: "https://github.com/ramonxm",
-            },
-            {
-              label: "X (Twitter)",
-              href: "https://x.com/ramonxavierm",
-            },
-          ],
-        },
-        {
-          title: "📄 Recursos",
-          items: [
-        
-            {
-              label: "Changelog",
-              href: `https://github.com/${organizationName}/${projectName}/releases`,
-            },
-            {
-              label: "Licença MIT",
-              href: `https://github.com/${organizationName}/${projectName}/blob/main/LICENSE`,
+              label: 'Medium',
+              href: 'https://medium.com/@ramonxm',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Ramon Xavier. Construído com ❤️ usando Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Ramon Xavier`,
     },
     
     prism: {
