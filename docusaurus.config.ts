@@ -100,14 +100,7 @@ const config: Config = {
     image: "img/brain-social-card.jpg",
     
     navbar: {
-      title: "Brain",
-      logo: {
-        alt: 'Brain Logo',
-        src: 'img/logo.svg',
-        srcDark: 'img/logo-dark.svg',
-        width: 32,
-        height: 32,
-      },
+      title: "Home",
       items: [
         {
           type: 'docSidebar',
