@@ -125,6 +125,16 @@ const config: Config = {
           position: "right",
         },
         {
+          label: 'Buy me a coffee',
+          href: 'https://www.buymeacoffee.com/ramonxm',
+          position: 'right',
+        },
+        {
+          label: 'GitHub',
+          href: `https://github.com/${organizationName}/${projectName}`,
+          position: 'right',
+        },
+        {
           type: 'search',
           position: 'right',
         },

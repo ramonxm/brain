@@ -1,4 +1,4 @@
-# Threads
+# 🧵 Threads
 
 Uma thread é a menor unidade de execução em um sistema operacional. Em um programa, uma thread é uma sequência de instruções que pode ser executada independentemente. Os sistemas operacionais modernos suportam a execução simultânea de múltiplas threads, permitindo que os processos realizem tarefas concorrentemente. As threads compartilham o mesmo espaço de endereço, facilitando a comunicação entre elas. No entanto, isso pode levar a problemas de sincronização, como condições de corrida (race conditions).
 

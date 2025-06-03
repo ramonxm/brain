@@ -26,9 +26,10 @@ const sidebars: SidebarsConfig = {
 
   dataStructuresSidebar: [
     'data-structures/array',
-    'data-structures/stack/index',
-    'data-structures/queue/index',
-    'data-structures/binary-tree/index',
+    'data-structures/stack',
+    'data-structures/queue',
+    'data-structures/binary-tree',
+    'data-structures/linked-list',
   ],
 
   algorithmsSidebar: [
@@ -36,13 +37,19 @@ const sidebars: SidebarsConfig = {
     'algorithms/sorting/merge-sort',
     'algorithms/sorting/quick-sort',
     'algorithms/sorting/binary-search',
-    'algorithms/contests/leetcode/two-sum',
-    'algorithms/contests/leetcode/single-number',
-    'algorithms/contests/leetcode/sort-list',
-    'algorithms/contests/leetcode/roman-to-integer',
-    'algorithms/contests/atcoder/abc156',
-    'algorithms/contests/atcoder/abc158',
-    'algorithms/contests/atcoder/abc175',
+    {
+      type: 'category',
+      label: 'Contests',
+      items: [
+        'algorithms/contests/leetcode/two-sum',
+        'algorithms/contests/leetcode/single-number',
+        'algorithms/contests/leetcode/sort-list',
+        'algorithms/contests/leetcode/roman-to-integer',
+        'algorithms/contests/atcoder/abc156',
+        'algorithms/contests/atcoder/abc158',
+        'algorithms/contests/atcoder/abc175',
+      ],
+    },
   ],
 };
 
