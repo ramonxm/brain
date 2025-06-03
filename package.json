@@ -5,15 +5,17 @@
   "scripts": {
     "build": "docusaurus build",
     "build:en": "docusaurus build --locale en",
-    "build:ptbr": "docusaurus build --locale pt-BR",
+    "build:pt-BR": "docusaurus build --locale pt-BR",
+    "clear": "docusaurus clear",
     "deploy": "docusaurus deploy",
     "docusaurus": "docusaurus",
-    "i18n": "yarn write-translations --locale en",
+    "i18n:extract": "docusaurus write-translations",
+    "i18n:write-en": "docusaurus write-translations --locale en",
     "rename-version": "docusaurus-rename-version",
     "serve": "docusaurus serve",
     "start": "docusaurus start",
     "start:en": "docusaurus start --locale en",
-    "start:ptbr": "docusaurus start --locale pt-BR",
+    "start:pt-BR": "docusaurus start --locale pt-BR",
     "swizzle": "docusaurus swizzle",
     "version": "docusaurus-version",
     "write-translations": "docusaurus write-translations",
@@ -23,8 +25,10 @@
     "deploy-gh-pages": "GIT_USER=ramonxm USE_SSH=true yarn deploy"
   },
   "dependencies": {
-    "@docusaurus/core": "3.7.0",
-    "@docusaurus/preset-classic": "3.7.0",
+    "@docusaurus/core": "3.8.0",
+    "@docusaurus/preset-classic": "3.8.0",
+    "@docusaurus/plugin-ideal-image": "3.8.0",
+    "@docusaurus/theme-mermaid": "3.8.0",
     "@mdx-js/react": "^3.1.0",
     "clsx": "^2.1.1",
     "prism-react-renderer": "^2.4.1",
@@ -32,9 +36,9 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.7.0",
-    "@docusaurus/tsconfig": "3.7.0",
-    "@docusaurus/types": "3.7.0",
+    "@docusaurus/module-type-aliases": "3.8.0",
+    "@docusaurus/tsconfig": "3.8.0",
+    "@docusaurus/types": "3.8.0",
     "typescript": "~5.8.3"
   },
   "browserslist": {
