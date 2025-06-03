@@ -162,11 +162,11 @@ const config: Config = {
             },
             {
               label: "Estruturas de Dados",
-              to: "/docs/data-structures",
+              to: "/docs/data-structures/array",
             },
             {
               label: "Algoritmos",
-              to: "/docs/algorithms",
+              to: "/docs/algorithms/greedy/index",
             },
           ],
         },

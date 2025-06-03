@@ -73,5 +73,3 @@ print(f"Element {target} found at index: {index}")  # Output: 3
 - Requires a sorted array
 - Not efficient for linked lists
 - O(log n) space complexity in the recursive version
-
-</rewritten_file> 

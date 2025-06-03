@@ -1,0 +1,1 @@
+Este diretório contém os materiais sobre algoritmos gulosos. Consulte o arquivo index.md para o conteúdo principal. 

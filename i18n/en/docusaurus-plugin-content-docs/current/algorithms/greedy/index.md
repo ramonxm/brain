@@ -1,3 +1,9 @@
+---
+id: greedy-index
+title: Greedy Algorithms
+slug: /algorithms/greedy/index
+---
+
 # 🔧 Greedy Algorithms
 
 ## Introduction

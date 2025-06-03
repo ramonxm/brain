@@ -1,3 +1,12 @@
+---
+id: greedy-index
+slug: /algorithms/greedy/index
+---
+
+# Algoritmos Gulosos
+
+Este é um documento placeholder para resolver links quebrados para /docs/algorithms/greedy/index.
+
 # 🔧 Greedy Algorithms
 
 ## Introduction
