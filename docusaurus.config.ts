@@ -5,7 +5,6 @@ import type * as Preset from "@docusaurus/preset-classic";
 const organizationName = "ramonxm";
 const projectName = "brain";
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
   title: "Brain - Algoritmos e Estruturas de Dados",
