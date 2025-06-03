@@ -1,33 +1,33 @@
-# 💡 Fundamental Concepts
+# 💡 Conceitos Fundamentais
 
-Welcome to the fundamental concepts section! Here you'll learn about the core principles that underlie computer science and programming.
+Bem-vindo à seção de conceitos fundamentais! Aqui você aprenderá sobre os princípios centrais que fundamentam a ciência da computação e a programação.
 
-## What You'll Learn
+## O que você vai aprender
 
-This section covers the essential concepts that every programmer and computer scientist should understand:
+Esta seção cobre os conceitos essenciais que todo programador e cientista da computação deve entender:
 
-### 🎯 Core Fundamentals
-- **Big O Notation**: Understanding algorithm complexity and performance analysis
-- **Memory Management**: How computers handle memory allocation (Stack vs Heap)
-- **Time and Space Complexity**: Analyzing the efficiency of algorithms
+### 🎯 Fundamentos Centrais
+- **Notação Big O**: Entendendo a complexidade de algoritmos e análise de desempenho
+- **Gerenciamento de Memória**: Como os computadores lidam com a alocação de memória (Pilha vs Heap)
+- **Complexidade de Tempo e Espaço**: Analisando a eficiência dos algoritmos
 
-### 🔄 Programming Mechanisms
-- **FIFO (First In, First Out)**: Understanding queue-like behavior
-- **LIFO (Last In, First Out)**: Understanding stack-like behavior
-- **Swap Operations**: Fundamental data manipulation techniques
+### 🔄 Mecanismos de Programação
+- **FIFO (First In, First Out)**: Entendendo o comportamento de fila
+- **LIFO (Last In, First Out)**: Entendendo o comportamento de pilha
+- **Operações de Troca**: Técnicas fundamentais de manipulação de dados
 
-### ⚡ Concurrency & Parallelism
-- **Threads**: Understanding concurrent execution
-- **Processes**: System-level program execution
-- **Synchronization**: Coordinating concurrent operations
+### ⚡ Concorrência & Paralelismo
+- **Threads**: Entendendo a execução concorrente
+- **Processos**: Execução de programas em nível de sistema
+- **Sincronização**: Coordenando operações concorrentes
 
-### 🏗️ System Architecture
-- **Computer Architecture**: How computers are built and operate
-- **Memory Management**: Advanced memory handling concepts
-- **Operating Systems**: How systems manage resources
+### 🏗️ Arquitetura de Sistemas
+- **Arquitetura de Computadores**: Como os computadores são construídos e operam
+- **Gerenciamento de Memória**: Conceitos avançados de manipulação de memória
+- **Sistemas Operacionais**: Como os sistemas gerenciam recursos
 
-## Getting Started
+## Começando
 
-Start with **Big O Notation** to understand how we measure algorithm efficiency, then explore memory concepts to understand how computers store and retrieve data.
+Comece com **Notação Big O** para entender como medimos a eficiência de algoritmos, depois explore os conceitos de memória para compreender como os computadores armazenam e recuperam dados.
 
-Each concept builds upon the previous ones, so we recommend following the suggested order for the best learning experience. 
+Cada conceito se baseia no anterior, então recomendamos seguir a ordem sugerida para a melhor experiência de aprendizado. 
