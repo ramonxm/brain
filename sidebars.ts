@@ -51,6 +51,17 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
+
+  topicsSidebar: [
+    {
+      type: 'category',
+      label: 'AWS',
+      items: [
+        'topics/aws/index',
+        'topics/aws/regions',
+      ],
+    },
+  ],
 };
 
 export default sidebars;

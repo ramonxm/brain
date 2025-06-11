@@ -108,6 +108,13 @@ const config: Config = {
           position: 'left',
           label: 'Conceitos',
         },
+      
+        {
+          type: 'docSidebar',
+          sidebarId: 'topicsSidebar',
+          position: 'left',
+          label: 'Tópicos',
+        },
         {
           type: 'docSidebar',
           sidebarId: 'dataStructuresSidebar',
