@@ -34,7 +34,7 @@ export default function Home(): ReactNode {
                 'hero__button button button--outline button--secondary button--lg',
                 styles.getStarted,
               )}
-              to={useBaseUrl('docs/concepts')}
+              to={useBaseUrl('docs/concepts/big-o-notation')}
             >
               <Translate id='homePage.head.start'>Começar</Translate>
             </Link>

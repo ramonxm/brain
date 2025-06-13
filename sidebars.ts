@@ -15,13 +15,13 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
 
   conceptsSidebar: [
-    'concepts/index',
     'concepts/big-o-notation',
-    'concepts/fifo',
-    'concepts/lifo',
+    'concepts/serverless',
+    'concepts/thread',
     'concepts/memory-stack-heap',
     'concepts/swap',
-    'concepts/thread',
+    'concepts/fifo',
+    'concepts/lifo',
   ],
 
   dataStructuresSidebar: [
