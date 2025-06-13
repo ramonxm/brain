@@ -59,6 +59,8 @@ const sidebars: SidebarsConfig = {
       items: [
         'topics/aws/index',
         'topics/aws/regions',
+        'topics/aws/iam',
+        'topics/aws/policies',
       ],
     },
   ],
