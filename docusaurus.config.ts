@@ -163,7 +163,7 @@ const config: Config = {
           items: [
             {
               label: 'Intro',
-              to: '/docs/concepts',
+              to: '/docs/concepts/big-o-notation',
             },
           ],
         },
