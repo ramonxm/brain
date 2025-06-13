@@ -1,4 +1,4 @@
-# 🔄 Swap
+# Swap
 
 "Swap" é um termo comum usado em programação e ciência da computação, referindo-se à troca ou intercâmbio de valores entre duas variáveis. Esta operação envolve a troca do conteúdo de duas variáveis, efetivamente trocando seus valores.
 

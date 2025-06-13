@@ -1,75 +1,38 @@
-# 📚 Notação Big O
+# Notação Big O
 
 ## Introdução
-**Big O** é uma forma de medir a eficiência de algoritmos em termos de **tempo** (velocidade) ou **espaço** (memória) **conforme o tamanho da entrada cresce**.
+Big O é uma forma de medir a eficiência de algoritmos em termos de tempo (velocidade) ou espaço (memória) conforme o tamanho da entrada cresce.
 
-Big O **não** mede o tempo de execução real — ela mede **como o tempo/memória cresce** dependendo do tamanho da entrada.
-
----
-
-# 🧠 Principais Complexidades Big O
-
-## O(1) – Complexidade Constante
-> "Você acende uma luz apenas apertando o interruptor."
-
-- ✅ O tempo de execução não depende do tamanho da entrada.
-- ✅ Sempre executa o mesmo número de passos.
+Big O não mede o tempo de execução real — ela mede como o tempo ou a memória crescem dependendo do tamanho da entrada.
 
 ---
 
-## O(log n) – Complexidade Logarítmica
-> "Procurar um nome na lista telefônica dividindo o livro ao meio a cada vez."
+## Principais Complexidades Big O
 
-- ✅ Cada operação reduz o problema pela metade.
-- ✅ Exemplo clássico: **Busca Binária**.
+### O(1) – Complexidade Constante
+O tempo de execução não depende do tamanho da entrada. Sempre executa o mesmo número de passos.
 
----
+### O(log n) – Complexidade Logarítmica
+Cada operação reduz o problema pela metade. Exemplo clássico: busca binária.
 
-## O(n) – Complexidade Linear
-> "Olhar cada carta em um baralho para encontrar o Ás de Espadas."
+### O(n) – Complexidade Linear
+O tempo de execução cresce proporcionalmente ao tamanho da entrada. Exemplo: iterar por uma lista.
 
-- ✅ O tempo de execução cresce proporcionalmente ao tamanho da entrada.
-- ✅ Exemplo: **Iterar por uma lista**.
+### O(n log n) – Complexidade Quasilinear
+Melhor que O(n²), mas pior que O(n). Usado em algoritmos de ordenação eficientes como Merge Sort e Quick Sort (em média).
 
----
+### O(n²) – Complexidade Quadrática
+Cada elemento é comparado com todos os outros. Exemplos: Bubble Sort, Selection Sort.
 
-## O(n log n) – Complexidade Quasilinear
-> "Divida para conquistar e depois combine."
+### O(2ⁿ) – Complexidade Exponencial
+O número de operações dobra a cada elemento adicionado. Exemplos: gerar todos os subconjuntos de uma lista, problema da mochila (força bruta).
 
-- ✅ Melhor que O(n²), mas pior que O(n).
-- ✅ Usado em algoritmos de ordenação eficientes como **Merge Sort** e **Quick Sort** (em média).
-
----
-
-## O(n²) – Complexidade Quadrática
-> "Comparar cada aluno com todos os outros em uma sala de aula."
-
-- ✅ Cada elemento é comparado com todos os outros.
-- ✅ Exemplos: **Bubble Sort**, **Selection Sort**.
+### O(n!) – Complexidade Fatorial
+Testa todas as permutações possíveis. Exemplos: problema do caixeiro viajante (força bruta), gerar todas as permutações de uma lista.
 
 ---
 
-## O(2ⁿ) – Complexidade Exponencial
-> "Testar todas as combinações possíveis para resolver um cubo mágico."
-
-- ✅ O número de operações dobra a cada elemento adicionado.
-- ✅ Exemplos:
-  - **Subconjuntos**: gerar todos os subconjuntos de uma lista.
-  - **Problema da Mochila** (força bruta).
-
----
-
-## O(n!) – Complexidade Fatorial
-> "Organizar todas as ordens possíveis para os convidados de uma festa."
-
-- ✅ Testa todas as permutações possíveis.
-- ✅ Exemplos:
-  - **Problema do Caixeiro Viajante** (força bruta).
-  - **Gerar todas as permutações** de uma lista.
-
----
-
-# 📋 Tabela Resumo das Complexidades
+## Tabela Resumo das Complexidades
 
 | Complexidade | Nome           | Crescimento                        | Exemplo Prático                   |
 |:-------------|:---------------|:-----------------------------------|:----------------------------------|
@@ -78,16 +41,16 @@ Big O **não** mede o tempo de execução real — ela mede **como o tempo/memó
 | O(n)         | Linear         | Cresce proporcionalmente a n       | Iterar por um array               |
 | O(n log n)   | Quasilinear    | Entre linear e quadrático          | Merge Sort, Quick Sort            |
 | O(n²)        | Quadrática     | Cresce rapidamente                 | Bubble Sort, Selection Sort       |
-| O(2ⁿ)        | Exponencial    | Cresce absurdamente rápido         | Subconjuntos, problemas de combinação |
+| O(2ⁿ)        | Exponencial    | Cresce muito rápido                | Subconjuntos, problemas de combinação |
 | O(n!)        | Fatorial       | Crescimento explosivo              | Permutações, Caixeiro Viajante    |
 
 ---
 
-# 📈 Gráfico Visual do Crescimento das Complexidades
+## Gráfico Visual do Crescimento das Complexidades
 
 Crescimento de acordo com o tamanho da entrada n:
 
-```md
+```
 |
 |                                         O(n!)
 |                                     O(2^n)
@@ -99,20 +62,20 @@ Crescimento de acordo com o tamanho da entrada n:
 ```
 
 - O(1) permanece constante.
-- O(log n) cresce muito devagar.
+- O(log n) cresce devagar.
 - O(n) cresce proporcionalmente.
 - O(n log n) cresce um pouco mais rápido.
-- O(n²) cresce muito rapidamente.
-- O(2ⁿ) e O(n!) crescem absurdamente e rapidamente se tornam impraticáveis.
+- O(n²) cresce rapidamente.
+- O(2ⁿ) e O(n!) crescem muito rápido e logo se tornam impraticáveis.
 
 ---
 
-# ✨ Dicas para Memorizar Big O
+## Dicas para Memorizar Big O
 
-- 🔵 **Constante (O(1))** → "Acesso direto"
-- 🟢 **Logarítmica (O(log n))** → "Dividindo pela metade"
-- 🟡 **Linear (O(n))** → "Proporcional"
-- 🟠 **Quasilinear (O(n log n))** → "Dividir e conquistar"
-- 🔴 **Quadrática (O(n²))** → "Comparações duplas"
-- 🟣 **Exponencial (O(2ⁿ))** → "Combinações dobrando"
-- ⚫ **Fatorial (O(n!))** → "Todas as ordens possíveis" 
+- O(1): acesso direto
+- O(log n): dividindo pela metade
+- O(n): proporcional
+- O(n log n): dividir e conquistar
+- O(n²): comparações duplas
+- O(2ⁿ): combinações dobrando
+- O(n!): todas as ordens possíveis 

@@ -1,21 +1,55 @@
-# 🧠 Memória Heap e Stack
+# Memória Heap e Stack
 
-Quando um programa é executado, a memória é alocada para armazenar variáveis e dados temporários. Duas áreas principais de memória são comumente utilizadas: heap e stack.
+Quando um programa é executado, a memória é alocada para armazenar variáveis e dados temporários. Duas áreas principais de memória são comumente utilizadas: **stack** e **heap**.
 
-## Memória Stack
+## O que é Stack?
 
-A memória stack é uma região que armazena variáveis locais e informações relacionadas às funções que estão sendo executadas no momento. Cada função tem seu próprio frame de stack, contendo parâmetros, endereço de retorno e variáveis locais. A alocação e desalocação de memória na stack são feitas automaticamente conforme as funções são chamadas e retornadas.
+A **stack** (ou pilha) é uma região de memória usada para armazenar variáveis locais e informações das funções em execução. Cada vez que uma função é chamada, um novo bloco (chamado de *frame*) é adicionado à stack, contendo:
 
-As operações na stack seguem o modelo Last In, First Out (LIFO), onde o último item adicionado é o primeiro a ser removido. Isso torna a stack eficiente para gerenciar a execução de funções, mas vem com uma capacidade limitada.
+- Parâmetros da função
+- Variáveis locais (especialmente tipos primitivos)
+- Endereço de retorno (para saber para onde voltar após a execução da função)
 
-## Memória Heap
+Quando a função termina, esse bloco é removido automaticamente. A stack segue o modelo **LIFO (Last In, First Out)**: o último item adicionado é o primeiro a ser removido. Isso torna a stack muito eficiente, mas ela possui um tamanho limitado, determinado pelo sistema operacional ou pelo runtime.
 
-A memória heap é uma área de memória dinâmica usada para alocar memória durante a execução do programa. A alocação e desalocação de memória no heap são controladas explicitamente pelo programador. Isso permite a criação de estruturas de dados flexíveis e gerenciamento eficiente de memória conforme necessário.
+### Características da Stack
 
-Diferente da stack, o heap não possui uma estrutura organizacional específica, e a alocação de memória pode ocorrer de forma esporádica. É responsabilidade do programador liberar a memória heap alocada quando ela não for mais necessária, evitando vazamentos de memória.
+- Alocação e liberação automáticas (gerenciadas pelo próprio runtime)
+- Extremamente rápida e eficiente
+- Tamanho limitado (pode causar *stack overflow* em casos de recursão profunda, por exemplo)
+- Usada para variáveis locais, chamadas de função e controle de fluxo
 
-## Conclusão
+## O que é Heap?
 
-Em resumo, a memória stack é usada para armazenar dados temporários e informações relacionadas a funções, com alocação e desalocação automática. Por outro lado, a memória heap permite alocação dinâmica de memória, fornecendo mais controle ao programador, mas exigindo um gerenciamento responsável de memória.
+A **heap** é uma área de memória usada para alocação dinâmica, ou seja, memória reservada durante a execução do programa conforme a necessidade.
 
-Ambas as áreas de memória desempenham papéis vitais na operação do programa, e uma compreensão adequada delas é crucial para um desenvolvimento eficiente e livre de bugs.
+- Em linguagens de baixo nível (como C e C++), o programador é responsável por alocar (`malloc`) e liberar (`free`) essa memória manualmente.
+- Em linguagens de alto nível (como Java, JavaScript, Python, C#), o gerenciamento da heap é feito automaticamente por mecanismos de **garbage collection** (coletor de lixo), que libera a memória não mais utilizada.
+
+A heap é geralmente utilizada para armazenar objetos e estruturas de dados de maior duração e complexidade, como listas, árvores, grafos, etc.
+
+### Características da Heap
+
+- Alocação e liberação manual (em C/C++) ou automática via garbage collector (em linguagens modernas)
+- Permite criar estruturas de dados dinâmicas e flexíveis
+- Mais lenta que a stack (devido à complexidade de gerenciamento)
+- Tamanho geralmente muito maior que a stack
+- Possibilidade de vazamentos de memória caso a liberação não seja feita corretamente (em linguagens sem garbage collector)
+
+## Diferenças entre Stack e Heap
+
+| Stack                        | Heap                                |
+|------------------------------|-------------------------------------|
+| Alocação automática          | Alocação manual (C/C++) ou automática (GC) |
+| Muito rápida                 | Mais lenta                          |
+| Tamanho limitado             | Tamanho geralmente maior            |
+| Usada para variáveis locais e chamadas de função | Usada para objetos e estruturas dinâmicas |
+| Liberação automática         | Liberação manual ou automática (GC)  |
+| Menor risco de vazamentos    | Risco de vazamento em algumas situações |
+
+## Resumo
+
+- **Stack:** usada para dados temporários e chamadas de função, com gerenciamento automático e muito eficiente.
+- **Heap:** usada para alocação dinâmica de objetos e estruturas de dados mais complexas, com gerenciamento manual ou automático dependendo da linguagem.
+
+Entender como funcionam stack e heap é fundamental para escrever programas eficientes, escaláveis e com bom gerenciamento de memória.

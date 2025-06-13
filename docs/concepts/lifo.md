@@ -1,4 +1,4 @@
-# 📤 LIFO (Last In, First Out)
+# LIFO (Last In, First Out)
 
 LIFO, ou "Último a Entrar, Primeiro a Sair" (Last In, First Out), é um método de organização de dados onde o último elemento adicionado é o primeiro a ser removido. Este conceito é comumente aplicado em estruturas de dados como pilhas.
 
