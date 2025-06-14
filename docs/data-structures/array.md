@@ -1,4 +1,4 @@
-# 📦 Array
+# Array
 
 ## Introduction
 

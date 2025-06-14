@@ -1,4 +1,4 @@
-# 📚 Stack
+# Stack
 
 ## Introduction
 
