@@ -63,6 +63,15 @@ const sidebars: SidebarsConfig = {
         'topics/aws/policies',
       ],
     },
+    {
+      type: 'category',
+      label: 'Database',
+      items: [
+        'topics/database/definitions',
+        'topics/database/relational-database',
+        'topics/database/sql',
+      ],
+    },
   ],
 };
 
