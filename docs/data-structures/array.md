@@ -1,55 +1,59 @@
-# Array
+# Array (Vetor)
 
-## Introduction
+## Introdução
 
-An **array** is a data structure that stores a fixed-size sequence of elements of the same type in contiguous memory locations.
+Um **array** (ou vetor) é uma estrutura de dados que armazena uma sequência de elementos do mesmo tipo em posições de memória contíguas.
 
-## Key Properties
-- **Indexed**: Each element can be accessed directly by its index
-- **Fixed size**: The size is defined at creation and cannot be changed
-- **Homogeneous**: All elements are of the same type
+## Propriedades Principais
+- **Indexado**: Cada elemento pode ser acessado diretamente pelo seu índice
+- **Tamanho fixo**: O tamanho é definido na criação e não pode ser alterado
+- **Homogêneo**: Todos os elementos são do mesmo tipo
 
-## Common Operations
-- **Access**: O(1) - Direct access by index
-- **Update**: O(1) - Direct update by index
-- **Search**: O(n) - Linear search for an element
-- **Insert/Delete**: O(n) - May require shifting elements
+## Operações Principais
+- **Acesso**: O(1) - Acesso direto pelo índice
+- **Atualização**: O(1) - Atualização direta pelo índice
+- **Busca**: O(n) - Busca linear por um elemento
+- **Inserção/Remoção**: O(n) - Pode exigir o deslocamento de elementos
 
-## Example (Python)
+## Exemplo (Python)
 
 ```python
-# Creating an array
+# Criando um array
 arr = [10, 20, 30, 40, 50]
 
-# Accessing elements
-print(arr[2])  # Output: 30
+# Acessando elementos
+print(arr[2])  # Saída: 30
 
-# Updating elements
+# Atualizando elementos
 arr[1] = 25
-print(arr)  # Output: [10, 25, 30, 40, 50]
+print(arr)  # Saída: [10, 25, 30, 40, 50]
 
-# Searching for an element
+# Buscando um elemento
 if 40 in arr:
-    print("Found!")
+    print("Encontrado!")
 
-# Inserting an element (at the end)
+# Inserindo um elemento (no final)
 arr.append(60)
 
-# Deleting an element (by value)
+# Removendo um elemento (por valor)
 arr.remove(30)
-print(arr)  # Output: [10, 25, 40, 50, 60]
+print(arr)  # Saída: [10, 25, 40, 50, 60]
 ```
 
-## When to Use Arrays
-- When you need fast, direct access to elements by index
-- When the number of elements is known and fixed
-- For implementing other data structures (stacks, queues, etc.)
+## Aplicações
+- Quando é necessário acesso rápido e direto aos elementos
+- Implementação de outras estruturas de dados (pilhas, filas, etc.)
+- Armazenamento de coleções de dados de tamanho fixo
 
-## Limitations
-- Fixed size (in most languages)
-- Insertion and deletion can be costly (O(n))
-- All elements must be of the same type
+## Quando Usar um Array
+- Quando o número de elementos é conhecido e fixo
+- Quando o acesso por índice é uma prioridade
 
-## Related Data Structures
-- **Dynamic Array (List in Python, Vector in C++)**: Resizable version of an array
-- **Linked List**: Allows efficient insertions/deletions but slower access 
+## Limitações
+- Tamanho fixo (na maioria das linguagens)
+- Inserção e remoção podem ser custosas (O(n))
+- Todos os elementos devem ser do mesmo tipo
+
+## Estruturas de Dados Relacionadas
+- **Array Dinâmico (List em Python, Vector em C++)**: Versão redimensionável de um array
+- **Lista Ligada**: Permite inserções/remoções eficientes, mas acesso mais lento 

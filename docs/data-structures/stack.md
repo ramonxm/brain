@@ -1,51 +1,51 @@
 # Stack
 
-## Introduction
+## Introdução
 
-A **stack** is a linear data structure that follows the Last-In, First-Out (LIFO) principle. The last element added is the first one to be removed.
+Uma **pilha** é uma estrutura de dados linear que segue o princípio do Último a Entrar, Primeiro a Sair (LIFO). O último elemento inserido é o primeiro a ser removido.
 
-## Key Operations
-- **Push**: Add an element to the top of the stack (O(1))
-- **Pop**: Remove the top element from the stack (O(1))
-- **Peek/Top**: View the top element without removing it (O(1))
-- **IsEmpty**: Check if the stack is empty
+## Operações Principais
+- **Empilhar (Push)**: Adiciona um elemento ao topo da pilha (O(1))
+- **Desempilhar (Pop)**: Remove o elemento do topo da pilha (O(1))
+- **Topo (Peek/Top)**: Visualiza o elemento do topo sem removê-lo (O(1))
+- **Está Vazia (IsEmpty)**: Verifica se a pilha está vazia
 
-## Example (Python)
+## Exemplo (Python)
 
 ```python
-stack = []
+pilha = []
 
-# Push elements
-stack.append(10)
-stack.append(20)
-stack.append(30)
+# Empilhar elementos
+pilha.append(10)
+pilha.append(20)
+pilha.append(30)
 
-# Peek at the top
-print(stack[-1])  # Output: 30
+# Ver o topo
+print(pilha[-1])  # Saída: 30
 
-# Pop elements
-print(stack.pop())  # Output: 30
-print(stack.pop())  # Output: 20
+# Desempilhar elementos
+print(pilha.pop())  # Saída: 30
+print(pilha.pop())  # Saída: 20
 
-# Check if empty
-if not stack:
-    print("Stack is empty!")
+# Verificar se está vazia
+if not pilha:
+    print("Pilha está vazia!")
 ```
 
-## Applications
-- Function call management (call stack)
-- Undo/redo features in editors
-- Expression evaluation (postfix, prefix)
-- Syntax parsing
+## Aplicações
+- Gerenciamento de chamadas de funções (call stack)
+- Funcionalidade de desfazer/refazer em editores
+- Avaliação de expressões (notação pós-fixa, pré-fixa)
+- Análise sintática
 
-## When to Use a Stack
-- When you need to reverse data
-- When you need to track nested or recursive operations
+## Quando Usar uma Pilha
+- Quando é necessário reverter dados
+- Quando é preciso controlar operações aninhadas ou recursivas
 
-## Limitations
-- Only the top element is accessible
-- Not suitable for random access
+## Limitações
+- Apenas o elemento do topo é acessível
+- Não é adequada para acesso aleatório
 
-## Related Data Structures
-- **Queue**: Follows First-In, First-Out (FIFO)
-- **Deque**: Double-ended queue, allows insertion/removal from both ends 
+## Estruturas de Dados Relacionadas
+- **Fila**: Segue o princípio Primeiro a Entrar, Primeiro a Sair (FIFO)
+- **Deque**: Fila de duas pontas, permite inserção/remoção em ambas as extremidades 

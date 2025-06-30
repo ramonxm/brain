@@ -1,23 +1,23 @@
-# Binary Tree
+# Árvore Binária
 
-## Introduction
+## Introdução
 
-A **binary tree** is a hierarchical data structure in which each node has at most two children, referred to as the left child and the right child.
+Uma **árvore binária** é uma estrutura de dados hierárquica na qual cada nó possui no máximo dois filhos, chamados de filho esquerdo e filho direito.
 
-## Key Properties
-- **Root**: The top node of the tree
-- **Leaf**: A node with no children
-- **Height**: The length of the longest path from the root to a leaf
-- **Depth**: The length of the path from the root to a node
+## Propriedades Principais
+- **Raiz**: O nó superior da árvore
+- **Folha**: Um nó sem filhos
+- **Altura**: O comprimento do caminho mais longo da raiz até uma folha
+- **Profundidade**: O comprimento do caminho da raiz até um nó
 
-## Types of Binary Trees
-- **Full Binary Tree**: Every node has 0 or 2 children
-- **Complete Binary Tree**: All levels are filled except possibly the last, which is filled from left to right
-- **Perfect Binary Tree**: All internal nodes have two children and all leaves are at the same level
-- **Balanced Binary Tree**: The height of the tree is minimized
-- **Binary Search Tree (BST)**: Left child < parent < right child
+## Tipos de Árvores Binárias
+- **Árvore Binária Cheia**: Todo nó tem 0 ou 2 filhos
+- **Árvore Binária Completa**: Todos os níveis estão completos, exceto possivelmente o último, que é preenchido da esquerda para a direita
+- **Árvore Binária Perfeita**: Todos os nós internos têm dois filhos e todas as folhas estão no mesmo nível
+- **Árvore Binária Balanceada**: A altura da árvore é minimizada
+- **Árvore de Busca Binária (BST)**: Filho esquerdo < pai < filho direito
 
-## Example (Python)
+## Exemplo (Python)
 
 ```python
 class Node:
@@ -32,31 +32,31 @@ def inorder_traversal(root):
         print(root.data, end=" ")
         inorder_traversal(root.right)
 
-# Usage
+# Uso
 root = Node(10)
 root.left = Node(5)
 root.right = Node(15)
 root.left.left = Node(2)
 root.left.right = Node(7)
 
-inorder_traversal(root)  # Output: 2 5 7 10 15
+inorder_traversal(root)  # Saída: 2 5 7 10 15
 ```
 
-## Applications
-- Hierarchical data representation (file systems, organization charts)
-- Expression parsing and evaluation
-- Binary search trees for fast lookup, insertion, and deletion
-- Heaps for priority queues
+## Aplicações
+- Representação de dados hierárquicos (sistemas de arquivos, organogramas)
+- Análise e avaliação de expressões
+- Árvores de busca binária para busca, inserção e remoção rápidas
+- Heaps para filas de prioridade
 
-## When to Use a Binary Tree
-- When you need to represent hierarchical relationships
-- When you need efficient searching, insertion, and deletion (BST)
+## Quando Usar uma Árvore Binária
+- Quando você precisa representar relações hierárquicas
+- Quando precisa de busca, inserção e remoção eficientes (BST)
 
-## Limitations
-- Can become unbalanced, leading to poor performance (O(n) operations)
-- More complex to implement than arrays or linked lists
+## Limitações
+- Pode se tornar desbalanceada, levando a desempenho ruim (operações O(n))
+- Mais complexa de implementar do que arrays ou listas ligadas
 
-## Related Data Structures
-- **Binary Search Tree (BST)**: Maintains sorted order
-- **AVL Tree, Red-Black Tree**: Self-balancing binary search trees
-- **Heap**: Complete binary tree used for priority queues 
+## Estruturas de Dados Relacionadas
+- **Árvore de Busca Binária (BST)**: Mantém a ordem ordenada
+- **Árvore AVL, Árvore Rubro-Negra**: Árvores de busca binária auto-balanceadas
+- **Heap**: Árvore binária completa usada para filas de prioridade 
