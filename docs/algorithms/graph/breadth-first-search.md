@@ -1,18 +1,21 @@
 # 🕸️ Breadth-First Search (BFS)
 
-## Introduction
+## Introdução
 
-**Breadth-First Search (BFS)** is a graph traversal algorithm that explores all the neighbors of a node before moving to the next level. It is commonly used to find the shortest path in unweighted graphs.
+O **Breadth-First Search (BFS)** é um algoritmo de busca em grafos que explora primeiro todos os vizinhos de um vértice, antes de avançar para o próximo "nível" de vizinhos.
+Ele é muito utilizado para encontrar o **menor caminho em grafos não ponderados**.
 
-## How It Works
-1. Start from the source node and enqueue it
-2. Mark the source as visited
-3. While the queue is not empty:
-   - Dequeue a node
-   - Visit all its unvisited neighbors and enqueue them
-   - Mark neighbors as visited
+## Como funciona
 
-## Implementation (Python)
+1. Comece a partir de um vértice origem e coloque-o em uma fila.
+2. Marque o vértice como visitado.
+3. Enquanto a fila não estiver vazia:
+   - Retire um vértice da fila.
+   - Visite todos os seus vizinhos ainda não visitados.
+   - Marque esses vizinhos como visitados e coloque-os na fila.
+
+## Implementação (Python)
+
 ```python
 from collections import deque
 
@@ -20,6 +23,7 @@ def bfs(graph, start):
     visited = set()
     queue = deque([start])
     visited.add(start)
+
     while queue:
         node = queue.popleft()
         print(node, end=" ")
@@ -28,33 +32,38 @@ def bfs(graph, start):
                 visited.add(neighbor)
                 queue.append(neighbor)
 
-# Example usage
+# Exemplo de uso
 graph = {
     'A': ['B', 'C'],
     'B': ['A', 'D', 'E'],
     'C': ['A', 'F'],
     'D': ['B'],
     'E': ['B', 'F'],
-    'F': ['C', 'E']
+    'F': ['C', 'E'],
 }
-bfs(graph, 'A')  # Output: A B C D E F
+
+bfs(graph, 'A')  # Saída: A B C D E F
 ```
 
-## Applications
-- Finding the shortest path in unweighted graphs
-- Web crawlers
-- Social network analysis
-- Broadcasting in networks
-- Solving puzzles (like Rubik's Cube, word ladder)
+## Aplicações
 
-## Complexity
-- **Time**: O(V + E), where V is the number of vertices and E is the number of edges
-- **Space**: O(V)
+- Encontrar o menor caminho em grafos não ponderados.
+- Implementação de web crawlers.
+- Análise de redes sociais (nível de conexão entre pessoas).
+- Broadcast em redes.
+- Resolução de quebra-cabeças (como word ladder, variações de labirinto, etc.).
 
-## When to Use BFS
-- When you need the shortest path in an unweighted graph
-- When you want to explore all nodes at the current depth before going deeper
+## Complexidade
 
-## Related Algorithms
-- **Depth-First Search (DFS)**: Explores as far as possible along each branch before backtracking
-- **Dijkstra's Algorithm**: Finds the shortest path in weighted graphs 
+- **Tempo**: O(V + E), onde V é o número de vértices e E é o número de arestas.
+- **Espaço**: O(V), devido à fila e ao conjunto de vértices visitados.
+
+## Quando usar BFS
+
+- Quando você precisa do **menor número de passos** em um grafo não ponderado.
+- Quando deseja explorar todos os nós de um nível antes de ir mais fundo.
+
+## Algoritmos relacionados
+
+- **Depth-First Search (DFS)**: explora o grafo indo o mais fundo possível antes de voltar.
+- **Dijkstra**: encontra o menor caminho em grafos ponderados com pesos não negativos.

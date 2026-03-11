@@ -1,55 +1,66 @@
 # 🔄 Bubble Sort
 
-## Introduction
+## Introdução
 
-**Bubble Sort** is a simple comparison-based sorting algorithm. It repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. This process is repeated until the list is sorted.
+O **Bubble Sort** é um algoritmo de ordenação simples baseado em comparações.
+Ele percorre a lista diversas vezes, comparando pares de elementos adjacentes e trocando-os de lugar quando estão fora de ordem.  
+Esse processo é repetido até que o array esteja totalmente ordenado.
 
-## Complexity
-- **Time**: O(n²) in the worst and average case
-- **Space**: O(1) (in-place)
+## Complexidade
 
-## How It Works
-1. Compare each pair of adjacent elements
-2. Swap them if they are in the wrong order
-3. After each pass, the largest unsorted element "bubbles up" to its correct position
-4. Repeat until no swaps are needed
+- **Tempo (pior caso e médio)**: O(n²)
+- **Tempo (melhor caso – já ordenado)**: O(n)
+- **Espaço**: O(1) — algoritmo in-place
 
-## Implementation
+## Como funciona
+
+1. Percorra o array, comparando cada par de elementos adjacentes.
+2. Se o elemento atual for maior que o próximo, faça a troca.
+3. Ao final de cada passada, o maior elemento "borbulha" para o final da parte não ordenada.
+4. Repita o processo, reduzindo a área considerada, até não haver mais trocas.
+
+## Implementação (Python)
+
 ```python
 def bubble_sort(arr):
     n = len(arr)
     for i in range(n):
-        swapped = False
+        trocou = False
         for j in range(0, n - i - 1):
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
-                swapped = True
-        if not swapped:
+                trocou = True
+        if not trocou:
             break
 ```
 
-## Usage Example
+## Exemplo de uso
+
 ```python
 arr = [64, 34, 25, 12, 22, 11, 90]
 bubble_sort(arr)
-print(arr)  # Output: [11, 12, 22, 25, 34, 64, 90]
+print(arr)  # Saída: [11, 12, 22, 25, 34, 64, 90]
 ```
 
-## Advantages and Disadvantages
+## Vantagens e desvantagens
 
-### ✅ Advantages
-- Simple to understand and implement
-- Does not require extra memory (in-place)
-- Can detect if the list is already sorted (optimized version)
+### ✅ Vantagens
 
-### ❌ Disadvantages
-- Very slow for large lists (O(n²))
-- Not suitable for large datasets
+- Fácil de entender e implementar.
+- Não requer memória extra além do array original.
+- A versão otimizada consegue detectar se o array já está ordenado.
 
-## When to Use Bubble Sort
-- For educational purposes and learning sorting concepts
-- When working with very small or nearly sorted datasets
+### ❌ Desvantagens
 
-## Related Algorithms
-- **Selection Sort**: Selects the minimum element and places it at the beginning
-- **Insertion Sort**: Builds the sorted array one item at a time 
+- Muito lento para listas grandes (O(n²)).
+- Pouco utilizado em aplicações reais, servindo mais para fins didáticos.
+
+## Quando usar Bubble Sort
+
+- Para fins educacionais, ao aprender sobre algoritmos de ordenação.
+- Em coleções **muito pequenas** ou que já estejam **quase ordenadas**.
+
+## Algoritmos relacionados
+
+- **Selection Sort**: seleciona o menor elemento e o coloca na posição correta.
+- **Insertion Sort**: constrói o array ordenado inserindo um elemento por vez.

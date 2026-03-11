@@ -1,45 +1,58 @@
-# 🔍 Binary Search
+# 🔍 Binary Search (Busca Binária)
 
-## Introduction
+## Introdução
 
-**Binary Search** is an efficient search algorithm that works by repeatedly dividing a sorted array in half to find a specific element.
+A **Busca Binária** é um algoritmo eficiente para encontrar um elemento em um array **ordenado**.
+Ela funciona dividindo o array repetidamente ao meio, reduzindo o espaço de busca a cada iteração até encontrar o alvo ou esgotar as possibilidades.
 
-## Complexity
-- **Time**: O(log n)
-- **Space**: O(1) iterative, O(log n) recursive
+## Complexidade
 
-## How It Works
-1. Compare the middle element of the array to the target
-2. If equal, the element is found
-3. If the target is less, search the left half
-4. If the target is greater, search the right half
-5. Repeat until found or the search space is empty
+- **Tempo**: O(log n)
+- **Espaço**: O(1) na versão iterativa, O(log n) na versão recursiva
 
-## Implementation
+## Como funciona
 
-### Iterative Version
+1. Compare o elemento do meio do array com o alvo.
+2. Se forem iguais, o elemento foi encontrado.
+3. Se o alvo for menor que o elemento do meio, busque apenas na metade esquerda.
+4. Se o alvo for maior, busque apenas na metade direita.
+5. Repita o processo até encontrar o elemento ou esvaziar o intervalo de busca.
+
+⚠️ **Importante:** o array **precisa estar ordenado** para que a busca binária funcione corretamente.
+
+## Implementação
+
+### Versão iterativa (Python)
+
 ```python
 def binary_search(arr, target):
     left, right = 0, len(arr) - 1
+
     while left <= right:
         mid = (left + right) // 2
+
         if arr[mid] == target:
             return mid
         elif arr[mid] < target:
             left = mid + 1
         else:
             right = mid - 1
-    return -1  # Element not found
+
+    return -1  # elemento não encontrado
 ```
 
-### Recursive Version
+### Versão recursiva (Python)
+
 ```python
 def binary_search_recursive(arr, target, left=0, right=None):
     if right is None:
         right = len(arr) - 1
+
     if left > right:
         return -1
+
     mid = (left + right) // 2
+
     if arr[mid] == target:
         return mid
     elif arr[mid] < target:
@@ -48,28 +61,26 @@ def binary_search_recursive(arr, target, left=0, right=None):
         return binary_search_recursive(arr, target, left, mid - 1)
 ```
 
-## Usage Example
+## Exemplo de uso
+
 ```python
-# Sorted array
 arr = [1, 3, 5, 7, 9, 11, 13, 15]
 target = 7
 
-# Search
 index = binary_search(arr, target)
-print(f"Element {target} found at index: {index}")  # Output: 3
+print(f"Elemento {target} encontrado no índice: {index}")  # Saída: 3
 ```
 
-## Prerequisites
-⚠️ **Important**: The array must be **sorted** for binary search to work correctly.
+## Vantagens e desvantagens
 
-## Advantages and Disadvantages
+### ✅ Vantagens
 
-### ✅ Advantages
-- Very efficient for large arrays
-- O(log n) time complexity
-- Minimal memory usage in the iterative version
+- Muito eficiente para arrays grandes.
+- Complexidade de tempo O(log n).
+- Uso mínimo de memória na versão iterativa.
 
-### ❌ Disadvantages
-- Requires a sorted array
-- Not efficient for linked lists
-- O(log n) space complexity in the recursive version 
+### ❌ Desvantagens
+
+- Exige que o array esteja previamente ordenado.
+- Não é eficiente para estruturas como listas ligadas.
+- A versão recursiva consome O(log n) de pilha.

@@ -13,33 +13,95 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  Create as many sidebars as you want.
  */
 const sidebars: SidebarsConfig = {
-
   conceptsSidebar: [
-    'concepts/big-o-notation',
-    'concepts/serverless',
-    'concepts/thread',
-    'concepts/memory-stack-heap',
-    'concepts/swap',
-    'concepts/fifo',
-    'concepts/lifo',
+    {
+      type: 'category',
+      label: '💡 Fundamentos',
+      items: [
+        'concepts/big-o-notation',
+        'concepts/memory-stack-heap',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🔄 Mecanismos',
+      items: [
+        'concepts/fifo',
+        'concepts/lifo',
+        'concepts/swap',
+      ],
+    },
+    {
+      type: 'category',
+      label: '⚡ Concorrência',
+      items: [
+        'concepts/thread',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🏗️ Arquitetura',
+      items: [
+        'concepts/serverless',
+      ],
+    },
   ],
 
   dataStructuresSidebar: [
-    'data-structures/array',
-    'data-structures/stack',
-    'data-structures/queue',
-    'data-structures/binary-tree',
-    'data-structures/linked-list',
+    {
+      type: 'category',
+      label: '📦 Estruturas Básicas',
+      items: [
+        'data-structures/array',
+        'data-structures/binary-tree',
+        'data-structures/linked-list',
+      ],
+    },
+    {
+      type: 'category',
+      label: '📚 Pilhas e Filas',
+      items: [
+        'data-structures/stack',
+        'data-structures/queue',
+      ],
+    },
   ],
 
   algorithmsSidebar: [
-    'algorithms/sorting/bubble-sort',
-    'algorithms/sorting/merge-sort',
-    'algorithms/sorting/quick-sort',
-    'algorithms/sorting/binary-search',
     {
       type: 'category',
-      label: 'Contests',
+      label: '🔄 Algoritmos de Ordenação',
+      items: [
+        'algorithms/sorting/bubble-sort',
+        'algorithms/sorting/selection-sort',
+        'algorithms/sorting/merge-sort',
+        'algorithms/sorting/quick-sort',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🔍 Algoritmos de Busca',
+      items: [
+        'algorithms/search/binary-search',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🕸️ Algoritmos de Grafo',
+      items: [
+        'algorithms/graph/breadth-first-search',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🔧 Algoritmos Ganancioso',
+      items: [
+        'algorithms/greedy/greedy-index',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🏆 Problemas de Competição',
       items: [
         'algorithms/contests/leetcode/two-sum',
         'algorithms/contests/leetcode/single-number',

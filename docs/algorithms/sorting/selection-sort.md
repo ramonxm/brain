@@ -1,20 +1,25 @@
 # 🔄 Selection Sort
 
-## Introduction
+## Introdução
 
-**Selection Sort** is a simple comparison-based sorting algorithm. It repeatedly selects the smallest (or largest) element from the unsorted part and moves it to the beginning (or end) of the list.
+O **Selection Sort** é um algoritmo de ordenação simples baseado em comparações.
+Ele percorre o array repetidamente, selecionando o menor (ou maior) elemento da parte não ordenada e movendo-o para a posição correta na parte ordenada.
 
-## Complexity
-- **Time**: O(n²) in the worst and average case
-- **Space**: O(1) (in-place)
+## Complexidade
 
-## How It Works
-1. Find the minimum element in the unsorted part
-2. Swap it with the first unsorted element
-3. Move the boundary of the sorted part one step forward
-4. Repeat until the list is sorted
+- **Tempo (pior e médio caso)**: O(n²)
+- **Tempo (melhor caso)**: O(n²)
+- **Espaço**: O(1) — algoritmo in-place
 
-## Implementation
+## Como funciona
+
+1. Encontre o menor elemento na parte não ordenada do array.
+2. Troque esse elemento com o primeiro elemento da parte não ordenada.
+3. Avance a fronteira da parte ordenada em uma posição.
+4. Repita o processo até que todo o array esteja ordenado.
+
+## Implementação (Python)
+
 ```python
 def selection_sort(arr):
     n = len(arr)
@@ -26,28 +31,33 @@ def selection_sort(arr):
         arr[i], arr[min_idx] = arr[min_idx], arr[i]
 ```
 
-## Usage Example
+## Exemplo de uso
+
 ```python
 arr = [64, 25, 12, 22, 11]
 selection_sort(arr)
-print(arr)  # Output: [11, 12, 22, 25, 64]
+print(arr)  # Saída: [11, 12, 22, 25, 64]
 ```
 
-## Advantages and Disadvantages
+## Vantagens e desvantagens
 
-### ✅ Advantages
-- Simple to understand and implement
-- Does not require extra memory (in-place)
-- Performs well on small lists
+### ✅ Vantagens
 
-### ❌ Disadvantages
-- Very slow for large lists (O(n²))
-- Not stable by default (can be made stable with modifications)
+- Fácil de entender e implementar.
+- Não requer memória extra (ordenção in-place).
+- Tem um número fixo de comparações (independente da entrada estar quase ordenada ou não).
 
-## When to Use Selection Sort
-- For educational purposes and learning sorting concepts
-- When working with very small datasets
+### ❌ Desvantagens
 
-## Related Algorithms
-- **Bubble Sort**: Swaps adjacent elements to sort
-- **Insertion Sort**: Builds the sorted array one item at a time 
+- Muito lento para listas grandes (O(n²)).
+- Não é estável por padrão (a ordem relativa de elementos iguais pode mudar).
+
+## Quando usar Selection Sort
+
+- Para fins didáticos, ao comparar diferentes algoritmos de ordenação.
+- Em coleções **muito pequenas**, onde a simplicidade é mais importante do que a performance.
+
+## Algoritmos relacionados
+
+- **Bubble Sort**: realiza trocas entre elementos adjacentes.
+- **Insertion Sort**: insere cada elemento na posição correta de uma sublista já ordenada.
