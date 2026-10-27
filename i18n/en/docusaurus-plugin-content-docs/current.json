@@ -3,80 +3,112 @@
     "message": "Next",
     "description": "The label for version current"
   },
-  "sidebar.conceptsSidebar.category.💡 Fundamentos": {
-    "message": "💡 Fundamentals",
-    "description": "The label for category 💡 Fundamentos in sidebar conceptsSidebar"
+  "sidebar.conceptsSidebar.category.concepts-fundamentals": {
+    "message": "Fundamentals",
+    "description": "The label for category 'Fundamentos' in sidebar 'conceptsSidebar'"
   },
-  "sidebar.conceptsSidebar.category.🔄 Mecanismos": {
-    "message": "🔄 Mechanisms",
-    "description": "The label for category 🔄 Mecanismos in sidebar conceptsSidebar"
+  "sidebar.conceptsSidebar.category.concepts-fundamentals.link.generated-index.description": {
+    "message": "Complexity analysis and memory layout.",
+    "description": "The generated-index page description for category 'Fundamentos' in sidebar 'conceptsSidebar'"
   },
-  "sidebar.conceptsSidebar.category.⚡ Concorrência": {
-    "message": "⚡ Concurrency",
-    "description": "The label for category ⚡ Concorrência in sidebar conceptsSidebar"
+  "sidebar.conceptsSidebar.category.concepts-mechanisms": {
+    "message": "Mechanisms",
+    "description": "The label for category 'Mecanismos' in sidebar 'conceptsSidebar'"
   },
-  "sidebar.conceptsSidebar.category.🏗️ Arquitetura": {
-    "message": "🏗️ Architecture",
-    "description": "The label for category 🏗️ Arquitetura in sidebar conceptsSidebar"
+  "sidebar.conceptsSidebar.category.concepts-mechanisms.link.generated-index.description": {
+    "message": "Data access policies and elementary operations.",
+    "description": "The generated-index page description for category 'Mecanismos' in sidebar 'conceptsSidebar'"
   },
-  "sidebar.dataStructuresSidebar.category.📦 Estruturas Básicas": {
-    "message": "📦 Basic Structures",
-    "description": "The label for category 📦 Estruturas Básicas in sidebar dataStructuresSidebar"
+  "sidebar.conceptsSidebar.category.concepts-concurrency": {
+    "message": "Concurrency",
+    "description": "The label for category 'Concorrência' in sidebar 'conceptsSidebar'"
   },
-  "sidebar.dataStructuresSidebar.category.📚 Pilhas e Filas": {
-    "message": "📚 Stacks and Queues",
-    "description": "The label for category 📚 Pilhas e Filas in sidebar dataStructuresSidebar"
+  "sidebar.conceptsSidebar.category.concepts-concurrency.link.generated-index.description": {
+    "message": "Running tasks simultaneously.",
+    "description": "The generated-index page description for category 'Concorrência' in sidebar 'conceptsSidebar'"
   },
-  "sidebar.dataStructuresSidebar.category.🌳 Árvores": {
-    "message": "🌳 Trees",
-    "description": "The label for category 🌳 Árvores in sidebar dataStructuresSidebar"
+  "sidebar.conceptsSidebar.category.concepts-architecture": {
+    "message": "Architecture",
+    "description": "The label for category 'Arquitetura' in sidebar 'conceptsSidebar'"
   },
-  "sidebar.dataStructuresSidebar.category.🕸️ Grafos": {
-    "message": "🕸️ Graphs",
-    "description": "The label for category 🕸️ Grafos in sidebar dataStructuresSidebar"
+  "sidebar.conceptsSidebar.category.concepts-architecture.link.generated-index.description": {
+    "message": "Software architecture and execution models.",
+    "description": "The generated-index page description for category 'Arquitetura' in sidebar 'conceptsSidebar'"
   },
-  "sidebar.dataStructuresSidebar.category.🗂️ Hash Tables": {
-    "message": "🗂️ Hash Tables",
-    "description": "The label for category 🗂️ Hash Tables in sidebar dataStructuresSidebar"
+  "sidebar.dataStructuresSidebar.category.data-structures-linear": {
+    "message": "Linear Structures",
+    "description": "The label for category 'Estruturas Lineares' in sidebar 'dataStructuresSidebar'"
   },
-  "sidebar.dataStructuresSidebar.category.🔥 Heaps": {
-    "message": "🔥 Heaps",
-    "description": "The label for category 🔥 Heaps in sidebar dataStructuresSidebar"
+  "sidebar.dataStructuresSidebar.category.data-structures-linear.link.generated-index.description": {
+    "message": "Structures that keep elements in sequence.",
+    "description": "The generated-index page description for category 'Estruturas Lineares' in sidebar 'dataStructuresSidebar'"
   },
-  "sidebar.algorithmsSidebar.category.🔍 Algoritmos de Busca": {
-    "message": "🔍 Search Algorithms",
-    "description": "The label for category 🔍 Algoritmos de Busca in sidebar algorithmsSidebar"
+  "sidebar.dataStructuresSidebar.category.data-structures-trees": {
+    "message": "Trees",
+    "description": "The label for category 'Árvores' in sidebar 'dataStructuresSidebar'"
   },
-  "sidebar.algorithmsSidebar.category.🔄 Algoritmos de Ordenação": {
-    "message": "🔄 Sorting Algorithms",
-    "description": "The label for category 🔄 Algoritmos de Ordenação in sidebar algorithmsSidebar"
+  "sidebar.dataStructuresSidebar.category.data-structures-trees.link.generated-index.description": {
+    "message": "Hierarchical structures made of nodes.",
+    "description": "The generated-index page description for category 'Árvores' in sidebar 'dataStructuresSidebar'"
   },
-  "sidebar.algorithmsSidebar.category.🕸️ Algoritmos de Grafo": {
-    "message": "🕸️ Graph Algorithms",
-    "description": "The label for category 🕸️ Algoritmos de Grafo in sidebar algorithmsSidebar"
+  "sidebar.algorithmsSidebar.category.algorithms-sorting": {
+    "message": "Sorting",
+    "description": "The label for category 'Ordenação' in sidebar 'algorithmsSidebar'"
   },
-  "sidebar.algorithmsSidebar.category.🧮 Programação Dinâmica": {
-    "message": "🧮 Dynamic Programming",
-    "description": "The label for category 🧮 Programação Dinâmica in sidebar algorithmsSidebar"
+  "sidebar.algorithmsSidebar.category.algorithms-sorting.link.generated-index.description": {
+    "message": "Algorithms that put collections in order.",
+    "description": "The generated-index page description for category 'Ordenação' in sidebar 'algorithmsSidebar'"
   },
-  "sidebar.algorithmsSidebar.category.🔧 Algoritmos Ganancioso": {
-    "message": "🔧 Greedy Algorithms",
-    "description": "The label for category 🔧 Algoritmos Ganancioso in sidebar algorithmsSidebar"
+  "sidebar.algorithmsSidebar.category.algorithms-search": {
+    "message": "Search",
+    "description": "The label for category 'Busca' in sidebar 'algorithmsSidebar'"
   },
-  "sidebar.algorithmsSidebar.category.🔀 Dividir e Conquistar": {
-    "message": "🔀 Divide and Conquer",
-    "description": "The label for category 🔀 Dividir e Conquistar in sidebar algorithmsSidebar"
+  "sidebar.algorithmsSidebar.category.algorithms-search.link.generated-index.description": {
+    "message": "Algorithms that locate elements in collections.",
+    "description": "The generated-index page description for category 'Busca' in sidebar 'algorithmsSidebar'"
   },
-  "sidebar.algorithmsSidebar.category.🏆 Problemas de Competição": {
-    "message": "🏆 Competitive Programming",
-    "description": "The label for category 🏆 Problemas de Competição in sidebar algorithmsSidebar"
+  "sidebar.algorithmsSidebar.category.algorithms-graphs": {
+    "message": "Graphs",
+    "description": "The label for category 'Grafos' in sidebar 'algorithmsSidebar'"
   },
-  "sidebar.tutorialSidebar.category.🎯 Início Rápido": {
-    "message": "🎯 Quick Start",
-    "description": "The label for category 🎯 Início Rápido in sidebar tutorialSidebar"
+  "sidebar.algorithmsSidebar.category.algorithms-graphs.link.generated-index.description": {
+    "message": "Algorithms that traverse and analyze graphs.",
+    "description": "The generated-index page description for category 'Grafos' in sidebar 'algorithmsSidebar'"
   },
-  "sidebar.tutorialSidebar.category.📖 Visão Geral": {
-    "message": "📖 Overview",
-    "description": "The label for category 📖 Visão Geral in sidebar tutorialSidebar"
+  "sidebar.algorithmsSidebar.category.algorithms-paradigms": {
+    "message": "Paradigms",
+    "description": "The label for category 'Paradigmas' in sidebar 'algorithmsSidebar'"
+  },
+  "sidebar.algorithmsSidebar.category.algorithms-paradigms.link.generated-index.description": {
+    "message": "General strategies for designing algorithms.",
+    "description": "The generated-index page description for category 'Paradigmas' in sidebar 'algorithmsSidebar'"
+  },
+  "sidebar.algorithmsSidebar.category.algorithms-contests": {
+    "message": "Competitive Programming",
+    "description": "The label for category 'Programação Competitiva' in sidebar 'algorithmsSidebar'"
+  },
+  "sidebar.algorithmsSidebar.category.algorithms-contests.link.generated-index.description": {
+    "message": "Annotated solutions to LeetCode and AtCoder problems.",
+    "description": "The generated-index page description for category 'Programação Competitiva' in sidebar 'algorithmsSidebar'"
+  },
+  "sidebar.algorithmsSidebar.category.algorithms-contests-leetcode": {
+    "message": "LeetCode",
+    "description": "The label for category 'LeetCode' in sidebar 'algorithmsSidebar'"
+  },
+  "sidebar.algorithmsSidebar.category.algorithms-contests-atcoder": {
+    "message": "AtCoder",
+    "description": "The label for category 'AtCoder' in sidebar 'algorithmsSidebar'"
+  },
+  "sidebar.topicsSidebar.category.topics-aws": {
+    "message": "AWS",
+    "description": "The label for category 'AWS' in sidebar 'topicsSidebar'"
+  },
+  "sidebar.topicsSidebar.category.topics-database": {
+    "message": "Databases",
+    "description": "The label for category 'Banco de Dados' in sidebar 'topicsSidebar'"
+  },
+  "sidebar.topicsSidebar.category.topics-database.link.generated-index.description": {
+    "message": "Database management systems, the relational model and SQL.",
+    "description": "The generated-index page description for category 'Banco de Dados' in sidebar 'topicsSidebar'"
   }
-} 
+}
