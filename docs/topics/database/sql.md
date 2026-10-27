@@ -1,37 +1,61 @@
+---
+sidebar_label: "SQL"
+description: "A linguagem padrão para definir, consultar e manipular bancos relacionais."
+---
+
 # SQL
 
-SQL (Structured Query Language) é uma linguagem padrão utilizada para gerenciar e manipular bancos de dados relacionais. Com SQL, é possível criar, modificar, consultar e excluir dados armazenados em tabelas de um banco de dados.
+**SQL** (*Structured Query Language*) é a linguagem padrão para definir, consultar e manipular dados em bancos de dados relacionais. Ela é declarativa: você descreve **o que** quer obter, e o banco decide **como** executar.
 
-## Para que serve o SQL?
+## Categorias de comandos
 
-O SQL é utilizado para:
-- Criar e modificar estruturas de banco de dados (tabelas, índices, visões, etc.)
-- Inserir, atualizar e deletar dados
-- Consultar dados de uma ou mais tabelas
-- Controlar permissões de acesso aos dados
+| Categoria | Significado                  | Comandos                            |
+| :-------- | :--------------------------- | :---------------------------------- |
+| **DDL**   | Definição de dados           | `CREATE`, `ALTER`, `DROP`           |
+| **DML**   | Manipulação de dados         | `INSERT`, `UPDATE`, `DELETE`        |
+| **DQL**   | Consulta de dados            | `SELECT`                            |
+| **DCL**   | Controle de acesso           | `GRANT`, `REVOKE`                   |
+| **TCL**   | Controle de transações       | `BEGIN`, `COMMIT`, `ROLLBACK`       |
 
-## Principais comandos SQL
-
-- `SELECT`: Consulta dados em uma ou mais tabelas
-- `INSERT`: Insere novos registros em uma tabela
-- `UPDATE`: Atualiza dados existentes em uma tabela
-- `DELETE`: Remove registros de uma tabela
-- `CREATE`: Cria novas tabelas ou outros objetos no banco de dados
-- `DROP`: Remove tabelas ou outros objetos do banco de dados
-
-## Exemplo básico
+## Exemplo
 
 ```sql
--- Criação de uma tabela
-CREATE TABLE clientes (
-  id INT PRIMARY KEY,
-  nome VARCHAR(100),
-  email VARCHAR(100)
+-- DDL: cria a tabela
+CREATE TABLE customers (
+    id    INT PRIMARY KEY,
+    name  VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE
 );
 
--- Inserção de dados
-INSERT INTO clientes (id, nome, email) VALUES (1, 'João Silva', 'joao@email.com');
+-- DML: insere e atualiza dados
+INSERT INTO customers (id, name, email) VALUES (1, 'João Silva', 'joao@email.com');
+UPDATE customers SET name = 'João P. Silva' WHERE id = 1;
 
--- Consulta de dados
-SELECT * FROM clientes;
+-- DQL: consulta dados
+SELECT name, email
+FROM customers
+WHERE email LIKE '%@email.com'
+ORDER BY name;
+
+-- DML: remove dados
+DELETE FROM customers WHERE id = 1;
 ```
+
+## Aplicações
+
+- Criar e alterar a estrutura do banco (tabelas, índices, visões)
+- Inserir, atualizar e remover registros
+- Consultar e combinar dados de várias tabelas (`JOIN`)
+- Controlar permissões de acesso
+
+## Boas práticas
+
+- Sempre use `WHERE` em `UPDATE` e `DELETE`, e confira o filtro com um `SELECT` antes
+- Liste as colunas em vez de usar `SELECT *` em código de produção
+- Use parâmetros (*prepared statements*) em vez de concatenar valores, para evitar SQL injection
+- Crie índices para as colunas usadas com frequência em filtros e `JOIN`s
+
+## Relacionados
+
+- [Banco de dados relacional](./relational-database.md)
+- [DBMS e RDBMS](./definitions.md)

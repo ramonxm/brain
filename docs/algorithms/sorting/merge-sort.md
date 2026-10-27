@@ -1,76 +1,89 @@
 ---
-sidebar_position: 3
+sidebar_label: "Merge Sort"
+description: "Ordenação estável por divisão e conquista, O(n log n)."
 ---
 
 # Merge Sort
 
-O Merge Sort é um algoritmo de ordenação eficiente que utiliza a técnica de dividir e conquistar. Ele divide o array em duas metades, ordena cada metade recursivamente e depois combina as duas metades ordenadas.
+O **Merge Sort** é um algoritmo de ordenação por **divisão e conquista**: divide o array em duas metades, ordena cada uma recursivamente e depois intercala (*merge*) as duas metades ordenadas.
+
+## Como funciona
+
+1. Se o array tiver 0 ou 1 elemento, ele já está ordenado.
+2. Divida o array em duas metades.
+3. Ordene cada metade recursivamente.
+4. Intercale as duas metades, comparando seus primeiros elementos e copiando sempre o menor.
 
 ## Complexidade
 
-- Tempo: O(n log n)
-- Espaço: O(n)
+| Métrica | Complexidade |
+| :------ | :----------- |
+| Tempo   | O(n log n)   |
+| Espaço  | O(n)         |
+
+O array é dividido log n vezes, e cada nível de recursão faz O(n) trabalho na intercalação. O algoritmo é **estável**, mas **não é in-place**.
 
 ## Implementação
 
-```typescript
+```ts
 function mergeSort(arr: number[]): number[] {
-    if (arr.length <= 1) {
-        return arr;
-    }
+  if (arr.length <= 1) {
+    return arr;
+  }
 
-    const mid = Math.floor(arr.length / 2);
-    const left = arr.slice(0, mid);
-    const right = arr.slice(mid);
+  const mid = Math.floor(arr.length / 2);
+  const left = arr.slice(0, mid);
+  const right = arr.slice(mid);
 
-    return merge(mergeSort(left), mergeSort(right));
+  return merge(mergeSort(left), mergeSort(right));
 }
 
 function merge(left: number[], right: number[]): number[] {
-    const result: number[] = [];
-    let leftIndex = 0;
-    let rightIndex = 0;
+  const result: number[] = [];
+  let i = 0;
+  let j = 0;
 
-    while (leftIndex < left.length && rightIndex < right.length) {
-        if (left[leftIndex] < right[rightIndex]) {
-            result.push(left[leftIndex]);
-            leftIndex++;
-        } else {
-            result.push(right[rightIndex]);
-            rightIndex++;
-        }
+  while (i < left.length && j < right.length) {
+    // <= mantém a ordem relativa de elementos iguais (estabilidade)
+    if (left[i] <= right[j]) {
+      result.push(left[i++]);
+    } else {
+      result.push(right[j++]);
     }
+  }
 
-    return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+  return result.concat(left.slice(i), right.slice(j));
 }
 ```
 
-## Exemplo de Uso
+## Exemplo de uso
 
-```typescript
-const array = [38, 27, 43, 3, 9, 82, 10];
-console.log('Array original:', array);
-
-const sortedArray = mergeSort(array);
-console.log('Array ordenado:', sortedArray);
-// Saída: Array ordenado: [3, 9, 10, 27, 38, 43, 82]
+```ts
+const sorted = mergeSort([38, 27, 43, 3, 9, 82, 10]);
+console.log(sorted); // Saída: [3, 9, 10, 27, 38, 43, 82]
 ```
 
-## Quando Usar
-
-- Quando você precisa de um algoritmo de ordenação estável
-- Quando a complexidade de tempo garantida O(n log n) é importante
-- Quando você tem memória suficiente disponível
-- Em grandes conjuntos de dados onde a eficiência é crucial
-
-## Vantagens e Desvantagens
+## Vantagens e desvantagens
 
 ### Vantagens
-- Tempo de execução garantido O(n log n)
-- Estável (mantém a ordem relativa de elementos iguais)
-- Bom para ordenar linked lists
+
+- O(n log n) garantido em todos os casos
+- Estável
+- Ótimo para listas ligadas e para ordenar dados que não cabem na memória (*external sorting*)
 
 ### Desvantagens
-- Requer espaço adicional O(n)
-- Para arrays pequenos, pode ser mais lento que algoritmos mais simples
-- Complexidade de implementação maior que algoritmos básicos
+
+- Usa O(n) de memória extra
+- Mais lento que algoritmos simples em arrays pequenos
+
+## Quando usar
+
+- Quando a ordenação precisa ser estável
+- Quando o desempenho no pior caso importa
+- Para ordenar [listas ligadas](../../data-structures/linked-list.md)
+
+## Relacionados
+
+- [Quick Sort](./quick-sort.md)
+- [Sort List](../contests/leetcode/sort-list.md)
+- [Notação Big O](../../concepts/big-o-notation.md)

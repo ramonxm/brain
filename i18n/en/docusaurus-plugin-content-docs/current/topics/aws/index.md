@@ -1,21 +1,36 @@
+---
+sidebar_label: "Introduction"
+description: "An overview of Amazon Web Services and its main services."
+---
+
 # AWS (Amazon Web Services)
 
-Amazon Web Services was launched in 2006 and is a pioneer in Cloud Computing.
+**AWS** is Amazon's cloud computing platform, launched in 2006 and a pioneer of the model. It provides on-demand, pay-as-you-go services for compute, storage, databases, networking, artificial intelligence, IoT and security, among others.
 
-AWS (Amazon Web Services) is a cloud computing services platform offered by Amazon. It provides a wide variety of on-demand services such as compute, storage, databases, networking, artificial intelligence, machine learning, Internet of Things (IoT), security, and more.
+## Main services
 
-## Main AWS Services
+| Service        | Category  | Description                                   |
+| :------------- | :-------- | :-------------------------------------------- |
+| **EC2**        | Compute   | On-demand virtual servers                     |
+| **Lambda**     | Compute   | [Serverless](../../concepts/serverless.md) function execution |
+| **S3**         | Storage   | Scalable object storage                       |
+| **RDS**        | Database  | Managed relational databases                  |
+| **VPC**        | Network   | Isolated virtual network in the cloud         |
+| **CloudFront** | Network   | Content delivery network (CDN)                |
+| **IAM**        | Security  | [Identity and access control](./iam.md)       |
 
-- **Amazon EC2 (Elastic Compute Cloud):** On-demand virtual servers.
-- **Amazon S3 (Simple Storage Service):** Scalable and secure object storage.
-- **Amazon RDS (Relational Database Service):** Managed relational databases.
-- **AWS Lambda:** Run code without managing servers (serverless).
-- **Amazon VPC (Virtual Private Cloud):** Isolated virtual network in the cloud.
-- **Amazon CloudFront:** Content Delivery Network (CDN).
+## Why AWS matters
 
-## Why AWS Matters
+- **Elasticity**: resources scale up and down with demand
+- **Pay per use**: no upfront hardware investment
+- **Global reach**: infrastructure spread across [regions and availability zones](./regions.md)
+- **Breadth**: hundreds of managed services, from virtual machines to machine learning
 
-AWS revolutionized the tech market by enabling companies of all sizes to access IT infrastructure in a flexible, scalable, pay-as-you-go model. This reduced costs, accelerated innovation, and democratized access to advanced computing resources.
+Today AWS is the global leader in cloud computing, serving everyone from startups to governments and academic institutions.
 
-Today, AWS is a global leader in cloud computing, serving millions of customers worldwide, including startups, large enterprises, government agencies, and academic institutions.
+## Related
 
+- [Regions and AZs](./regions.md)
+- [IAM](./iam.md)
+- [Policies](./policies.md)
+- [Serverless](../../concepts/serverless.md)

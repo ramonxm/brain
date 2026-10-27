@@ -1,42 +1,69 @@
-# 📥 FIFO (First In, First Out)
+---
+sidebar_label: "FIFO"
+description: "First In, First Out: the first element added is the first one removed."
+---
 
-*FIFO*, que significa "Primeiro a Entrar, Primeiro a Sair" (First In, First Out), é um método comumente usado em programação de computadores e estruturas de dados. Refere-se a um tipo de estrutura de dados ou processamento onde o primeiro elemento adicionado a uma coleção é o primeiro a ser removido. Este princípio é semelhante a uma fila no mundo real, como pessoas esperando em uma fila de supermercado. A pessoa que chega primeiro é a primeira a ser atendida.
+# FIFO (First In, First Out)
 
-Na programação, FIFO é frequentemente implementado usando uma estrutura de dados chamada fila (queue).
+**FIFO** ("first in, first out") is the policy in which elements are removed in the same order they were added, like a supermarket checkout line: whoever arrives first is served first.
 
-1. **Enqueue:** Adiciona um elemento ao final da fila.
-2. **Dequeue:** Remove o elemento do início da fila.
+## How it works
 
-Este processo garante que os elementos sejam processados na ordem em que foram adicionados, mantendo a ordem FIFO.
+The structure that implements FIFO is the [queue](../data-structures/queue.md), with two operations:
 
-Aqui está um exemplo simples em Python usando uma lista como uma fila básica:
+- **Enqueue**: adds an element to the back
+- **Dequeue**: removes the element at the front
+
+## Complexity
+
+| Operation | Complexity |
+| :-------- | :--------- |
+| Enqueue   | O(1)       |
+| Dequeue   | O(1)       |
+
+## Implementation
 
 ```python
+from collections import deque
+
+
 class Queue:
     def __init__(self):
-        self.items = []
+        self.items = deque()
 
     def enqueue(self, item):
         self.items.append(item)
 
     def dequeue(self):
-        if not self.is_empty():
-            return self.items.pop(0)
-        else:
-            return None
+        return self.items.popleft() if self.items else None
 
     def is_empty(self):
         return len(self.items) == 0
 
-    def size(self):
-        return len(self.items)
 
-# Exemplo de Uso:
-my_queue = Queue()
-my_queue.enqueue(1)
-my_queue.enqueue(2)
-my_queue.enqueue(3)
+queue = Queue()
+queue.enqueue(1)
+queue.enqueue(2)
+queue.enqueue(3)
 
-print(my_queue.dequeue())  # Saída: 1
-print(my_queue.dequeue())  # Saída: 2
+print(queue.dequeue())  # Output: 1
+print(queue.dequeue())  # Output: 2
 ```
+
+:::warning[Watch out for lists]
+
+In Python, `list.pop(0)` is O(n) because it shifts every element. Use `collections.deque` to get O(1) at both ends.
+
+:::
+
+## Applications
+
+- Print and task queues
+- Process scheduling
+- Network and I/O buffers
+- [Breadth-first search (BFS)](../algorithms/graph/breadth-first-search.md)
+
+## Related
+
+- [LIFO](./lifo.md)
+- [Queue](../data-structures/queue.md)

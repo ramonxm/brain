@@ -1,17 +1,27 @@
-# 📤 LIFO (Last In, First Out)
+---
+sidebar_label: "LIFO"
+description: "Last In, First Out: the last element added is the first one removed."
+---
 
-LIFO, ou "Último a Entrar, Primeiro a Sair" (Last In, First Out), é um método de organização de dados onde o último elemento adicionado é o primeiro a ser removido. Este conceito é comumente aplicado em estruturas de dados como pilhas.
+# LIFO (Last In, First Out)
 
-## Pilhas
+**LIFO** ("last in, first out") is the policy in which the element removed is always the most recent one, like a stack of plates: the last one placed on top is the first one taken off.
 
-Uma pilha é uma coleção de elementos onde as operações de inserção e remoção ocorrem apenas em uma extremidade, conhecida como topo. Quando um elemento é adicionado à pilha, ele se torna o novo topo, e quando um elemento é removido, é sempre o elemento do topo que é retirado.
+## How it works
 
-### Operação LIFO em Pilhas
+The structure that implements LIFO is the [stack](../data-structures/stack.md). Insertions and removals happen at a single end, the **top**:
 
-- **Inserção (Push):** Novos elementos são adicionados ao topo da pilha.
-- **Remoção (Pop):** A remoção também acontece no topo, retirando o elemento mais recentemente adicionado.
+- **Push**: adds an element to the top
+- **Pop**: removes the element from the top
 
-### Exemplo de Código em Python
+## Complexity
+
+| Operation | Complexity |
+| :-------- | :--------- |
+| Push      | O(1)       |
+| Pop       | O(1)       |
+
+## Implementation
 
 ```python
 class Stack:
@@ -22,18 +32,30 @@ class Stack:
         self.items.append(item)
 
     def pop(self):
-        if not self.is_empty():
-            return self.items.pop()
+        return self.items.pop() if self.items else None
 
     def is_empty(self):
         return len(self.items) == 0
 
-# Usando a Pilha
-stack_example = Stack()
-stack_example.push(1)
-stack_example.push(2)
-stack_example.push(3)
 
-print(stack_example.pop())  # Saída: 3
-print(stack_example.pop())  # Saída: 2
+stack = Stack()
+stack.push(1)
+stack.push(2)
+stack.push(3)
+
+print(stack.pop())  # Output: 3
+print(stack.pop())  # Output: 2
 ```
+
+## Applications
+
+- Function call stack
+- Undo/redo in editors
+- Expression evaluation and bracket matching
+- Depth-first search (DFS)
+
+## Related
+
+- [FIFO](./fifo.md)
+- [Stack](../data-structures/stack.md)
+- [Stack and heap memory](./memory-stack-heap.md)

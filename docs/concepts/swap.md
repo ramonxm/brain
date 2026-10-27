@@ -1,56 +1,76 @@
+---
+sidebar_label: "Swap"
+description: "Troca de valores entre duas variáveis ou posições de um array."
+---
+
 # Swap
 
-"Swap" é um termo comum usado em programação e ciência da computação, referindo-se à troca ou intercâmbio de valores entre duas variáveis. Esta operação envolve a troca do conteúdo de duas variáveis, efetivamente trocando seus valores.
+**Swap** é a operação de trocar os valores de duas variáveis (ou de duas posições de um array): depois da troca, cada uma guarda o valor que estava na outra. É a base de algoritmos de ordenação como Bubble Sort, Selection Sort e Quick Sort.
 
-## Propósito do Swap
+## Como funciona
 
-A operação de swap é frequentemente usada para reordenação, ordenação e otimização de algoritmos. Ela permite o rearranjo de valores sem a necessidade de variáveis temporárias adicionais.
+### Com variável temporária
 
-### Exemplo de Código em Python
+A forma clássica usa uma terceira variável para não perder um dos valores durante a troca.
 
 ```python
-# Trocando valores em Python
-a = 5
-b = 10
+a, b = 5, 10
 
-# Antes da troca
-print("Antes da troca: a =", a, ", b =", b)
-
-# Trocando valores usando uma variável temporária
 temp = a
 a = b
 b = temp
 
-# Depois da troca
-print("Depois da troca: a =", a, ", b =", b)
+print(a, b)  # Saída: 10 5
 ```
 
-### Exemplo de Código em JavaScript (Elementos do Array)
+### Com atribuição múltipla
 
-```js
-// Declaração do array
-let array = [10, 30, 40, 55]
+Muitas linguagens trocam valores diretamente por atribuição múltipla (ou desestruturação), sem variável temporária explícita.
 
-// X é o ponto inicial e Y é o ponto final
-let x = 0
-let y = array.length - 1
+```python
+a, b = b, a
+```
 
-// Variável temporária
-let temp;
+```ts
+[a, b] = [b, a];
+```
 
+## Complexidade
 
-// Condição: enquanto X for menor ou igual a Y
-while (x <= y) {
-  temp = array[x]
+| Métrica | Complexidade |
+| :------ | :----------- |
+| Tempo   | O(1)         |
+| Espaço  | O(1)         |
 
-  // Trocando valores usando uma variável temporária
-  array[x] = array[y]
-  array[y] = temp
+## Implementação
 
-  // Incremento e decremento
-  x++;
-  y--;
+Inverter um array com dois índices que caminham das pontas para o centro, trocando cada par de elementos:
+
+```ts
+function reverse(array: number[]): number[] {
+  let left = 0;
+  let right = array.length - 1;
+
+  while (left < right) {
+    [array[left], array[right]] = [array[right], array[left]];
+    left++;
+    right--;
+  }
+
+  return array;
 }
 
-console.log('O array trocado', array)
+console.log(reverse([10, 30, 40, 55])); // Saída: [55, 40, 30, 10]
 ```
+
+## Aplicações
+
+- Algoritmos de ordenação baseados em comparação
+- Inversão e rotação de arrays
+- Embaralhamento (algoritmo de Fisher–Yates)
+
+## Relacionados
+
+- [Bubble Sort](../algorithms/sorting/bubble-sort.md)
+- [Selection Sort](../algorithms/sorting/selection-sort.md)
+- [Quick Sort](../algorithms/sorting/quick-sort.md)

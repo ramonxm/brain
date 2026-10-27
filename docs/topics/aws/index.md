@@ -1,18 +1,36 @@
+---
+sidebar_label: "Introdução"
+description: "Visão geral da Amazon Web Services e seus principais serviços."
+---
+
 # AWS (Amazon Web Services)
 
-Amazon Web Services foi lançada em 2006, é pioneira em Cloud Computing.
+A **AWS** é a plataforma de computação em nuvem da Amazon, lançada em 2006 e pioneira no modelo. Ela oferece, sob demanda e com pagamento por uso, serviços de computação, armazenamento, bancos de dados, redes, inteligência artificial, IoT e segurança, entre outros.
 
-AWS (Amazon Web Services) é uma plataforma de serviços de computação em nuvem oferecida pela Amazon. Ela fornece uma ampla variedade de serviços sob demanda, como computação, armazenamento, bancos de dados, redes, inteligência artificial, machine learning, Internet das Coisas (IoT), segurança, entre outros.
+## Principais serviços
 
-## Principais Serviços da AWS
-- **Amazon EC2 (Elastic Compute Cloud):** Serviço de servidores virtuais sob demanda.
-- **Amazon S3 (Simple Storage Service):** Armazenamento de objetos escalável e seguro.
-- **Amazon RDS (Relational Database Service):** Banco de dados relacional gerenciado.
-- **AWS Lambda:** Execução de código sem necessidade de gerenciar servidores (serverless).
-- **Amazon VPC (Virtual Private Cloud):** Rede virtual isolada na nuvem.
-- **Amazon CloudFront:** Rede de distribuição de conteúdo (CDN).
+| Serviço        | Categoria       | Descrição                                     |
+| :------------- | :-------------- | :-------------------------------------------- |
+| **EC2**        | Computação      | Servidores virtuais sob demanda               |
+| **Lambda**     | Computação      | Execução de funções [serverless](../../concepts/serverless.md) |
+| **S3**         | Armazenamento   | Armazenamento de objetos escalável            |
+| **RDS**        | Banco de dados  | Bancos relacionais gerenciados                |
+| **VPC**        | Redes           | Rede virtual isolada na nuvem                 |
+| **CloudFront** | Redes           | Rede de distribuição de conteúdo (CDN)        |
+| **IAM**        | Segurança       | [Controle de identidade e acesso](./iam.md)   |
 
-## Importância da AWS
-A AWS revolucionou o mercado de tecnologia ao permitir que empresas de todos os tamanhos possam acessar infraestrutura de TI de forma flexível, escalável e com pagamento conforme o uso. Isso reduziu custos, acelerou a inovação e democratizou o acesso a recursos avançados de computação.
+## Por que a AWS importa
 
-Hoje, a AWS é líder global em computação em nuvem, atendendo milhões de clientes em todo o mundo, incluindo startups, grandes empresas, órgãos governamentais e instituições acadêmicas.
+- **Elasticidade**: recursos aumentam e diminuem conforme a demanda
+- **Pagamento por uso**: sem investimento inicial em hardware
+- **Alcance global**: infraestrutura distribuída em [regiões e zonas de disponibilidade](./regions.md)
+- **Amplitude**: centenas de serviços gerenciados, de máquinas virtuais a machine learning
+
+Hoje a AWS é líder global em computação em nuvem e atende de startups a governos e instituições acadêmicas.
+
+## Relacionados
+
+- [Regiões e AZs](./regions.md)
+- [IAM](./iam.md)
+- [Policies](./policies.md)
+- [Serverless](../../concepts/serverless.md)

@@ -1,59 +1,75 @@
-# Array (Vetor)
+---
+sidebar_label: "Array"
+description: "Sequência de elementos armazenados em posições contíguas de memória, com acesso O(1) por índice."
+---
 
-## Introdução
+# Array
 
-Um **array** (ou vetor) é uma estrutura de dados que armazena uma sequência de elementos do mesmo tipo em posições de memória contíguas.
+Um **array** (ou vetor) armazena uma sequência de elementos do mesmo tipo em posições **contíguas** de memória. Como a posição de cada elemento pode ser calculada a partir do índice, o acesso é imediato.
 
-## Propriedades Principais
-- **Indexado**: Cada elemento pode ser acessado diretamente pelo seu índice
-- **Tamanho fixo**: O tamanho é definido na criação e não pode ser alterado
-- **Homogêneo**: Todos os elementos são do mesmo tipo
+## Como funciona
 
-## Operações Principais
-- **Acesso**: O(1) - Acesso direto pelo índice
-- **Atualização**: O(1) - Atualização direta pelo índice
-- **Busca**: O(n) - Busca linear por um elemento
-- **Inserção/Remoção**: O(n) - Pode exigir o deslocamento de elementos
+- **Indexado**: o elemento `i` fica no endereço `início + i × tamanho_do_elemento`
+- **Tamanho fixo**: definido na criação, na maioria das linguagens de baixo nível
+- **Homogêneo**: todos os elementos têm o mesmo tipo
 
-## Exemplo (Python)
+Arrays dinâmicos (`list` em Python, `vector` em C++, `Array` em JavaScript) dobram a capacidade quando ficam cheios, o que torna a inserção no final O(1) amortizado.
+
+## Complexidade
+
+| Operação                  | Complexidade      |
+| :------------------------ | :---------------- |
+| Acesso por índice         | O(1)              |
+| Atualização por índice    | O(1)              |
+| Busca por valor           | O(n)              |
+| Inserção no final         | O(1) amortizado   |
+| Inserção/remoção no meio  | O(n)              |
+
+## Implementação
 
 ```python
-# Criando um array
 arr = [10, 20, 30, 40, 50]
 
-# Acessando elementos
 print(arr[2])  # Saída: 30
 
-# Atualizando elementos
 arr[1] = 25
 print(arr)  # Saída: [10, 25, 30, 40, 50]
 
-# Buscando um elemento
-if 40 in arr:
-    print("Encontrado!")
+if 40 in arr:  # busca linear
+    print("Encontrado")
 
-# Inserindo um elemento (no final)
-arr.append(60)
-
-# Removendo um elemento (por valor)
-arr.remove(30)
+arr.append(60)  # insere no final
+arr.remove(30)  # remove por valor, deslocando os seguintes
 print(arr)  # Saída: [10, 25, 40, 50, 60]
 ```
 
 ## Aplicações
-- Quando é necessário acesso rápido e direto aos elementos
-- Implementação de outras estruturas de dados (pilhas, filas, etc.)
-- Armazenamento de coleções de dados de tamanho fixo
 
-## Quando Usar um Array
-- Quando o número de elementos é conhecido e fixo
-- Quando o acesso por índice é uma prioridade
+- Coleções com acesso frequente por posição
+- Base para outras estruturas (pilhas, filas, heaps, tabelas hash)
+- Matrizes e buffers
 
-## Limitações
-- Tamanho fixo (na maioria das linguagens)
-- Inserção e remoção podem ser custosas (O(n))
-- Todos os elementos devem ser do mesmo tipo
+## Vantagens e desvantagens
 
-## Estruturas de Dados Relacionadas
-- **Array Dinâmico (List em Python, Vector em C++)**: Versão redimensionável de um array
-- **Lista Ligada**: Permite inserções/remoções eficientes, mas acesso mais lento 
+### Vantagens
+
+- Acesso O(1) por índice
+- Ótimo aproveitamento de cache, pela memória contígua
+- Sem custo extra de memória por elemento
+
+### Desvantagens
+
+- Tamanho fixo em arrays estáticos
+- Inserções e remoções no meio custam O(n)
+- Todos os elementos precisam ter o mesmo tipo (em linguagens tipadas)
+
+## Quando usar
+
+- Quando o número de elementos é conhecido ou muda pouco
+- Quando o acesso por índice é a operação mais frequente
+
+## Relacionados
+
+- [Lista ligada](./linked-list.md)
+- [Pilha (stack)](./stack.md)
+- [Busca binária](../algorithms/search/binary-search.md)

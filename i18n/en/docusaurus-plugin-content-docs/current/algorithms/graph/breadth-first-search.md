@@ -1,60 +1,86 @@
-# 🕸️ Breadth-First Search (BFS)
+---
+sidebar_label: "Breadth-First Search (BFS)"
+description: "Traverses a graph level by level; finds shortest paths in unweighted graphs."
+---
 
-## Introduction
+# Breadth-first search (BFS)
 
-**Breadth-First Search (BFS)** is a graph traversal algorithm that explores all the neighbors of a node before moving to the next level. It is commonly used to find the shortest path in unweighted graphs.
+**Breadth-first search** (BFS) traverses a graph by visiting all the neighbors of a vertex before moving on to the next level. That is why it finds the **shortest path in number of edges** in unweighted graphs.
 
-## How It Works
-1. Start from the source node and enqueue it
-2. Mark the source as visited
-3. While the queue is not empty:
-   - Dequeue a node
-   - Visit all its unvisited neighbors and enqueue them
-   - Mark neighbors as visited
+## How it works
 
-## Implementation (Python)
+1. Mark the source vertex as visited and put it in a [queue](../../data-structures/queue.md).
+2. While the queue is not empty, take the vertex at the front.
+3. For each neighbor not yet visited, mark it as visited and add it to the back of the queue.
+
+Since the queue is [FIFO](../../concepts/fifo.md), every vertex at distance `k` is processed before any vertex at distance `k + 1`.
+
+## Complexity
+
+| Metric | Complexity |
+| :----- | :--------- |
+| Time   | O(V + E)   |
+| Space  | O(V)       |
+
+V is the number of vertices and E the number of edges. Each vertex enters the queue once and each edge is examined once (twice, in undirected graphs).
+
+## Implementation
+
 ```python
 from collections import deque
 
+
 def bfs(graph, start):
-    visited = set()
+    visited = {start}
     queue = deque([start])
-    visited.add(start)
+    order = []
+
     while queue:
         node = queue.popleft()
-        print(node, end=" ")
+        order.append(node)
         for neighbor in graph[node]:
             if neighbor not in visited:
                 visited.add(neighbor)
                 queue.append(neighbor)
 
-# Example usage
-graph = {
-    'A': ['B', 'C'],
-    'B': ['A', 'D', 'E'],
-    'C': ['A', 'F'],
-    'D': ['B'],
-    'E': ['B', 'F'],
-    'F': ['C', 'E']
-}
-bfs(graph, 'A')  # Output: A B C D E F
+    return order
 ```
 
-## Applications
-- Finding the shortest path in unweighted graphs
-- Web crawlers
-- Social network analysis
-- Broadcasting in networks
-- Solving puzzles (like Rubik's Cube, word ladder)
+## Usage example
 
-## Complexity
-- **Time**: O(V + E), where V is the number of vertices and E is the number of edges
-- **Space**: O(V)
+```python
+graph = {
+    "A": ["B", "C"],
+    "B": ["A", "D", "E"],
+    "C": ["A", "F"],
+    "D": ["B"],
+    "E": ["B", "F"],
+    "F": ["C", "E"],
+}
 
-## When to Use BFS
-- When you need the shortest path in an unweighted graph
-- When you want to explore all nodes at the current depth before going deeper
+print(bfs(graph, "A"))  # Output: ['A', 'B', 'C', 'D', 'E', 'F']
+```
 
-## Related Algorithms
-- **Depth-First Search (DFS)**: Explores as far as possible along each branch before backtracking
-- **Dijkstra's Algorithm**: Finds the shortest path in weighted graphs 
+## Pros and cons
+
+### Advantages
+
+- Finds the shortest path in unweighted graphs
+- Explores the graph predictably, level by level
+
+### Disadvantages
+
+- Can use a lot of memory on wide graphs, since the queue holds an entire level
+- Ignores edge weights
+
+## When to use
+
+- To get the fewest steps between two vertices
+- To explore every vertex of a level before going deeper (social networks, web crawlers, mazes)
+
+## Related
+
+- [Queue](../../data-structures/queue.md)
+- [FIFO](../../concepts/fifo.md)
+- Depth-first search (DFS)
+- Dijkstra's algorithm (shortest paths in weighted graphs)

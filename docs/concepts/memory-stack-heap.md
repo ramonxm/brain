@@ -1,55 +1,62 @@
-# Memória Heap e Stack
+---
+sidebar_label: "Stack e Heap"
+description: "As duas principais regiões de memória de um programa e quando cada uma é usada."
+---
 
-Quando um programa é executado, a memória é alocada para armazenar variáveis e dados temporários. Duas áreas principais de memória são comumente utilizadas: **stack** e **heap**.
+# Memória stack e heap
 
-## O que é Stack?
+Durante a execução, um programa usa duas regiões principais de memória: a **stack**, para dados temporários das chamadas de função, e a **heap**, para dados alocados dinamicamente que precisam sobreviver além de uma chamada.
 
-A **stack** (ou pilha) é uma região de memória usada para armazenar variáveis locais e informações das funções em execução. Cada vez que uma função é chamada, um novo bloco (chamado de *frame*) é adicionado à stack, contendo:
+## Como funciona
+
+### Stack
+
+Cada chamada de função empilha um bloco (*frame*) na stack contendo:
 
 - Parâmetros da função
 - Variáveis locais (especialmente tipos primitivos)
-- Endereço de retorno (para saber para onde voltar após a execução da função)
+- Endereço de retorno
 
-Quando a função termina, esse bloco é removido automaticamente. A stack segue o modelo **LIFO (Last In, First Out)**: o último item adicionado é o primeiro a ser removido. Isso torna a stack muito eficiente, mas ela possui um tamanho limitado, determinado pelo sistema operacional ou pelo runtime.
+Quando a função termina, o frame é removido automaticamente. A stack segue o modelo [LIFO](./lifo.md): o último frame empilhado é o primeiro a sair.
 
-### Características da Stack
+- **Alocação**: automática, gerenciada pelo runtime
+- **Velocidade**: muito rápida
+- **Tamanho**: limitado; recursão profunda causa *stack overflow*
 
-- Alocação e liberação automáticas (gerenciadas pelo próprio runtime)
-- Extremamente rápida e eficiente
-- Tamanho limitado (pode causar *stack overflow* em casos de recursão profunda, por exemplo)
-- Usada para variáveis locais, chamadas de função e controle de fluxo
+### Heap
 
-## O que é Heap?
+A heap guarda memória reservada sob demanda durante a execução, como objetos, listas, árvores e grafos.
 
-A **heap** é uma área de memória usada para alocação dinâmica, ou seja, memória reservada durante a execução do programa conforme a necessidade.
+- **Alocação**: manual em C/C++ (`malloc`/`free`), automática via *garbage collector* em Java, JavaScript, Python e C#
+- **Velocidade**: mais lenta que a stack, devido ao gerenciamento
+- **Tamanho**: geralmente muito maior que a stack
+- **Riscos**: vazamentos de memória em linguagens sem garbage collector
 
-- Em linguagens de baixo nível (como C e C++), o programador é responsável por alocar (`malloc`) e liberar (`free`) essa memória manualmente.
-- Em linguagens de alto nível (como Java, JavaScript, Python, C#), o gerenciamento da heap é feito automaticamente por mecanismos de **garbage collection** (coletor de lixo), que libera a memória não mais utilizada.
+```python
+def build_list(n):
+    size = n            # 'size' e a referência 'items' vivem no frame (stack)
+    items = [0] * size  # a lista em si é alocada na heap
+    return items        # o frame é descartado; a lista continua na heap
+```
 
-A heap é geralmente utilizada para armazenar objetos e estruturas de dados de maior duração e complexidade, como listas, árvores, grafos, etc.
+## Comparativo
 
-### Características da Heap
+| Característica | Stack                              | Heap                                  |
+| :------------- | :--------------------------------- | :------------------------------------ |
+| Alocação       | Automática                         | Manual (C/C++) ou automática (GC)     |
+| Velocidade     | Muito rápida                       | Mais lenta                            |
+| Tamanho        | Limitado                           | Geralmente maior                      |
+| Uso            | Variáveis locais e chamadas        | Objetos e estruturas dinâmicas        |
+| Liberação      | Ao fim da função                   | Manual ou pelo garbage collector      |
+| Riscos         | Stack overflow                     | Vazamentos e fragmentação             |
 
-- Alocação e liberação manual (em C/C++) ou automática via garbage collector (em linguagens modernas)
-- Permite criar estruturas de dados dinâmicas e flexíveis
-- Mais lenta que a stack (devido à complexidade de gerenciamento)
-- Tamanho geralmente muito maior que a stack
-- Possibilidade de vazamentos de memória caso a liberação não seja feita corretamente (em linguagens sem garbage collector)
+## Quando usar
 
-## Diferenças entre Stack e Heap
+- **Stack**: dados pequenos com tempo de vida restrito a uma função
+- **Heap**: dados grandes, de tamanho desconhecido em tempo de compilação ou que precisam sobreviver à função que os criou
 
-| Stack                        | Heap                                |
-|------------------------------|-------------------------------------|
-| Alocação automática          | Alocação manual (C/C++) ou automática (GC) |
-| Muito rápida                 | Mais lenta                          |
-| Tamanho limitado             | Tamanho geralmente maior            |
-| Usada para variáveis locais e chamadas de função | Usada para objetos e estruturas dinâmicas |
-| Liberação automática         | Liberação manual ou automática (GC)  |
-| Menor risco de vazamentos    | Risco de vazamento em algumas situações |
+## Relacionados
 
-## Resumo
-
-- **Stack:** usada para dados temporários e chamadas de função, com gerenciamento automático e muito eficiente.
-- **Heap:** usada para alocação dinâmica de objetos e estruturas de dados mais complexas, com gerenciamento manual ou automático dependendo da linguagem.
-
-Entender como funcionam stack e heap é fundamental para escrever programas eficientes, escaláveis e com bom gerenciamento de memória.
+- [LIFO](./lifo.md)
+- [Pilha (stack)](../data-structures/stack.md)
+- [Threads](./thread.md)

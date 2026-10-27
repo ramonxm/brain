@@ -1,36 +1,42 @@
-# 🔄 Bubble Sort
+---
+sidebar_label: "Bubble Sort"
+description: "Ordenação por comparação de pares adjacentes, O(n²)."
+---
 
-## Introdução
+# Bubble Sort
 
-O **Bubble Sort** é um algoritmo de ordenação simples baseado em comparações.
-Ele percorre a lista diversas vezes, comparando pares de elementos adjacentes e trocando-os de lugar quando estão fora de ordem.  
-Esse processo é repetido até que o array esteja totalmente ordenado.
-
-## Complexidade
-
-- **Tempo (pior caso e médio)**: O(n²)
-- **Tempo (melhor caso – já ordenado)**: O(n)
-- **Espaço**: O(1) — algoritmo in-place
+O **Bubble Sort** é um algoritmo de ordenação por comparação que percorre o array várias vezes, trocando pares de elementos adjacentes que estão fora de ordem. A cada passada, o maior elemento restante "borbulha" até o final.
 
 ## Como funciona
 
-1. Percorra o array, comparando cada par de elementos adjacentes.
-2. Se o elemento atual for maior que o próximo, faça a troca.
-3. Ao final de cada passada, o maior elemento "borbulha" para o final da parte não ordenada.
-4. Repita o processo, reduzindo a área considerada, até não haver mais trocas.
+1. Percorra o array comparando cada par de elementos adjacentes.
+2. Se o elemento atual for maior que o próximo, troque-os de lugar.
+3. Ao final da passada, o maior elemento estará na última posição da parte não ordenada.
+4. Repita, ignorando a parte já ordenada, até uma passada terminar sem trocas.
 
-## Implementação (Python)
+## Complexidade
+
+| Métrica             | Complexidade |
+| :------------------ | :----------- |
+| Tempo (melhor caso) | O(n)         |
+| Tempo (caso médio)  | O(n²)        |
+| Tempo (pior caso)   | O(n²)        |
+| Espaço              | O(1)         |
+
+O melhor caso ocorre com o array já ordenado, graças à parada antecipada quando não há trocas. O algoritmo é **estável** e **in-place**.
+
+## Implementação
 
 ```python
 def bubble_sort(arr):
     n = len(arr)
     for i in range(n):
-        trocou = False
-        for j in range(0, n - i - 1):
+        swapped = False
+        for j in range(n - i - 1):
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
-                trocou = True
-        if not trocou:
+                swapped = True
+        if not swapped:
             break
 ```
 
@@ -44,23 +50,25 @@ print(arr)  # Saída: [11, 12, 22, 25, 34, 64, 90]
 
 ## Vantagens e desvantagens
 
-### ✅ Vantagens
+### Vantagens
 
-- Fácil de entender e implementar.
-- Não requer memória extra além do array original.
-- A versão otimizada consegue detectar se o array já está ordenado.
+- Simples de entender e implementar
+- Não usa memória extra
+- Detecta um array já ordenado em O(n)
 
-### ❌ Desvantagens
+### Desvantagens
 
-- Muito lento para listas grandes (O(n²)).
-- Pouco utilizado em aplicações reais, servindo mais para fins didáticos.
+- Muito lento para arrays grandes
+- Raramente usado fora de contextos didáticos
 
-## Quando usar Bubble Sort
+## Quando usar
 
-- Para fins educacionais, ao aprender sobre algoritmos de ordenação.
-- Em coleções **muito pequenas** ou que já estejam **quase ordenadas**.
+- Para aprender os fundamentos de ordenação
+- Em coleções muito pequenas ou quase ordenadas
 
-## Algoritmos relacionados
+## Relacionados
 
-- **Selection Sort**: seleciona o menor elemento e o coloca na posição correta.
-- **Insertion Sort**: constrói o array ordenado inserindo um elemento por vez.
+- [Selection Sort](./selection-sort.md)
+- [Merge Sort](./merge-sort.md)
+- [Swap](../../concepts/swap.md)
+- Insertion Sort

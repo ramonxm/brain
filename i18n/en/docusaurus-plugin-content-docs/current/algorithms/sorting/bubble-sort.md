@@ -1,26 +1,38 @@
-# 🔄 Bubble Sort
+---
+sidebar_label: "Bubble Sort"
+description: "Sorting by comparing adjacent pairs, O(n²)."
+---
 
-## Introduction
+# Bubble Sort
 
-**Bubble Sort** is a simple comparison-based sorting algorithm. It repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. This process is repeated until the list is sorted.
+**Bubble Sort** is a comparison-based sorting algorithm that walks through the array several times, swapping adjacent pairs that are out of order. On each pass, the largest remaining element "bubbles up" to the end.
+
+## How it works
+
+1. Walk through the array comparing each pair of adjacent elements.
+2. If the current element is greater than the next one, swap them.
+3. At the end of the pass, the largest element is in the last position of the unsorted part.
+4. Repeat, skipping the sorted part, until a pass finishes with no swaps.
 
 ## Complexity
-- **Time**: O(n²) in the worst and average case
-- **Space**: O(1) (in-place)
 
-## How It Works
-1. Compare each pair of adjacent elements
-2. Swap them if they are in the wrong order
-3. After each pass, the largest unsorted element "bubbles up" to its correct position
-4. Repeat until no swaps are needed
+| Metric              | Complexity |
+| :------------------ | :--------- |
+| Time (best case)    | O(n)       |
+| Time (average case) | O(n²)      |
+| Time (worst case)   | O(n²)      |
+| Space               | O(1)       |
+
+The best case happens with an already sorted array, thanks to the early exit when no swaps occur. The algorithm is **stable** and **in-place**.
 
 ## Implementation
+
 ```python
 def bubble_sort(arr):
     n = len(arr)
     for i in range(n):
         swapped = False
-        for j in range(0, n - i - 1):
+        for j in range(n - i - 1):
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
                 swapped = True
@@ -28,28 +40,35 @@ def bubble_sort(arr):
             break
 ```
 
-## Usage Example
+## Usage example
+
 ```python
 arr = [64, 34, 25, 12, 22, 11, 90]
 bubble_sort(arr)
 print(arr)  # Output: [11, 12, 22, 25, 34, 64, 90]
 ```
 
-## Advantages and Disadvantages
+## Pros and cons
 
-### ✅ Advantages
+### Advantages
+
 - Simple to understand and implement
-- Does not require extra memory (in-place)
-- Can detect if the list is already sorted (optimized version)
+- Uses no extra memory
+- Detects an already sorted array in O(n)
 
-### ❌ Disadvantages
-- Very slow for large lists (O(n²))
-- Not suitable for large datasets
+### Disadvantages
 
-## When to Use Bubble Sort
-- For educational purposes and learning sorting concepts
-- When working with very small or nearly sorted datasets
+- Very slow for large arrays
+- Rarely used outside teaching contexts
 
-## Related Algorithms
-- **Selection Sort**: Selects the minimum element and places it at the beginning
-- **Insertion Sort**: Builds the sorted array one item at a time 
+## When to use
+
+- To learn the fundamentals of sorting
+- On very small or nearly sorted collections
+
+## Related
+
+- [Selection Sort](./selection-sort.md)
+- [Merge Sort](./merge-sort.md)
+- [Swap](../../concepts/swap.md)
+- Insertion Sort

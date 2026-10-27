@@ -1,68 +1,66 @@
 ---
-sidebar_position: 1
+sidebar_label: "Two Sum"
+description: "Encontre dois índices cujos valores somam o alvo, em O(n) com hash map."
 ---
 
 # Two Sum
 
+Encontrar dois elementos de um array que somam um valor alvo, usando um hash map para resolver em uma única passada.
+
+:::info[Fonte]
+
+[LeetCode 1 — Two Sum](https://leetcode.com/problems/two-sum/)
+
+:::
+
 ## Problema
 
-Dado um array de números inteiros `nums` e um alvo `target`, retorne os índices dos dois números em `nums` que somam ao `target`.
-
-Você pode assumir que cada entrada terá exatamente uma solução, e você não pode usar o mesmo elemento duas vezes.
+Dado um array de inteiros `nums` e um inteiro `target`, retorne os índices dos dois números de `nums` cuja soma é `target`. Cada entrada tem exatamente uma solução, e o mesmo elemento não pode ser usado duas vezes.
 
 ## Solução
 
-```typescript
+```ts
 function twoSum(nums: number[], target: number): number[] {
-    const map = new Map<number, number>();
-    
-    for (let i = 0; i < nums.length; i++) {
-        const complement = target - nums[i];
-        
-        if (map.has(complement)) {
-            return [map.get(complement)!, i];
-        }
-        
-        map.set(nums[i], i);
+  const seen = new Map<number, number>(); // valor -> índice
+
+  for (let i = 0; i < nums.length; i++) {
+    const complement = target - nums[i];
+
+    if (seen.has(complement)) {
+      return [seen.get(complement)!, i];
     }
-    
-    return [];
+
+    seen.set(nums[i], i);
+  }
+
+  return [];
 }
 ```
 
 ## Explicação
 
-A solução utiliza um HashMap para armazenar os números já visitados e seus índices. Para cada número no array:
+1. Para cada número, calcule o complemento que falta para atingir o alvo (`target - nums[i]`).
+2. Se o complemento já foi visto, os índices dos dois formam a resposta.
+3. Caso contrário, guarde o número atual e seu índice no hash map.
 
-1. Calculamos o complemento necessário para atingir o alvo (target - número atual)
-2. Verificamos se o complemento já existe no HashMap
-3. Se existir, encontramos nossa solução
-4. Se não, adicionamos o número atual e seu índice ao HashMap
+A força bruta compara todos os pares em O(n²); o hash map troca esse custo por O(n) de memória.
 
 ## Complexidade
 
-- Tempo: O(n)
-- Espaço: O(n)
+| Métrica | Complexidade |
+| :------ | :----------- |
+| Tempo   | O(n)         |
+| Espaço  | O(n)         |
 
-## Exemplo
+## Casos de teste
 
-```typescript
-const nums = [2, 7, 11, 15];
-const target = 9;
-
-const result = twoSum(nums, target);
-console.log(result); // [0, 1]
+```ts
+console.log(twoSum([2, 7, 11, 15], 9));          // Saída: [0, 1]
+console.log(twoSum([-1, -2, -3, -4, -5], -8));   // Saída: [2, 4]
+console.log(twoSum([3, 3], 6));                  // Saída: [0, 1]
 ```
 
-## Casos de Teste
+## Relacionados
 
-```typescript
-// Teste 1: Caso básico
-console.log(twoSum([2, 7, 11, 15], 9)); // [0, 1]
-
-// Teste 2: Números negativos
-console.log(twoSum([-1, -2, -3, -4, -5], -8)); // [2, 4]
-
-// Teste 3: Números repetidos
-console.log(twoSum([3, 3], 6)); // [0, 1]
-```
+- [Array](../../../data-structures/array.md)
+- [Notação Big O](../../../concepts/big-o-notation.md)

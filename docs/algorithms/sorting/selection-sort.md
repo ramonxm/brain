@@ -1,24 +1,29 @@
-# 🔄 Selection Sort
+---
+sidebar_label: "Selection Sort"
+description: "Ordenação que seleciona o menor elemento a cada passada, O(n²)."
+---
 
-## Introdução
+# Selection Sort
 
-O **Selection Sort** é um algoritmo de ordenação simples baseado em comparações.
-Ele percorre o array repetidamente, selecionando o menor (ou maior) elemento da parte não ordenada e movendo-o para a posição correta na parte ordenada.
-
-## Complexidade
-
-- **Tempo (pior e médio caso)**: O(n²)
-- **Tempo (melhor caso)**: O(n²)
-- **Espaço**: O(1) — algoritmo in-place
+O **Selection Sort** é um algoritmo de ordenação por comparação que, a cada passada, seleciona o menor elemento da parte não ordenada e o coloca na posição correta.
 
 ## Como funciona
 
-1. Encontre o menor elemento na parte não ordenada do array.
-2. Troque esse elemento com o primeiro elemento da parte não ordenada.
+1. Encontre o menor elemento da parte não ordenada do array.
+2. Troque-o com o primeiro elemento da parte não ordenada.
 3. Avance a fronteira da parte ordenada em uma posição.
-4. Repita o processo até que todo o array esteja ordenado.
+4. Repita até que todo o array esteja ordenado.
 
-## Implementação (Python)
+## Complexidade
+
+| Métrica | Complexidade |
+| :------ | :----------- |
+| Tempo   | O(n²)        |
+| Espaço  | O(1)         |
+
+O número de comparações é sempre o mesmo, independentemente da entrada, por isso os três casos são O(n²). O algoritmo é **in-place**, mas **não é estável**.
+
+## Implementação
 
 ```python
 def selection_sort(arr):
@@ -41,23 +46,26 @@ print(arr)  # Saída: [11, 12, 22, 25, 64]
 
 ## Vantagens e desvantagens
 
-### ✅ Vantagens
+### Vantagens
 
-- Fácil de entender e implementar.
-- Não requer memória extra (ordenção in-place).
-- Tem um número fixo de comparações (independente da entrada estar quase ordenada ou não).
+- Simples de entender e implementar
+- Não usa memória extra
+- Faz no máximo n − 1 trocas, útil quando escrever na memória é caro
 
-### ❌ Desvantagens
+### Desvantagens
 
-- Muito lento para listas grandes (O(n²)).
-- Não é estável por padrão (a ordem relativa de elementos iguais pode mudar).
+- Muito lento para arrays grandes
+- Não aproveita arrays quase ordenados
+- Não é estável
 
-## Quando usar Selection Sort
+## Quando usar
 
-- Para fins didáticos, ao comparar diferentes algoritmos de ordenação.
-- Em coleções **muito pequenas**, onde a simplicidade é mais importante do que a performance.
+- Para fins didáticos, comparando algoritmos de ordenação
+- Em coleções muito pequenas, onde a simplicidade importa mais que o desempenho
 
-## Algoritmos relacionados
+## Relacionados
 
-- **Bubble Sort**: realiza trocas entre elementos adjacentes.
-- **Insertion Sort**: insere cada elemento na posição correta de uma sublista já ordenada.
+- [Bubble Sort](./bubble-sort.md)
+- [Quick Sort](./quick-sort.md)
+- [Swap](../../concepts/swap.md)
+- Insertion Sort

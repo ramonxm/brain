@@ -1,116 +1,96 @@
 ---
-sidebar_position: 4
+sidebar_label: "Roman to Integer"
+description: "Convert a Roman numeral to an integer."
 ---
 
 # Roman to Integer
 
-## Problema
+Converting a Roman numeral to an integer by walking the string once and handling the subtraction cases.
 
-Converta um número romano em um número inteiro.
+:::info[Source]
 
-Os números romanos são representados por sete símbolos diferentes: I, V, X, L, C, D e M.
+[LeetCode 13 — Roman to Integer](https://leetcode.com/problems/roman-to-integer/)
 
-```
-Símbolo    Valor
-I          1
-V          5
-X          10
-L          50
-C          100
-D          500
-M          1000
-```
+:::
 
-## Solução
+## Problem
 
-```typescript
+Given a string `s` holding a valid Roman numeral, return the corresponding integer. The symbols and their values are:
+
+| Symbol | Value |
+| :----: | ----: |
+| I      | 1     |
+| V      | 5     |
+| X      | 10    |
+| L      | 50    |
+| C      | 100   |
+| D      | 500   |
+| M      | 1000  |
+
+A smaller symbol before a larger one means subtraction, only in these cases:
+
+- **I** before V and X: 4 and 9
+- **X** before L and C: 40 and 90
+- **C** before D and M: 400 and 900
+
+## Solution
+
+```ts
+const VALUES: Record<string, number> = {
+  I: 1,
+  V: 5,
+  X: 10,
+  L: 50,
+  C: 100,
+  D: 500,
+  M: 1000,
+};
+
 function romanToInt(s: string): number {
-    const values = {
-        'I': 1,
-        'V': 5,
-        'X': 10,
-        'L': 50,
-        'C': 100,
-        'D': 500,
-        'M': 1000
-    };
-    
-    let result = 0;
-    
-    for (let i = 0; i < s.length; i++) {
-        const current = values[s[i]];
-        const next = i + 1 < s.length ? values[s[i + 1]] : 0;
-        
-        if (current < next) {
-            result += next - current;
-            i++; // Pula o próximo caractere
-        } else {
-            result += current;
-        }
+  let result = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    const current = VALUES[s[i]];
+    const next = i + 1 < s.length ? VALUES[s[i + 1]] : 0;
+
+    if (current < next) {
+      result += next - current;
+      i++; // the next symbol has already been consumed
+    } else {
+      result += current;
     }
-    
-    return result;
+  }
+
+  return result;
 }
 ```
 
-## Explicação
+## Explanation
 
-A solução funciona da seguinte forma:
+1. Walk through the string comparing each symbol with the next one.
+2. If the current one is smaller than the next, add their difference (subtraction case, such as `IV = 4`) and skip the next one.
+3. Otherwise, add only the current symbol's value.
 
-1. Criamos um mapa com os valores de cada símbolo romano
-2. Percorremos a string caractere por caractere
-3. Para cada caractere:
-   - Comparamos seu valor com o próximo caractere
-   - Se o valor atual for menor que o próximo, subtraímos (caso especial como IV = 4)
-   - Caso contrário, apenas somamos o valor atual
+## Complexity
 
-## Complexidade
+| Metric | Complexity |
+| :----- | :--------- |
+| Time   | O(n)       |
+| Space  | O(1)       |
 
-- Tempo: O(n)
-- Espaço: O(1)
+## Test cases
 
-## Exemplo
-
-```typescript
-console.log(romanToInt('III')); // 3
-console.log(romanToInt('IV')); // 4
-console.log(romanToInt('IX')); // 9
-console.log(romanToInt('LVIII')); // 58
-console.log(romanToInt('MCMXCIV')); // 1994
+```ts
+console.log(romanToInt("III"));      // Output: 3
+console.log(romanToInt("IV"));       // Output: 4
+console.log(romanToInt("IX"));       // Output: 9
+console.log(romanToInt("XL"));       // Output: 40
+console.log(romanToInt("CM"));       // Output: 900
+console.log(romanToInt("LVIII"));    // Output: 58
+console.log(romanToInt("MCMXCIV"));  // Output: 1994
 ```
 
-## Casos de Teste
+## Related
 
-```typescript
-// Teste 1: Números simples
-console.log(romanToInt('III')); // 3
-console.log(romanToInt('VII')); // 7
-
-// Teste 2: Subtrações
-console.log(romanToInt('IV')); // 4
-console.log(romanToInt('IX')); // 9
-console.log(romanToInt('XL')); // 40
-console.log(romanToInt('XC')); // 90
-console.log(romanToInt('CD')); // 400
-console.log(romanToInt('CM')); // 900
-
-// Teste 3: Números complexos
-console.log(romanToInt('LVIII')); // 58
-console.log(romanToInt('MCMXCIV')); // 1994
-```
-
-## Regras dos Números Romanos
-
-1. Os símbolos I, X, C, e M podem ser repetidos até três vezes consecutivas
-2. Os símbolos V, L, e D não podem ser repetidos
-3. Os símbolos podem ser subtraídos apenas nas seguintes situações:
-   - I pode ser colocado antes de V (5) e X (10) para formar 4 e 9
-   - X pode ser colocado antes de L (50) e C (100) para formar 40 e 90
-   - C pode ser colocado antes de D (500) e M (1000) para formar 400 e 900
-
-## Observações
-
-- A solução é eficiente e direta
-- Lida corretamente com todos os casos especiais de subtração
-- Não requer estruturas de dados complexas
-- É fácil de entender e manter
+- [Two Sum](./two-sum.md)
+- [Array](../../../data-structures/array.md)

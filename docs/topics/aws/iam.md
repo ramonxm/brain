@@ -1,26 +1,40 @@
+---
+sidebar_label: "IAM"
+description: "Identity and Access Management: controle de acesso aos recursos da AWS."
+---
+
 # IAM (Identity and Access Management)
 
-## O que é o IAM?
+O **IAM** é o serviço da AWS que controla **quem** pode acessar **quais** recursos e **o que** pode fazer com eles. É um serviço global e gratuito, presente em toda conta AWS.
 
-O IAM (Identity and Access Management) é o serviço da AWS responsável por controlar o acesso aos recursos da nuvem. Ele permite que você:
+## Como funciona
 
-- Crie usuários e grupos para pessoas ou aplicações que precisam acessar a AWS.
-- Defina permissões detalhadas usando políticas, determinando exatamente o que cada usuário ou grupo pode ou não pode fazer.
-- Implemente o princípio do menor privilégio, concedendo apenas as permissões necessárias para cada tarefa.
-- Gerencie credenciais de acesso, como senhas, chaves de acesso e autenticação multifator (MFA).
-- Permita o acesso federado, integrando com provedores de identidade externos (como Google, Facebook, ou diretórios corporativos).
+Toda requisição à AWS é feita por uma identidade autenticada. O IAM avalia as [policies](./policies.md) associadas a essa identidade e ao recurso para decidir se a ação é permitida. Por padrão, tudo é negado.
 
-## Principais componentes do IAM
+## Componentes
 
-- **Usuários:** Representam pessoas ou aplicações que precisam acessar a AWS.
-- **Grupos:** Coleções de usuários com permissões semelhantes.
-- **Políticas:** Documentos em JSON que definem permissões.
-- **Funções:** Permitem conceder permissões temporárias a usuários ou serviços.
-- **Provedores de identidade:** Permitem autenticação de usuários externos.
+- **Usuários**: pessoas ou aplicações com credenciais de longo prazo (senha, chaves de acesso)
+- **Grupos**: coleções de usuários que compartilham as mesmas permissões
+- **Funções (*roles*)**: identidades com permissões temporárias, assumidas por usuários, serviços ou contas externas
+- **Policies**: documentos JSON que definem as permissões
+- **Provedores de identidade**: integração com logins externos (SAML, OIDC, diretórios corporativos)
+
+## Aplicações
+
+- Dar a cada pessoa da equipe apenas o acesso de que ela precisa
+- Permitir que um serviço (como uma função Lambda) acesse outro (como um bucket S3) sem chaves fixas no código
+- Conceder acesso temporário a outra conta AWS
+- Exigir autenticação multifator (MFA) em operações sensíveis
 
 ## Boas práticas
 
-- Nunca use o usuário root para tarefas diárias.
-- Ative a autenticação multifator (MFA) para usuários privilegiados.
-- Conceda apenas as permissões necessárias (princípio do menor privilégio).
-- Revise e atualize permissões regularmente.
+- Não use o usuário *root* em tarefas do dia a dia
+- Ative o MFA, especialmente para usuários privilegiados
+- Conceda o mínimo de permissões necessário (princípio do menor privilégio)
+- Prefira *roles* com credenciais temporárias a chaves de acesso de longo prazo
+- Revise periodicamente as permissões e remova o que não é usado
+
+## Relacionados
+
+- [Policies](./policies.md)
+- [AWS](./index.md)

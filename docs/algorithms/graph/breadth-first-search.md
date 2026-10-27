@@ -1,69 +1,86 @@
-# 🕸️ Breadth-First Search (BFS)
+---
+sidebar_label: "Busca em Largura (BFS)"
+description: "Percorre um grafo nível a nível; encontra o menor caminho em grafos não ponderados."
+---
 
-## Introdução
+# Busca em largura (BFS)
 
-O **Breadth-First Search (BFS)** é um algoritmo de busca em grafos que explora primeiro todos os vizinhos de um vértice, antes de avançar para o próximo "nível" de vizinhos.
-Ele é muito utilizado para encontrar o **menor caminho em grafos não ponderados**.
+A **busca em largura** (*Breadth-First Search*, BFS) percorre um grafo visitando primeiro todos os vizinhos de um vértice antes de avançar para o próximo nível. Por isso, ela encontra o **menor caminho em número de arestas** em grafos não ponderados.
 
 ## Como funciona
 
-1. Comece a partir de um vértice origem e coloque-o em uma fila.
-2. Marque o vértice como visitado.
-3. Enquanto a fila não estiver vazia:
-   - Retire um vértice da fila.
-   - Visite todos os seus vizinhos ainda não visitados.
-   - Marque esses vizinhos como visitados e coloque-os na fila.
+1. Marque o vértice de origem como visitado e coloque-o em uma [fila](../../data-structures/queue.md).
+2. Enquanto a fila não estiver vazia, retire o vértice do início.
+3. Para cada vizinho ainda não visitado, marque-o como visitado e coloque-o no final da fila.
 
-## Implementação (Python)
+Como a fila é [FIFO](../../concepts/fifo.md), todos os vértices a distância `k` são processados antes dos vértices a distância `k + 1`.
+
+## Complexidade
+
+| Métrica | Complexidade |
+| :------ | :----------- |
+| Tempo   | O(V + E)     |
+| Espaço  | O(V)         |
+
+V é o número de vértices e E, o número de arestas. Cada vértice entra na fila uma vez e cada aresta é examinada uma vez (duas, em grafos não direcionados).
+
+## Implementação
 
 ```python
 from collections import deque
 
+
 def bfs(graph, start):
-    visited = set()
+    visited = {start}
     queue = deque([start])
-    visited.add(start)
+    order = []
 
     while queue:
         node = queue.popleft()
-        print(node, end=" ")
+        order.append(node)
         for neighbor in graph[node]:
             if neighbor not in visited:
                 visited.add(neighbor)
                 queue.append(neighbor)
 
-# Exemplo de uso
-graph = {
-    'A': ['B', 'C'],
-    'B': ['A', 'D', 'E'],
-    'C': ['A', 'F'],
-    'D': ['B'],
-    'E': ['B', 'F'],
-    'F': ['C', 'E'],
-}
-
-bfs(graph, 'A')  # Saída: A B C D E F
+    return order
 ```
 
-## Aplicações
+## Exemplo de uso
 
-- Encontrar o menor caminho em grafos não ponderados.
-- Implementação de web crawlers.
-- Análise de redes sociais (nível de conexão entre pessoas).
-- Broadcast em redes.
-- Resolução de quebra-cabeças (como word ladder, variações de labirinto, etc.).
+```python
+graph = {
+    "A": ["B", "C"],
+    "B": ["A", "D", "E"],
+    "C": ["A", "F"],
+    "D": ["B"],
+    "E": ["B", "F"],
+    "F": ["C", "E"],
+}
 
-## Complexidade
+print(bfs(graph, "A"))  # Saída: ['A', 'B', 'C', 'D', 'E', 'F']
+```
 
-- **Tempo**: O(V + E), onde V é o número de vértices e E é o número de arestas.
-- **Espaço**: O(V), devido à fila e ao conjunto de vértices visitados.
+## Vantagens e desvantagens
 
-## Quando usar BFS
+### Vantagens
 
-- Quando você precisa do **menor número de passos** em um grafo não ponderado.
-- Quando deseja explorar todos os nós de um nível antes de ir mais fundo.
+- Encontra o menor caminho em grafos não ponderados
+- Explora o grafo de forma previsível, nível a nível
 
-## Algoritmos relacionados
+### Desvantagens
 
-- **Depth-First Search (DFS)**: explora o grafo indo o mais fundo possível antes de voltar.
-- **Dijkstra**: encontra o menor caminho em grafos ponderados com pesos não negativos.
+- Pode usar muita memória em grafos largos, pois a fila guarda um nível inteiro
+- Não considera pesos nas arestas
+
+## Quando usar
+
+- Para obter o menor número de passos entre dois vértices
+- Para explorar todos os vértices de um nível antes de ir mais fundo (redes sociais, web crawlers, labirintos)
+
+## Relacionados
+
+- [Fila (queue)](../../data-structures/queue.md)
+- [FIFO](../../concepts/fifo.md)
+- Busca em profundidade (DFS)
+- Algoritmo de Dijkstra (menor caminho em grafos ponderados)

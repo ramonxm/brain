@@ -1,127 +1,110 @@
 ---
-sidebar_position: 3
+sidebar_label: "Sort List"
+description: "Sort a linked list in O(n log n) with Merge Sort."
 ---
 
 # Sort List
 
-## Problema
+Sorting a linked list in O(n log n) by adapting [Merge Sort](../../sorting/merge-sort.md), which only needs to adjust pointers.
 
-Dada a cabeça de uma lista encadeada, retorne a lista encadeada ordenada em ordem crescente.
+:::info[Source]
 
-## Solução
+[LeetCode 148 — Sort List](https://leetcode.com/problems/sort-list/)
 
-```typescript
+:::
+
+## Problem
+
+Given the `head` of a linked list, return the list sorted in ascending order.
+
+## Solution
+
+```ts
 class ListNode {
-    val: number;
-    next: ListNode | null;
-    constructor(val?: number, next?: ListNode | null) {
-        this.val = (val === undefined ? 0 : val);
-        this.next = (next === undefined ? null : next);
-    }
+  val: number;
+  next: ListNode | null;
+  constructor(val?: number, next?: ListNode | null) {
+    this.val = val ?? 0;
+    this.next = next ?? null;
+  }
 }
 
 function sortList(head: ListNode | null): ListNode | null {
-    if (!head || !head.next) {
-        return head;
-    }
-    
-    // Encontra o meio da lista usando o método "fast and slow pointers"
-    let slow: ListNode | null = head;
-    let fast: ListNode | null = head.next;
-    
-    while (fast && fast.next) {
-        slow = slow!.next;
-        fast = fast.next.next;
-    }
-    
-    // Divide a lista em duas partes
-    const mid = slow!.next;
-    slow!.next = null;
-    
-    // Ordena recursivamente as duas metades
-    const left = sortList(head);
-    const right = sortList(mid);
-    
-    // Combina as duas metades ordenadas
-    return merge(left, right);
+  if (!head || !head.next) {
+    return head;
+  }
+
+  // Find the middle with slow and fast pointers
+  let slow = head;
+  let fast = head.next;
+  while (fast && fast.next) {
+    slow = slow.next!;
+    fast = fast.next.next;
+  }
+
+  // Split the list into two halves
+  const mid = slow.next;
+  slow.next = null;
+
+  return merge(sortList(head), sortList(mid));
 }
 
 function merge(l1: ListNode | null, l2: ListNode | null): ListNode | null {
-    const dummy = new ListNode(0);
-    let current = dummy;
-    
-    while (l1 && l2) {
-        if (l1.val <= l2.val) {
-            current.next = l1;
-            l1 = l1.next;
-        } else {
-            current.next = l2;
-            l2 = l2.next;
-        }
-        current = current.next;
+  const dummy = new ListNode();
+  let current = dummy;
+
+  while (l1 && l2) {
+    if (l1.val <= l2.val) {
+      current.next = l1;
+      l1 = l1.next;
+    } else {
+      current.next = l2;
+      l2 = l2.next;
     }
-    
-    if (l1) current.next = l1;
-    if (l2) current.next = l2;
-    
-    return dummy.next;
+    current = current.next;
+  }
+
+  current.next = l1 ?? l2;
+  return dummy.next;
 }
 ```
 
-## Explicação
+## Explanation
 
-A solução utiliza o algoritmo Merge Sort adaptado para listas encadeadas:
+1. Find the middle of the list with two pointers: the slow one moves one node at a time and the fast one, two. When the fast pointer reaches the end, the slow one is at the middle.
+2. Cut the list into two halves.
+3. Sort each half recursively.
+4. Merge the two sorted halves, using a sentinel node (`dummy`) to simplify building the resulting list.
 
-1. Divide a lista em duas metades usando a técnica de ponteiros rápido e lento
-2. Ordena recursivamente cada metade
-3. Combina as duas metades ordenadas
+## Complexity
 
-O processo de divisão e combinação continua até que a lista esteja completamente ordenada.
+| Metric | Complexity |
+| :----- | :--------- |
+| Time   | O(n log n) |
+| Space  | O(log n)   |
 
-## Complexidade
+The space comes from the recursion stack; merging allocates no new nodes. The solution is **stable**.
 
-- Tempo: O(n log n)
-- Espaço: O(log n) devido à recursão
+## Test cases
 
-## Exemplo
+```ts
+function fromArray(values: number[]): ListNode | null {
+  return values.reduceRight<ListNode | null>((next, val) => new ListNode(val, next), null);
+}
 
-```typescript
-// Criando a lista: 4 -> 2 -> 1 -> 3
-const head = new ListNode(4);
-head.next = new ListNode(2);
-head.next.next = new ListNode(1);
-head.next.next.next = new ListNode(3);
+function toArray(head: ListNode | null): number[] {
+  const values: number[] = [];
+  for (let node = head; node; node = node.next) values.push(node.val);
+  return values;
+}
 
-const sorted = sortList(head);
-// Resultado: 1 -> 2 -> 3 -> 4
+console.log(toArray(sortList(fromArray([4, 2, 1, 3]))));     // Output: [1, 2, 3, 4]
+console.log(toArray(sortList(fromArray([-1, 5, 3, 4, 0])))); // Output: [-1, 0, 3, 4, 5]
+console.log(toArray(sortList(fromArray([3, 1, 3, 1]))));     // Output: [1, 1, 3, 3]
+console.log(toArray(sortList(fromArray([]))));               // Output: []
 ```
 
-## Casos de Teste
+## Related
 
-```typescript
-// Teste 1: Lista já ordenada
-const test1 = new ListNode(1);
-test1.next = new ListNode(2);
-test1.next.next = new ListNode(3);
-console.log(sortList(test1)); // 1 -> 2 -> 3
-
-// Teste 2: Lista em ordem reversa
-const test2 = new ListNode(3);
-test2.next = new ListNode(2);
-test2.next.next = new ListNode(1);
-console.log(sortList(test2)); // 1 -> 2 -> 3
-
-// Teste 3: Lista com elementos repetidos
-const test3 = new ListNode(3);
-test3.next = new ListNode(1);
-test3.next.next = new ListNode(3);
-test3.next.next.next = new ListNode(1);
-console.log(sortList(test3)); // 1 -> 1 -> 3 -> 3
-```
-
-## Observações
-
-- A solução é estável (mantém a ordem relativa de elementos iguais)
-- Usa espaço extra O(log n) devido à recursão
-- É eficiente para listas encadeadas, pois não requer acesso aleatório
-- O Merge Sort é uma boa escolha para listas encadeadas porque não requer trocas de elementos, apenas ajustes nos ponteiros
+- [Merge Sort](../../sorting/merge-sort.md)
+- [Linked list](../../../data-structures/linked-list.md)

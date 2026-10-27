@@ -1,28 +1,44 @@
-# Regiões e AZs
+---
+sidebar_label: "Regiões e AZs"
+description: "Como a infraestrutura global da AWS é organizada em regiões e zonas de disponibilidade."
+---
 
+# Regiões e zonas de disponibilidade
 
-## O que são Regiões na AWS?
-
-As regiões da AWS são áreas geográficas distintas que contêm múltiplos data centers fisicamente separados, chamados de Zonas de Disponibilidade (AZs). Cada região é isolada das demais para garantir maior segurança e resiliência.
-
+A infraestrutura global da AWS é organizada em **regiões**, áreas geográficas isoladas entre si, e cada região é formada por várias **zonas de disponibilidade** (AZs), grupos de data centers fisicamente separados.
 
 ![Mapa das regiões AWS](/img/regions.png)
 
+## Regiões
 
-## Zonas de Disponibilidade (AZs)
+- **Isolamento**: regiões não compartilham recursos entre si por padrão, o que aumenta a segurança e a independência
+- **Identificação**: cada região tem um código, como `us-east-1` (Norte da Virgínia) ou `sa-east-1` (São Paulo)
+- **Escopo**: a maioria dos serviços é regional; alguns, como o IAM, são globais
 
-Uma Zona de Disponibilidade é composta por um ou mais data centers independentes, com energia, rede e conectividade redundantes. As AZs de uma mesma região são interligadas por conexões de alta velocidade e baixa latência, permitindo a criação de aplicações tolerantes a falhas.
+## Zonas de disponibilidade (AZs)
 
+- **Composição**: um ou mais data centers independentes, com energia, rede e conectividade redundantes
+- **Conexão**: as AZs de uma região são interligadas por links de alta velocidade e baixa latência
+- **Objetivo**: distribuir uma aplicação entre AZs permite que ela continue no ar se um data center falhar
 
+## Data centers
 
-## Data Centers
+Instalações físicas que abrigam servidores, armazenamento e equipamentos de rede. A AWS os distribui pelo mundo para garantir disponibilidade, redundância e proximidade dos usuários finais.
 
-Os data centers são instalações físicas que abrigam servidores, sistemas de armazenamento e equipamentos de rede. A AWS distribui seus data centers estrategicamente pelo mundo para garantir disponibilidade, redundância e proximidade dos usuários finais.
+## Como escolher a região
 
-## Interconexão e Estrutura
+- **Latência**: regiões próximas aos usuários respondem mais rápido
+- **Custo**: preços variam entre regiões, por impostos, custos operacionais e demanda
+- **Conformidade**: leis de proteção de dados podem exigir que os dados fiquem em um país
+- **Disponibilidade de serviços**: nem todo serviço existe em todas as regiões
 
-As regiões não compartilham recursos entre si por padrão, o que aumenta a segurança e a independência. Já as AZs dentro de uma mesma região são conectadas para facilitar a replicação de dados e a alta disponibilidade das aplicações.
+## Boas práticas
 
-## Impacto em Custos e Desempenho
+- Distribua aplicações críticas em pelo menos duas AZs
+- Escolha a região considerando latência, custo e requisitos legais
+- Use múltiplas regiões apenas quando houver necessidade real de recuperação de desastres ou alcance global
 
-A escolha da região pode impactar diretamente o custo dos serviços e a latência das aplicações. Regiões mais próximas dos usuários finais tendem a oferecer melhor desempenho. Além disso, os preços dos serviços podem variar entre regiões devido a fatores como impostos, custos operacionais e demanda local.
+## Relacionados
+
+- [AWS](./index.md)
+- [IAM](./iam.md)
