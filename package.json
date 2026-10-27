@@ -2,44 +2,41 @@
   "name": "brain",
   "version": "0.0.0",
   "private": true,
+  "description": "Notas de estudo sobre algoritmos, estruturas de dados e fundamentos da computação.",
+  "license": "MIT",
   "scripts": {
-    "build": "docusaurus build",
-    "build:en": "docusaurus build --locale en",
-    "build:pt-BR": "docusaurus build --locale pt-BR",
-    "clear": "docusaurus clear",
-    "deploy": "docusaurus deploy",
-    "docusaurus": "docusaurus",
-    "i18n:extract": "docusaurus write-translations",
-    "i18n:write-en": "docusaurus write-translations --locale en",
-    "rename-version": "docusaurus-rename-version",
-    "serve": "docusaurus serve",
     "start": "docusaurus start",
     "start:en": "docusaurus start --locale en",
-    "start:pt-BR": "docusaurus start --locale pt-BR",
+    "build": "docusaurus build",
+    "build:pt-BR": "docusaurus build --locale pt-BR",
+    "build:en": "docusaurus build --locale en",
+    "serve": "docusaurus serve",
+    "clear": "docusaurus clear",
+    "typecheck": "tsc",
+    "i18n:write-en": "docusaurus write-translations --locale en",
     "swizzle": "docusaurus swizzle",
-    "version": "docusaurus-version",
-    "write-translations": "docusaurus write-translations",
-    "lint": "eslint .",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "deploy-gh-pages": "GIT_USER=ramonxm USE_SSH=true yarn deploy"
+    "deploy": "docusaurus deploy",
+    "deploy-gh-pages": "GIT_USER=ramonxm USE_SSH=true yarn deploy",
+    "docusaurus": "docusaurus"
   },
   "dependencies": {
-    "@docusaurus/core": "3.8.1",
-    "@docusaurus/preset-classic": "3.8.1",
-    "@docusaurus/plugin-ideal-image": "3.8.1",
-    "@docusaurus/theme-mermaid": "3.8.1",
-    "@mdx-js/react": "^3.1.0",
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/faster": "3.10.2",
+    "@docusaurus/plugin-ideal-image": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
+    "@docusaurus/theme-mermaid": "3.10.2",
+    "@easyops-cn/docusaurus-search-local": "^0.55.3",
+    "@mdx-js/react": "^3.1.1",
     "clsx": "^2.1.1",
     "prism-react-renderer": "^2.4.1",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.8.1",
-    "@docusaurus/tsconfig": "3.8.1",
-    "@docusaurus/types": "3.8.1",
-    "typescript": "~5.8.3"
+    "@docusaurus/module-type-aliases": "3.10.2",
+    "@docusaurus/tsconfig": "3.10.2",
+    "@docusaurus/types": "3.10.2",
+    "typescript": "~5.9.3"
   },
   "browserslist": {
     "production": [
@@ -54,6 +51,6 @@
     ]
   },
   "engines": {
-    "node": ">=18.0"
+    "node": ">=20.0"
   }
 }
