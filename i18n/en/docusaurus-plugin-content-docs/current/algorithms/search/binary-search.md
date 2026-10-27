@@ -1,75 +1,103 @@
-# 🔍 Binary Search
+---
+sidebar_label: "Binary Search"
+description: "Searching sorted arrays by halving the interval, O(log n)."
+---
 
-## Introduction
+# Binary search
 
-**Binary Search** is an efficient search algorithm that works by repeatedly dividing a sorted array in half to find a specific element.
+**Binary search** finds an element in a **sorted** array by halving the search interval at each step, until it finds the target or the interval is exhausted.
+
+:::warning[Prerequisite]
+
+The array **must be sorted**. On an unsorted array, binary search may miss elements that are present.
+
+:::
+
+## How it works
+
+1. Compare the middle element of the interval with the target.
+2. If they are equal, return the middle position.
+3. If the target is smaller, keep searching only the left half.
+4. If the target is larger, keep searching only the right half.
+5. Repeat until the target is found or the interval is empty.
 
 ## Complexity
-- **Time**: O(log n)
-- **Space**: O(1) iterative, O(log n) recursive
 
-## How It Works
-1. Compare the middle element of the array to the target
-2. If equal, the element is found
-3. If the target is less, search the left half
-4. If the target is greater, search the right half
-5. Repeat until found or the search space is empty
+| Metric              | Complexity                          |
+| :------------------ | :---------------------------------- |
+| Time (best case)    | O(1)                                |
+| Time (average case) | O(log n)                            |
+| Time (worst case)   | O(log n)                            |
+| Space               | O(1) iterative, O(log n) recursive  |
 
 ## Implementation
 
-### Iterative Version
+### Iterative
+
 ```python
 def binary_search(arr, target):
     left, right = 0, len(arr) - 1
+
     while left <= right:
         mid = (left + right) // 2
+
         if arr[mid] == target:
             return mid
-        elif arr[mid] < target:
+        if arr[mid] < target:
             left = mid + 1
         else:
             right = mid - 1
-    return -1  # Element not found
+
+    return -1  # not found
 ```
 
-### Recursive Version
+### Recursive
+
 ```python
 def binary_search_recursive(arr, target, left=0, right=None):
     if right is None:
         right = len(arr) - 1
     if left > right:
         return -1
+
     mid = (left + right) // 2
+
     if arr[mid] == target:
         return mid
-    elif arr[mid] < target:
+    if arr[mid] < target:
         return binary_search_recursive(arr, target, mid + 1, right)
-    else:
-        return binary_search_recursive(arr, target, left, mid - 1)
+    return binary_search_recursive(arr, target, left, mid - 1)
 ```
 
-## Usage Example
+## Usage example
+
 ```python
-# Sorted array
 arr = [1, 3, 5, 7, 9, 11, 13, 15]
-target = 7
 
-# Search
-index = binary_search(arr, target)
-print(f"Element {target} found at index: {index}")  # Output: 3
+print(binary_search(arr, 7))   # Output: 3
+print(binary_search(arr, 4))   # Output: -1
 ```
 
-## Prerequisites
-⚠️ **Important**: The array must be **sorted** for binary search to work correctly.
+## Pros and cons
 
-## Advantages and Disadvantages
+### Advantages
 
-### ✅ Advantages
-- Very efficient for large arrays
-- O(log n) time complexity
-- Minimal memory usage in the iterative version
+- Very efficient on large arrays
+- The iterative version uses no extra memory
 
-### ❌ Disadvantages
-- Requires a sorted array
-- Not efficient for linked lists
-- O(log n) space complexity in the recursive version
+### Disadvantages
+
+- Requires sorted data
+- Requires O(1) access by index, which does not work well on linked lists
+- The recursive version uses O(log n) stack space
+
+## When to use
+
+- For repeated searches over a large sorted collection
+- To find boundaries in monotonic search spaces (for example, the smallest value that satisfies a condition)
+
+## Related
+
+- [Array](../../data-structures/array.md)
+- [Big O notation](../../concepts/big-o-notation.md)
+- [Binary tree](../../data-structures/binary-tree.md)

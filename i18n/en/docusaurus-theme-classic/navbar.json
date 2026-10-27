@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "brain.xavier",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "brain.xavier",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Conceitos": {
+    "message": "Concepts",
+    "description": "Navbar item with label Conceitos"
+  },
+  "item.label.Estruturas de Dados": {
+    "message": "Data Structures",
+    "description": "Navbar item with label Estruturas de Dados"
+  },
+  "item.label.Algoritmos": {
+    "message": "Algorithms",
+    "description": "Navbar item with label Algoritmos"
+  },
+  "item.label.Tópicos": {
+    "message": "Topics",
+    "description": "Navbar item with label Tópicos"
+  }
+}

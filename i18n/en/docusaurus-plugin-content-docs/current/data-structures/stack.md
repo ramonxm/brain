@@ -1,51 +1,73 @@
-# 📚 Stack
+---
+sidebar_label: "Stack"
+description: "A linear LIFO structure with insertion and removal at the top."
+---
 
-## Introduction
+# Stack
 
-A **stack** is a linear data structure that follows the Last-In, First-Out (LIFO) principle. The last element added is the first one to be removed.
+A **stack** is a linear structure that follows the [LIFO](../concepts/lifo.md) policy: the last element inserted is the first one removed. Every operation happens at a single end, the **top**.
 
-## Key Operations
-- **Push**: Add an element to the top of the stack (O(1))
-- **Pop**: Remove the top element from the stack (O(1))
-- **Peek/Top**: View the top element without removing it (O(1))
-- **IsEmpty**: Check if the stack is empty
+## How it works
 
-## Example (Python)
+- **Push**: adds an element to the top
+- **Pop**: removes and returns the top element
+- **Peek**: reads the top without removing it
+- **Is empty**: checks whether the stack is empty
+
+## Complexity
+
+| Operation | Complexity |
+| :-------- | :--------- |
+| Push      | O(1)       |
+| Pop       | O(1)       |
+| Peek      | O(1)       |
+| Search    | O(n)       |
+
+## Implementation
+
+In Python, a `list` already works as a stack by using its end as the top:
 
 ```python
 stack = []
 
-# Push elements
-stack.append(10)
+stack.append(10)  # push
 stack.append(20)
 stack.append(30)
 
-# Peek at the top
-print(stack[-1])  # Output: 30
+print(stack[-1])     # Output: 30 (peek)
+print(stack.pop())   # Output: 30
+print(stack.pop())   # Output: 20
 
-# Pop elements
-print(stack.pop())  # Output: 30
-print(stack.pop())  # Output: 20
-
-# Check if empty
 if not stack:
-    print("Stack is empty!")
+    print("Stack is empty")
 ```
 
 ## Applications
-- Function call management (call stack)
-- Undo/redo features in editors
-- Expression evaluation (postfix, prefix)
-- Syntax parsing
 
-## When to Use a Stack
-- When you need to reverse data
-- When you need to track nested or recursive operations
+- Function call stack
+- Undo/redo in editors
+- Expression evaluation (postfix notation) and bracket matching
+- Parsing and depth-first search (DFS)
 
-## Limitations
-- Only the top element is accessible
-- Not suitable for random access
+## Pros and cons
 
-## Related Data Structures
-- **Queue**: Follows First-In, First-Out (FIFO)
-- **Deque**: Double-ended queue, allows insertion/removal from both ends 
+### Advantages
+
+- Every main operation is O(1)
+- Simple to implement on top of an array or linked list
+
+### Disadvantages
+
+- Only the top is accessible
+- Not suited for random access
+
+## When to use
+
+- When you need to reverse the order of data
+- To keep track of nested or recursive operations
+
+## Related
+
+- [LIFO](../concepts/lifo.md)
+- [Queue](./queue.md)
+- [Stack and heap memory](../concepts/memory-stack-heap.md)

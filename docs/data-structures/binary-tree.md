@@ -1,23 +1,40 @@
-# Árvore Binária
+---
+sidebar_label: "Árvore Binária"
+description: "Estrutura hierárquica em que cada nó tem no máximo dois filhos."
+---
 
-## Introdução
+# Árvore binária
 
-Uma **árvore binária** é uma estrutura de dados hierárquica na qual cada nó possui no máximo dois filhos, chamados de filho esquerdo e filho direito.
+Uma **árvore binária** é uma estrutura hierárquica em que cada nó tem no máximo dois filhos, chamados de filho esquerdo e filho direito. Quando os valores seguem a regra `esquerda < nó < direita`, ela é uma **árvore binária de busca** (BST).
 
-## Propriedades Principais
-- **Raiz**: O nó superior da árvore
-- **Folha**: Um nó sem filhos
-- **Altura**: O comprimento do caminho mais longo da raiz até uma folha
-- **Profundidade**: O comprimento do caminho da raiz até um nó
+## Como funciona
 
-## Tipos de Árvores Binárias
-- **Árvore Binária Cheia**: Todo nó tem 0 ou 2 filhos
-- **Árvore Binária Completa**: Todos os níveis estão completos, exceto possivelmente o último, que é preenchido da esquerda para a direita
-- **Árvore Binária Perfeita**: Todos os nós internos têm dois filhos e todas as folhas estão no mesmo nível
-- **Árvore Binária Balanceada**: A altura da árvore é minimizada
-- **Árvore de Busca Binária (BST)**: Filho esquerdo < pai < filho direito
+- **Raiz**: o nó no topo da árvore
+- **Folha**: nó sem filhos
+- **Altura**: comprimento do caminho mais longo da raiz até uma folha
+- **Profundidade**: comprimento do caminho da raiz até um nó
 
-## Exemplo (Python)
+Tipos comuns:
+
+- **Cheia**: todo nó tem 0 ou 2 filhos
+- **Completa**: todos os níveis estão completos, exceto talvez o último, preenchido da esquerda para a direita
+- **Perfeita**: todos os nós internos têm dois filhos e todas as folhas estão no mesmo nível
+- **Balanceada**: a altura é mantida em O(log n)
+
+## Complexidade
+
+Para uma árvore binária de busca:
+
+| Operação | Complexidade (balanceada) | Complexidade (pior caso) |
+| :------- | :------------------------ | :----------------------- |
+| Busca    | O(log n)                  | O(n)                     |
+| Inserção | O(log n)                  | O(n)                     |
+| Remoção  | O(log n)                  | O(n)                     |
+| Percurso | O(n)                      | O(n)                     |
+
+O pior caso acontece quando a árvore degenera em uma lista, por exemplo ao inserir valores já ordenados.
+
+## Implementação
 
 ```python
 class Node:
@@ -26,37 +43,50 @@ class Node:
         self.left = None
         self.right = None
 
-def inorder_traversal(root):
-    if root:
-        inorder_traversal(root.left)
-        print(root.data, end=" ")
-        inorder_traversal(root.right)
 
-# Uso
+def inorder(root):
+    """Percurso em ordem: esquerda, nó, direita."""
+    if root:
+        inorder(root.left)
+        print(root.data, end=" ")
+        inorder(root.right)
+
+
 root = Node(10)
 root.left = Node(5)
 root.right = Node(15)
 root.left.left = Node(2)
 root.left.right = Node(7)
 
-inorder_traversal(root)  # Saída: 2 5 7 10 15
+inorder(root)  # Saída: 2 5 7 10 15
 ```
 
 ## Aplicações
-- Representação de dados hierárquicos (sistemas de arquivos, organogramas)
-- Análise e avaliação de expressões
-- Árvores de busca binária para busca, inserção e remoção rápidas
+
+- Dados hierárquicos (sistemas de arquivos, organogramas)
+- Árvores de expressão em compiladores
+- Árvores de busca para busca, inserção e remoção rápidas
 - Heaps para filas de prioridade
 
-## Quando Usar uma Árvore Binária
-- Quando você precisa representar relações hierárquicas
-- Quando precisa de busca, inserção e remoção eficientes (BST)
+## Vantagens e desvantagens
 
-## Limitações
-- Pode se tornar desbalanceada, levando a desempenho ruim (operações O(n))
-- Mais complexa de implementar do que arrays ou listas ligadas
+### Vantagens
 
-## Estruturas de Dados Relacionadas
-- **Árvore de Busca Binária (BST)**: Mantém a ordem ordenada
-- **Árvore AVL, Árvore Rubro-Negra**: Árvores de busca binária auto-balanceadas
-- **Heap**: Árvore binária completa usada para filas de prioridade 
+- Operações em O(log n) quando balanceada
+- Percurso em ordem devolve os valores ordenados (BST)
+
+### Desvantagens
+
+- Pode desbalancear e degradar para O(n)
+- Mais complexa de implementar que arrays e listas
+
+## Quando usar
+
+- Para representar relações hierárquicas
+- Quando busca, inserção e remoção precisam ser eficientes e os dados precisam ficar ordenados
+
+## Relacionados
+
+- [Construct Binary Tree](../algorithms/contests/leetcode/construct-binary-tree-from-preorder-and-inorder-traversal.md)
+- [Busca binária](../algorithms/search/binary-search.md)
+- Árvores AVL e rubro-negras (árvores de busca autobalanceadas)

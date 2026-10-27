@@ -1,31 +1,333 @@
-.heroBanner {
-  padding: 15rem 0;
-  text-align: center;
+/* ---------- Hero ---------- */
+
+.hero {
   position: relative;
   overflow: hidden;
-  background-color:rgb(146 138 255);
+  padding: 7rem 0 5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--site-border);
+  background-image: linear-gradient(var(--site-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--site-border) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center top;
 }
 
-@media screen and (max-width: 966px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.hero::after {
+  /* Fade the grid out toward the edges */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    var(--ifm-background-color) 70%
+  );
+  pointer-events: none;
 }
 
-.buttons {
+.heroGlow {
+  position: absolute;
+  top: -12rem;
+  left: 50%;
+  width: 46rem;
+  height: 28rem;
+  transform: translateX(-50%);
+  background: var(--brand-gradient);
+  filter: blur(120px);
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroLogo {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 10px 25px rgba(224, 69, 123, 0.35));
+}
+
+.heroTitle {
+  font-size: clamp(2.75rem, 7vw, 4.75rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+}
+
+.heroTitleAccent {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroSubtitle {
+  max-width: 40rem;
+  margin: 0 auto 2.25rem;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--site-muted);
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.heroActions :global(.button) {
+  min-width: 10rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.buttonGhost {
+  border: 1px solid var(--site-border);
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+}
+
+.buttonGhost:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.heroStats {
+  display: flex;
+  gap: 2.5rem;
+  margin: 3rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.heroStats li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroStats strong {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.heroStats span {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--site-muted);
+}
+
+/* ---------- Shared section headings ---------- */
+
+.sectionTitle {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  letter-spacing: -0.025em;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.sectionLead {
+  max-width: 36rem;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  color: var(--site-muted);
+}
+
+/* ---------- Section cards ---------- */
+
+.sections {
+  padding: 5rem 0 3rem;
+}
+
+.sections .sectionTitle {
+  margin-bottom: 2.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border: 1px solid var(--site-border);
+  border-radius: 1rem;
+  background: var(--site-surface);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 55%, var(--site-border));
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -24px color-mix(in srgb, var(--ifm-color-primary) 60%, transparent);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.cardIcon {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  color: var(--ifm-color-primary);
+  background: color-mix(in srgb, var(--ifm-color-primary) 13%, transparent);
 }
 
-.features {
+.cardCount {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--site-muted);
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--site-border);
+  border-radius: 999px;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.cardTitleLink {
+  color: var(--ifm-font-color-base);
+}
+
+.cardTitleLink:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+/* Make the whole card clickable via the title link */
+.cardTitleLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.cardDescription {
+  flex: 1;
+  font-size: 0.925rem;
+  line-height: 1.55;
+  color: var(--site-muted);
+  margin-bottom: 1.25rem;
+}
+
+.cardHighlights {
+  position: relative;
+  z-index: 1;
   display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.featureImage {
-  height: 200px;
-  width: 200px;
+.cardHighlights a {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-color);
+  border: 1px solid var(--site-border);
+}
+
+.cardHighlights a:hover {
+  text-decoration: none;
+  color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+/* ---------- Learning path ---------- */
+
+.path {
+  padding: 3rem 0 6rem;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.25rem 1.25rem 1.5rem;
+  border-radius: 1rem;
+  border: 1px dashed var(--site-border);
+  color: inherit;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.step:hover {
+  text-decoration: none;
+  color: inherit;
+  border-style: solid;
+  border-color: var(--ifm-color-primary);
+  background: var(--site-surface);
+}
+
+.stepNumber {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--brand-accent);
+  margin-bottom: 0.75rem;
+}
+
+.stepTitle {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+}
+
+.stepText {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--site-muted);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 996px) {
+  .hero {
+    padding: 4.5rem 0 3.5rem;
+  }
+
+  .heroStats {
+    gap: 1.75rem;
+  }
+
+  .sections {
+    padding-top: 3.5rem;
+  }
 }

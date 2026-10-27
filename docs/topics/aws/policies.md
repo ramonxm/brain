@@ -1,25 +1,35 @@
-# Policies (Políticas)
+---
+sidebar_label: "Policies"
+description: "Documentos JSON que definem permissões na AWS."
+---
 
-## O que são Policies?
+# Policies (políticas)
 
-Policies (ou Políticas) na AWS são documentos em formato JSON que definem permissões para acessar e gerenciar recursos da AWS. Elas especificam quem pode fazer o quê, em quais recursos e sob quais condições.
+Uma **policy** é um documento JSON que define permissões na AWS: **quem** pode executar **quais ações**, em **quais recursos** e sob **quais condições**. Policies são associadas a identidades do [IAM](./iam.md) ou diretamente a recursos.
 
-## Tipos de Policies
+## Como funciona
 
-- **Managed Policies (Políticas Gerenciadas):** Criadas e mantidas pela AWS ou pelo próprio usuário. Podem ser reutilizadas em múltiplos usuários, grupos ou funções.
-- **Inline Policies (Políticas Inline):** Associadas diretamente a um único usuário, grupo ou função. São usadas para permissões específicas e não podem ser reutilizadas.
+1. Toda requisição começa negada por padrão.
+2. A AWS avalia todas as policies aplicáveis à identidade e ao recurso.
+3. Se alguma policy tiver um `Deny` explícito para a ação, ela é negada.
+4. Caso contrário, se alguma policy tiver um `Allow`, ela é permitida.
 
-## Estrutura de uma Policy
+## Tipos
 
-Uma policy é composta por:
-- **Version:** Versão do documento da policy.
-- **Statement:** Um ou mais blocos que definem as permissões.
-  - **Effect:** Permite (Allow) ou nega (Deny) a ação.
-  - **Action:** Ações da AWS que a policy permite ou nega (ex: `s3:ListBucket`).
-  - **Resource:** Recursos aos quais a policy se aplica (ex: ARN de um bucket S3).
-  - **Condition (opcional):** Condições adicionais para aplicar a policy.
+- **Gerenciadas pela AWS**: criadas e mantidas pela AWS para casos comuns (por exemplo, `ReadOnlyAccess`)
+- **Gerenciadas pelo cliente**: criadas por você e reutilizáveis entre usuários, grupos e *roles*
+- **Inline**: embutidas em uma única identidade, sem reutilização
+- **Baseadas em recurso**: associadas ao próprio recurso, como a *bucket policy* de um S3
 
-Exemplo básico:
+## Estrutura
+
+- **Version**: versão da linguagem de policies (use sempre `2012-10-17`)
+- **Statement**: lista de regras, cada uma com:
+  - **Effect**: `Allow` ou `Deny`
+  - **Action**: ações permitidas ou negadas (por exemplo, `s3:ListBucket`)
+  - **Resource**: ARN dos recursos afetados
+  - **Condition** (opcional): condições extras, como IP de origem ou uso de MFA
+
 ```json
 {
   "Version": "2012-10-17",
@@ -35,7 +45,13 @@ Exemplo básico:
 
 ## Boas práticas
 
-- Prefira políticas gerenciadas para facilitar a manutenção.
-- Use o princípio do menor privilégio: conceda apenas as permissões necessárias.
-- Revise e atualize as policies regularmente.
-- Utilize condições para restringir ainda mais o acesso quando possível.
+- Conceda apenas as permissões necessárias (princípio do menor privilégio)
+- Prefira policies gerenciadas a inline, para facilitar a manutenção
+- Evite curingas (`"Action": "*"`, `"Resource": "*"`) fora de ambientes de teste
+- Use `Condition` para restringir ainda mais o acesso
+- Valide as policies com o IAM Access Analyzer
+
+## Relacionados
+
+- [IAM](./iam.md)
+- [AWS](./index.md)

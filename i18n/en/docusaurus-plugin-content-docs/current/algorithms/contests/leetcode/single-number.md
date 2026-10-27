@@ -1,73 +1,63 @@
 ---
-sidebar_position: 2
+sidebar_label: "Single Number"
+description: "Find the element that appears only once using XOR."
 ---
 
 # Single Number
 
-## Problema
+Finding the only unpaired element of an array, in linear time and constant memory, using the XOR operator.
 
-Dado um array não vazio de números inteiros `nums`, cada elemento aparece duas vezes, exceto por um. Encontre esse único elemento.
+:::info[Source]
 
-Você deve implementar uma solução com complexidade de tempo linear O(n) e usar apenas espaço extra constante O(1).
+[LeetCode 136 — Single Number](https://leetcode.com/problems/single-number/)
 
-## Solução
+:::
 
-```typescript
+## Problem
+
+Given a non-empty array of integers `nums` where every element appears twice except one, find that element. The solution must run in O(n) time and use only O(1) extra space.
+
+## Solution
+
+```ts
 function singleNumber(nums: number[]): number {
-    let result = 0;
-    
-    for (const num of nums) {
-        result ^= num;
-    }
-    
-    return result;
+  let result = 0;
+
+  for (const num of nums) {
+    result ^= num;
+  }
+
+  return result;
 }
 ```
 
-## Explicação
+## Explanation
 
-A solução utiliza a propriedade do operador XOR (^):
+The solution relies on three properties of XOR (`^`):
 
-1. XOR de um número com ele mesmo é 0
-2. XOR de um número com 0 é o próprio número
-3. XOR é comutativo e associativo
+- **Self-inverse**: `x ^ x = 0`
+- **Identity**: `x ^ 0 = x`
+- **Commutativity and associativity**: the order of operations does not change the result
 
-Portanto, ao fazer XOR de todos os números:
-- Números que aparecem duas vezes se anulam (resultado 0)
-- O número que aparece uma vez permanece
+XOR-ing every element cancels out each pair, leaving only the number that appears once.
 
-## Complexidade
+## Complexity
 
-- Tempo: O(n)
-- Espaço: O(1)
+| Metric | Complexity |
+| :----- | :--------- |
+| Time   | O(n)       |
+| Space  | O(1)       |
 
-## Exemplo
+## Test cases
 
-```typescript
-const nums = [4, 1, 2, 1, 2];
-const result = singleNumber(nums);
-console.log(result); // 4
+```ts
+console.log(singleNumber([2, 2, 1]));        // Output: 1
+console.log(singleNumber([4, 1, 2, 1, 2]));  // Output: 4
+console.log(singleNumber([1]));              // Output: 1
+console.log(singleNumber([-1, -1, -2]));     // Output: -2
 ```
 
-## Casos de Teste
+## Related
 
-```typescript
-// Teste 1: Caso básico
-console.log(singleNumber([2, 2, 1])); // 1
-
-// Teste 2: Número único no meio
-console.log(singleNumber([4, 1, 2, 1, 2])); // 4
-
-// Teste 3: Array com um elemento
-console.log(singleNumber([1])); // 1
-
-// Teste 4: Números negativos
-console.log(singleNumber([-1, -1, -2])); // -2
-```
-
-## Observações
-
-- Esta solução é muito eficiente em termos de espaço e tempo
-- Funciona porque cada número aparece exatamente duas vezes (exceto um)
-- É uma aplicação interessante de operações bit a bit
-- Não requer estruturas de dados adicionais
+- [Two Sum](./two-sum.md)
+- [Big O notation](../../../concepts/big-o-notation.md)

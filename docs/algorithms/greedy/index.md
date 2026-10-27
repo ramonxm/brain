@@ -1,112 +1,101 @@
 ---
-id: greedy-index
-slug: /algorithms/greedy/index
+sidebar_label: "Algoritmos Gulosos"
+description: "Algoritmos que fazem a melhor escolha local a cada passo."
 ---
 
-# 🔧 Algoritmos Gulosos (Greedy Algorithms)
+# Algoritmos gulosos
 
-## Introdução
+Um **algoritmo guloso** (*greedy*) faz, a cada passo, a escolha que parece melhor naquele momento, sem reconsiderá-la depois, na expectativa de chegar a uma solução globalmente ótima.
 
-**Algoritmos gulosos** fazem, em cada passo, a escolha localmente ótima com a esperança de chegar a uma solução globalmente ótima.
-Em outras palavras, o algoritmo sempre pega a melhor opção disponível naquele momento, sem “olhar muito para frente”.
+## Como funciona
 
-## Características
+1. Defina um critério de escolha (por exemplo, "o item de maior valor" ou "a atividade que termina mais cedo").
+2. Ordene ou priorize os candidatos por esse critério.
+3. Percorra os candidatos, aceitando cada um que mantenha a solução viável.
 
-### ✅ Propriedades de algoritmos gulosos
+A estratégia só garante o ótimo quando o problema tem duas propriedades:
 
-1. **Escolha gulosa (greedy choice)**: em cada etapa, escolhe-se o que parece melhor naquele instante.
-2. **Subestrutura ótima**: a solução ótima do problema contém soluções ótimas para subproblemas.
-3. **Irreversibilidade**: uma vez feita, a escolha não é desfeita depois.
-
-### 🎯 Quando usar
-
-- Problemas de **otimização**, em que escolhas locais podem levar a uma solução global ótima.
-- Quando é possível **provar** que a estratégia gulosa é correta.
-- Problemas que apresentam claramente a **propriedade da escolha gulosa**.
-
-## Algoritmos gulosos clássicos
-
-### 1. Activity Selection Problem
-
-- **Objetivo**: selecionar o maior número de atividades que não se sobrepõem.
-- **Estratégia gulosa**: sempre escolher a atividade que termina mais cedo.
-
-### 2. Huffman Coding
-
-- **Objetivo**: comprimir dados usando códigos de tamanho variável.
-- **Estratégia gulosa**: atribuir códigos menores para caracteres mais frequentes.
-
-### 3. Fractional Knapsack Problem
-
-- **Objetivo**: maximizar o valor da mochila permitindo frações de itens.
-- **Estratégia gulosa**: ordenar por valor/peso e pegar os itens nessa ordem.
-
-## Estrutura geral
+- **Escolha gulosa**: existe uma solução ótima que começa pela escolha local ótima
+- **Subestrutura ótima**: a solução ótima contém soluções ótimas para os subproblemas
 
 ```python
-def greedy_algorithm(items):
-    # 1. Ordena os itens de acordo com algum critério guloso
-    items.sort(key=greedy_criteria)
-
+def greedy(items, criteria, is_feasible):
     result = []
-
-    # 2. Para cada item, toma a decisão gulosa se for viável
-    for item in items:
-        if is_feasible(item, result):
+    for item in sorted(items, key=criteria):
+        if is_feasible(result, item):
             result.append(item)
-
     return result
 ```
 
-## Vantagens e desvantagens
+## Complexidade
 
-### ✅ Vantagens
+| Métrica | Complexidade         |
+| :------ | :------------------- |
+| Tempo   | O(n log n) (típico)  |
+| Espaço  | O(n)                 |
 
-- **Simples de implementar**: lógica direta e intuitiva.
-- **Eficiente**: muitas vezes tem baixa complexidade de tempo.
-- **Pouco uso de memória**: não precisa guardar muitas soluções intermediárias.
+O custo costuma ser dominado pela ordenação inicial; a seleção em si é O(n).
 
-### ❌ Desvantagens
+## Implementação
 
-- **Nem sempre encontra o ótimo global**: pode ficar preso em ótimos locais.
-- **Prova de correção difícil**: é necessário provar que a estratégia gulosa funciona.
-- **Limitado a alguns tipos de problema**: não é aplicável a qualquer situação.
-
-## Diferenças para outros paradigmas
-
-| Paradigma               | Características                              |
-|-------------------------|----------------------------------------------|
-| **Guloso (Greedy)**     | Escolhas locais e irreversíveis              |
-| **Programação Dinâmica**| Considera todas as possibilidades, memoiza   |
-| **Backtracking**        | Explora muitas soluções, pode voltar atrás   |
-
-## Exemplo simples: troco com moedas
+Troco com o menor número de moedas:
 
 ```python
 def make_change(amount, coins):
-    """
-    Retorna uma lista de moedas que somam `amount`
-    (funciona bem para sistemas de moedas canônicos).
-    """
-    coins.sort(reverse=True)  # Da maior para a menor
+    """Funciona para sistemas de moedas canônicos, como 25, 10, 5 e 1."""
     result = []
-
-    for coin in coins:
+    for coin in sorted(coins, reverse=True):
         while amount >= coin:
             result.append(coin)
             amount -= coin
-
     return result
 
-# Exemplo
-coins = [25, 10, 5, 1]
-amount = 67
-print(make_change(amount, coins))  # [25, 25, 10, 5, 1, 1]
+
+print(make_change(67, [25, 10, 5, 1]))  # Saída: [25, 25, 10, 5, 1, 1]
 ```
 
-## 🎯 Dicas para resolver problemas gulosos
+:::warning[Nem sempre ótimo]
 
-1. **Identifique a escolha gulosa**: qual critério usar para ordenar/escolher?
-2. **Tente provar a correção**: mostre que escolhas locais levam à solução ótima.
-3. **Implemente**: geralmente envolve ordenar e depois percorrer sequencialmente.
-4. **Teste com exemplos edge cases**: para garantir que não há contraexemplos óbvios.
+Com moedas `[4, 3, 1]` e valor `6`, a estratégia gulosa devolve `[4, 1, 1]` (3 moedas), mas o ótimo é `[3, 3]` (2 moedas). Nesses casos, use programação dinâmica.
+
+:::
+
+## Comparação com outros paradigmas
+
+| Paradigma            | Característica                                  |
+| :------------------- | :---------------------------------------------- |
+| Guloso               | Escolhas locais e irreversíveis                 |
+| Programação dinâmica | Considera todos os subproblemas e memoiza       |
+| Backtracking         | Explora soluções e volta atrás quando necessário |
+
+## Aplicações
+
+- **Seleção de atividades**: escolher sempre a atividade que termina mais cedo
+- **Codificação de Huffman**: códigos menores para os símbolos mais frequentes
+- **Mochila fracionária**: pegar itens em ordem decrescente de valor por peso
+- **Árvore geradora mínima**: algoritmos de Kruskal e Prim
+- **Menor caminho**: algoritmo de Dijkstra
+
+## Vantagens e desvantagens
+
+### Vantagens
+
+- Simples de implementar
+- Eficiente, geralmente O(n log n)
+- Pouco uso de memória
+
+### Desvantagens
+
+- Nem sempre encontra o ótimo global
+- Exige uma prova de que a escolha gulosa é correta
+
+## Quando usar
+
+- Quando é possível provar que a escolha local leva ao ótimo global
+- Quando uma solução aproximada e rápida é suficiente
+
+## Relacionados
+
+- [Notação Big O](../../concepts/big-o-notation.md)
+- [Quick Sort](../sorting/quick-sort.md)
+- Programação dinâmica

@@ -1,23 +1,40 @@
-# 🌳 Binary Tree
+---
+sidebar_label: "Binary Tree"
+description: "A hierarchical structure where each node has at most two children."
+---
 
-## Introduction
+# Binary tree
 
-A **binary tree** is a hierarchical data structure in which each node has at most two children, referred to as the left child and the right child.
+A **binary tree** is a hierarchical structure in which each node has at most two children, called the left child and the right child. When the values follow the rule `left < node < right`, it is a **binary search tree** (BST).
 
-## Key Properties
-- **Root**: The top node of the tree
-- **Leaf**: A node with no children
-- **Height**: The length of the longest path from the root to a leaf
-- **Depth**: The length of the path from the root to a node
+## How it works
 
-## Types of Binary Trees
-- **Full Binary Tree**: Every node has 0 or 2 children
-- **Complete Binary Tree**: All levels are filled except possibly the last, which is filled from left to right
-- **Perfect Binary Tree**: All internal nodes have two children and all leaves are at the same level
-- **Balanced Binary Tree**: The height of the tree is minimized
-- **Binary Search Tree (BST)**: Left child < parent < right child
+- **Root**: the node at the top of the tree
+- **Leaf**: a node with no children
+- **Height**: length of the longest path from the root to a leaf
+- **Depth**: length of the path from the root to a node
 
-## Example (Python)
+Common types:
+
+- **Full**: every node has 0 or 2 children
+- **Complete**: every level is full except possibly the last, filled from left to right
+- **Perfect**: every internal node has two children and every leaf is on the same level
+- **Balanced**: the height is kept at O(log n)
+
+## Complexity
+
+For a binary search tree:
+
+| Operation | Complexity (balanced) | Complexity (worst case) |
+| :-------- | :-------------------- | :---------------------- |
+| Search    | O(log n)              | O(n)                    |
+| Insert    | O(log n)              | O(n)                    |
+| Remove    | O(log n)              | O(n)                    |
+| Traversal | O(n)                  | O(n)                    |
+
+The worst case happens when the tree degenerates into a list, for example when inserting already sorted values.
+
+## Implementation
 
 ```python
 class Node:
@@ -26,37 +43,50 @@ class Node:
         self.left = None
         self.right = None
 
-def inorder_traversal(root):
-    if root:
-        inorder_traversal(root.left)
-        print(root.data, end=" ")
-        inorder_traversal(root.right)
 
-# Usage
+def inorder(root):
+    """In-order traversal: left, node, right."""
+    if root:
+        inorder(root.left)
+        print(root.data, end=" ")
+        inorder(root.right)
+
+
 root = Node(10)
 root.left = Node(5)
 root.right = Node(15)
 root.left.left = Node(2)
 root.left.right = Node(7)
 
-inorder_traversal(root)  # Output: 2 5 7 10 15
+inorder(root)  # Output: 2 5 7 10 15
 ```
 
 ## Applications
-- Hierarchical data representation (file systems, organization charts)
-- Expression parsing and evaluation
-- Binary search trees for fast lookup, insertion, and deletion
+
+- Hierarchical data (file systems, org charts)
+- Expression trees in compilers
+- Search trees for fast search, insertion and removal
 - Heaps for priority queues
 
-## When to Use a Binary Tree
-- When you need to represent hierarchical relationships
-- When you need efficient searching, insertion, and deletion (BST)
+## Pros and cons
 
-## Limitations
-- Can become unbalanced, leading to poor performance (O(n) operations)
-- More complex to implement than arrays or linked lists
+### Advantages
 
-## Related Data Structures
-- **Binary Search Tree (BST)**: Maintains sorted order
-- **AVL Tree, Red-Black Tree**: Self-balancing binary search trees
-- **Heap**: Complete binary tree used for priority queues 
+- O(log n) operations when balanced
+- In-order traversal returns values in sorted order (BST)
+
+### Disadvantages
+
+- Can become unbalanced and degrade to O(n)
+- More complex to implement than arrays and lists
+
+## When to use
+
+- To represent hierarchical relationships
+- When search, insertion and removal must be efficient and the data must stay sorted
+
+## Related
+
+- [Construct Binary Tree](../algorithms/contests/leetcode/construct-binary-tree-from-preorder-and-inorder-traversal.md)
+- [Binary search](../algorithms/search/binary-search.md)
+- AVL and red-black trees (self-balancing search trees)

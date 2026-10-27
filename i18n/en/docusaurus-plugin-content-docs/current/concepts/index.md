@@ -1,33 +1,26 @@
-# 💡 Conceitos Fundamentais
+---
+sidebar_label: "Overview"
+description: "The principles behind computer science: complexity, memory, concurrency and architecture."
+---
 
-Bem-vindo à seção de conceitos fundamentais! Aqui você aprenderá sobre os princípios centrais que fundamentam a ciência da computação e a programação.
+# Concepts
 
-## O que você vai aprender
+The principles that show up in almost every algorithm and system: how to measure efficiency, how memory is organized, how data enters and leaves a collection, and how tasks run in parallel.
 
-Esta seção cobre os conceitos essenciais que todo programador e cientista da computação deve entender:
+## Contents
 
-### 🎯 Fundamentos Centrais
-- **Notação Big O**: Entendendo a complexidade de algoritmos e análise de desempenho
-- **Gerenciamento de Memória**: Como os computadores lidam com a alocação de memória (Pilha vs Heap)
-- **Complexidade de Tempo e Espaço**: Analisando a eficiência dos algoritmos
+| Topic                                   | Summary                                               |
+| :-------------------------------------- | :---------------------------------------------------- |
+| [Big O Notation](./big-o-notation.md)   | How time and memory grow as the input increases       |
+| [Stack and Heap](./memory-stack-heap.md) | The two main memory regions of a program             |
+| [FIFO](./fifo.md)                       | First in, first out                                   |
+| [LIFO](./lifo.md)                       | Last in, first out                                    |
+| [Swap](./swap.md)                       | Exchanging values between variables or positions      |
+| [Threads](./thread.md)                  | Concurrent execution inside a process                 |
+| [Serverless](./serverless.md)           | Cloud computing without managing servers              |
 
-### 🔄 Mecanismos de Programação
-- **FIFO (First In, First Out)**: Entendendo o comportamento de fila
-- **LIFO (Last In, First Out)**: Entendendo o comportamento de pilha
-- **Operações de Troca**: Técnicas fundamentais de manipulação de dados
+:::tip[Where to start]
 
-### ⚡ Concorrência & Paralelismo
-- **Threads**: Entendendo a execução concorrente
-- **Processos**: Execução de programas em nível de sistema
-- **Sincronização**: Coordenando operações concorrentes
+Start with [Big O Notation](./big-o-notation.md): it is the language used throughout the rest of the site to compare data structures and algorithms.
 
-### 🏗️ Arquitetura de Sistemas
-- **Arquitetura de Computadores**: Como os computadores são construídos e operam
-- **Gerenciamento de Memória**: Conceitos avançados de manipulação de memória
-- **Sistemas Operacionais**: Como os sistemas gerenciam recursos
-
-## Começando
-
-Comece com **Notação Big O** para entender como medimos a eficiência de algoritmos, depois explore os conceitos de memória para compreender como os computadores armazenam e recuperam dados.
-
-Cada conceito se baseia no anterior, então recomendamos seguir a ordem sugerida para a melhor experiência de aprendizado. 
+:::

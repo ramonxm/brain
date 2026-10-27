@@ -1,21 +1,31 @@
-# 🔗 Linked List
+---
+sidebar_label: "Linked List"
+description: "A sequence of nodes where each node points to the next one."
+---
 
-## Introduction
+# Linked list
 
-A **linked list** is a linear data structure where each element (node) contains a value and a reference (pointer) to the next node in the sequence.
+A **linked list** is a linear structure made of nodes, where each node stores a value and a reference to the next one. Unlike an [array](./array.md), nodes do not need to sit in contiguous memory.
 
-## Types
-- **Singly Linked List**: Each node points to the next node
-- **Doubly Linked List**: Each node points to both the next and previous nodes
-- **Circular Linked List**: The last node points back to the first node
+## How it works
 
-## Key Operations
-- **Insert**: Add a new node (O(1) at head, O(n) at tail or arbitrary position)
-- **Delete**: Remove a node (O(1) if node is known, O(n) to search)
-- **Search**: Find a node with a given value (O(n))
-- **Traversal**: Visit all nodes in sequence (O(n))
+- **Singly linked list**: each node points to the next one
+- **Doubly linked list**: each node points to the next and the previous one
+- **Circular list**: the last node points back to the first one
 
-## Example (Python - Singly Linked List)
+The list keeps a reference to the first node, the **head**. To reach any other node, you must traverse the list from it.
+
+## Complexity
+
+| Operation                          | Complexity |
+| :--------------------------------- | :--------- |
+| Access by position                 | O(n)       |
+| Search by value                    | O(n)       |
+| Insert/remove at the head          | O(1)       |
+| Insert/remove after a known node   | O(1)       |
+| Append (without a tail pointer)    | O(n)       |
+
+## Implementation
 
 ```python
 class Node:
@@ -23,49 +33,67 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
 
+    def prepend(self, data):
+        node = Node(data)
+        node.next = self.head
+        self.head = node
+
     def append(self, data):
-        new_node = Node(data)
+        node = Node(data)
         if not self.head:
-            self.head = new_node
+            self.head = node
             return
         last = self.head
         while last.next:
             last = last.next
-        last.next = new_node
+        last.next = node
 
-    def print_list(self):
-        curr = self.head
-        while curr:
-            print(curr.data, end=" ")
-            curr = curr.next
-        print()
+    def __str__(self):
+        values, current = [], self.head
+        while current:
+            values.append(str(current.data))
+            current = current.next
+        return " -> ".join(values)
 
-# Usage
-ll = LinkedList()
-ll.append(10)
-ll.append(20)
-ll.append(30)
-ll.print_list()  # Output: 10 20 30
+
+linked = LinkedList()
+linked.append(20)
+linked.append(30)
+linked.prepend(10)
+print(linked)  # Output: 10 -> 20 -> 30
 ```
 
 ## Applications
-- Implementing stacks, queues, and other abstract data types
-- Dynamic memory allocation
-- Undo functionality in applications
 
-## When to Use a Linked List
-- When you need efficient insertions/deletions at arbitrary positions
-- When the size of the data structure changes frequently
+- Implementing stacks, queues and deques
+- Adjacency lists in graphs
+- Undo/redo history
+- LRU caches (doubly linked list + hash table)
 
-## Limitations
-- No direct access by index (must traverse from the head)
+## Pros and cons
+
+### Advantages
+
+- O(1) insertion and removal at known positions
+- Grows and shrinks without reallocation
+
+### Disadvantages
+
+- No direct access by index
 - Extra memory for pointers
-- Slower search compared to arrays
+- Worse cache usage than arrays
 
-## Related Data Structures
-- **Array**: Direct access by index, fixed size
-- **Doubly Linked List**: Allows traversal in both directions 
+## When to use
+
+- When there are many insertions and removals at the start or in the middle
+- When the collection size changes often
+
+## Related
+
+- [Array](./array.md)
+- [Sort List](../algorithms/contests/leetcode/sort-list.md)

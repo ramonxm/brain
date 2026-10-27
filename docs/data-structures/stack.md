@@ -1,51 +1,73 @@
-# Stack
+---
+sidebar_label: "Pilha (Stack)"
+description: "Estrutura linear LIFO com inserção e remoção no topo."
+---
 
-## Introdução
+# Pilha (stack)
 
-Uma **pilha** é uma estrutura de dados linear que segue o princípio do Último a Entrar, Primeiro a Sair (LIFO). O último elemento inserido é o primeiro a ser removido.
+Uma **pilha** (*stack*) é uma estrutura linear que segue a política [LIFO](../concepts/lifo.md): o último elemento inserido é o primeiro a ser removido. Todas as operações acontecem em uma única extremidade, o **topo**.
 
-## Operações Principais
-- **Empilhar (Push)**: Adiciona um elemento ao topo da pilha (O(1))
-- **Desempilhar (Pop)**: Remove o elemento do topo da pilha (O(1))
-- **Topo (Peek/Top)**: Visualiza o elemento do topo sem removê-lo (O(1))
-- **Está Vazia (IsEmpty)**: Verifica se a pilha está vazia
+## Como funciona
 
-## Exemplo (Python)
+- **Push**: adiciona um elemento ao topo
+- **Pop**: remove e retorna o elemento do topo
+- **Peek**: consulta o topo sem removê-lo
+- **Is empty**: verifica se a pilha está vazia
+
+## Complexidade
+
+| Operação | Complexidade |
+| :------- | :----------- |
+| Push     | O(1)         |
+| Pop      | O(1)         |
+| Peek     | O(1)         |
+| Busca    | O(n)         |
+
+## Implementação
+
+Em Python, uma `list` já funciona como pilha usando o final como topo:
 
 ```python
-pilha = []
+stack = []
 
-# Empilhar elementos
-pilha.append(10)
-pilha.append(20)
-pilha.append(30)
+stack.append(10)  # push
+stack.append(20)
+stack.append(30)
 
-# Ver o topo
-print(pilha[-1])  # Saída: 30
+print(stack[-1])     # Saída: 30 (peek)
+print(stack.pop())   # Saída: 30
+print(stack.pop())   # Saída: 20
 
-# Desempilhar elementos
-print(pilha.pop())  # Saída: 30
-print(pilha.pop())  # Saída: 20
-
-# Verificar se está vazia
-if not pilha:
-    print("Pilha está vazia!")
+if not stack:
+    print("Pilha vazia")
 ```
 
 ## Aplicações
-- Gerenciamento de chamadas de funções (call stack)
-- Funcionalidade de desfazer/refazer em editores
-- Avaliação de expressões (notação pós-fixa, pré-fixa)
-- Análise sintática
 
-## Quando Usar uma Pilha
-- Quando é necessário reverter dados
-- Quando é preciso controlar operações aninhadas ou recursivas
+- Pilha de chamadas de função (*call stack*)
+- Desfazer/refazer em editores
+- Avaliação de expressões (notação pós-fixa) e verificação de parênteses
+- Análise sintática e busca em profundidade (DFS)
 
-## Limitações
-- Apenas o elemento do topo é acessível
-- Não é adequada para acesso aleatório
+## Vantagens e desvantagens
 
-## Estruturas de Dados Relacionadas
-- **Fila**: Segue o princípio Primeiro a Entrar, Primeiro a Sair (FIFO)
-- **Deque**: Fila de duas pontas, permite inserção/remoção em ambas as extremidades 
+### Vantagens
+
+- Todas as operações principais em O(1)
+- Implementação simples sobre um array ou lista ligada
+
+### Desvantagens
+
+- Só o topo é acessível
+- Não serve para acesso aleatório
+
+## Quando usar
+
+- Quando é preciso inverter a ordem dos dados
+- Para controlar operações aninhadas ou recursivas
+
+## Relacionados
+
+- [LIFO](../concepts/lifo.md)
+- [Fila (queue)](./queue.md)
+- [Memória stack e heap](../concepts/memory-stack-heap.md)

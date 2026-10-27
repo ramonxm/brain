@@ -1,39 +1,41 @@
-# Database and SQL Definitions
+---
+sidebar_label: "DBMS and RDBMS"
+description: "What database management systems are, and their relational variant."
+---
 
-## DBMS (Database Management System)
+# DBMS and RDBMS
 
-A Database Management System (DBMS) is software responsible for creating, managing, and manipulating databases.  
-It provides an interface between the data, users, and applications, enabling efficient and secure storage, querying, updating, and deletion of data.
+A **DBMS** (*Database Management System*) is the software that creates, manages and manipulates databases, acting as the interface between data, users and applications. An **RDBMS** is a DBMS based on the relational model, in which data lives in tables related to one another.
 
-### Main Functions of a DBMS
+## DBMS
 
-- Store and organize data
-- Control access and security
-- Handle backup and recovery
-- Ensure data integrity and consistency
-- Support transactions
+### Functions
 
-### Examples of DBMS
+- **Storage**: organizes data on disk and in memory
+- **Query and manipulation**: lets you insert, read, update and delete data
+- **Security**: controls who can access what
+- **Integrity**: ensures data follows the defined rules
+- **Transactions**: groups operations that must all happen or none at all
+- **Backup and recovery**: protects against data loss
+
+### Examples
 
 - MySQL
 - PostgreSQL
 - Oracle Database
 - Microsoft SQL Server
-- MongoDB
+- MongoDB (non-relational)
 
 ## RDBMS
 
-A Relational Database Management System (RDBMS) is a specific type of DBMS based on the relational model, where data is organized in tables (rows and columns) and relationships are defined through primary and foreign keys.
+### Characteristics
 
-### Main Characteristics of an RDBMS
+- **Tables**: data organized into rows (records) and columns (attributes)
+- **SQL**: the standard language to define, query and manipulate data
+- **Referential integrity**: relationships enforced by primary and foreign keys
+- **ACID transactions**: atomicity, consistency, isolation and durability
 
-- Table-based data structure
-- Support for SQL (Structured Query Language) to query and manipulate data
-- Referential integrity through primary and foreign keys
-- Support for ACID transactions (Atomicity, Consistency, Isolation, Durability)
-- Strong guarantees of data integrity and consistency
-
-### Examples of RDBMS
+### Examples
 
 - MySQL
 - PostgreSQL
@@ -41,3 +43,18 @@ A Relational Database Management System (RDBMS) is a specific type of DBMS based
 - Microsoft SQL Server
 - SQLite
 
+## Comparison
+
+| Characteristic | DBMS                              | RDBMS                       |
+| :------------- | :-------------------------------- | :-------------------------- |
+| Model          | Any (document, key-value...)      | Relational (tables)         |
+| Language       | Depends on the system             | SQL                         |
+| Relationships  | Not always supported              | Primary and foreign keys    |
+| Example        | MongoDB                           | PostgreSQL                  |
+
+Every RDBMS is a DBMS, but not every DBMS is relational.
+
+## Related
+
+- [Relational database](./relational-database.md)
+- [SQL](./sql.md)

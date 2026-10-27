@@ -4,41 +4,83 @@ import type * as Preset from "@docusaurus/preset-classic";
 
 const organizationName = "ramonxm";
 const projectName = "brain";
-
+const repoUrl = `https://github.com/${organizationName}/${projectName}`;
 
 const config: Config = {
   title: "brain.xavier",
-  baseUrl: "/brain/",
-  tagline: "Documentação completa sobre algoritmos, estruturas de dados e conceitos fundamentais de computação",
+  tagline:
+    "Notas de estudo sobre algoritmos, estruturas de dados e fundamentos da computação",
   favicon: "img/favicon.ico",
   url: "https://ramonxm.github.io",
+  baseUrl: "/brain/",
   organizationName,
   projectName,
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+  trailingSlash: false,
 
-  // Internationalization configuration
+  onBrokenLinks: "throw",
+  onBrokenAnchors: "warn",
+
+  future: {
+    v4: true,
+    faster: true,
+  },
+
   i18n: {
-    defaultLocale: 'pt-BR',
-    locales: ['pt-BR', 'en'],
-    path: 'i18n',
+    defaultLocale: "pt-BR",
+    locales: ["pt-BR", "en"],
+    path: "i18n",
     localeConfigs: {
-      'pt-BR': {
-        label: 'Português (Brasil)',
-        direction: 'ltr',
-        htmlLang: 'pt-BR',
-        calendar: 'gregory',
-        path: 'pt-BR',
+      "pt-BR": {
+        label: "Português",
+        direction: "ltr",
+        htmlLang: "pt-BR",
+        calendar: "gregory",
+        path: "pt-BR",
       },
       en: {
-        label: 'English',
-        direction: 'ltr',
-        htmlLang: 'en-US',
-        calendar: 'gregory',
-        path: 'en',
+        label: "English",
+        direction: "ltr",
+        htmlLang: "en-US",
+        calendar: "gregory",
+        path: "en",
       },
     },
   },
+
+  headTags: [
+    {
+      tagName: "link",
+      attributes: { rel: "manifest", href: "/brain/img/site.webmanifest" },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        rel: "apple-touch-icon",
+        sizes: "180x180",
+        href: "/brain/img/apple-touch-icon.png",
+      },
+    },
+    {
+      tagName: "meta",
+      attributes: { name: "theme-color", content: "#5b4bdb" },
+    },
+    {
+      tagName: "link",
+      attributes: { rel: "preconnect", href: "https://fonts.googleapis.com" },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossorigin: "anonymous",
+      },
+    },
+  ],
+
+  stylesheets: [
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap",
+  ],
 
   presets: [
     [
@@ -48,24 +90,22 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           routeBasePath: "docs",
           path: "docs",
-          editUrl: `https://github.com/${organizationName}/${projectName}/tree/main/`,
+          editUrl: `${repoUrl}/tree/main/`,
+          editLocalizedFiles: true,
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          includeCurrentVersion: true,
           breadcrumbs: true,
         },
+        blog: false,
         theme: {
           customCss: "./src/css/custom.css",
         },
-        gtag: {
-          trackingID: 'G-XXXXXXXXXX', // Substitua pelo seu ID do Google Analytics
-          anonymizeIP: true,
-        },
         sitemap: {
-          changefreq: 'weekly',
+          lastmod: "date",
+          changefreq: "weekly",
           priority: 0.5,
-          ignorePatterns: ['/tags/**'],
-          filename: 'sitemap.xml',
+          ignorePatterns: ["/tags/**"],
+          filename: "sitemap.xml",
         },
       } satisfies Preset.Options,
     ],
@@ -73,7 +113,7 @@ const config: Config = {
 
   plugins: [
     [
-      '@docusaurus/plugin-ideal-image',
+      "@docusaurus/plugin-ideal-image",
       {
         quality: 70,
         max: 1030,
@@ -84,185 +124,172 @@ const config: Config = {
     ],
   ],
 
-  themeConfig: {
-    // SEO and social media meta
-    metadata: [
-      {name: 'keywords', content: 'algoritmos, estruturas de dados, programação, computer science, data structures, algorithms'},
-      {name: 'twitter:card', content: 'summary_large_image'},
+  themes: [
+    "@docusaurus/theme-mermaid",
+    [
+      "@easyops-cn/docusaurus-search-local",
+      {
+        hashed: true,
+        language: ["pt", "en"],
+        indexBlog: false,
+        docsRouteBasePath: "/docs",
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+        searchBarShortcutHint: true,
+      },
     ],
-    
+  ],
+
+  markdown: {
+    mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
+  },
+
+  themeConfig: {
+    image: "img/android-chrome-512x512.png",
+    metadata: [
+      {
+        name: "keywords",
+        content:
+          "algoritmos, estruturas de dados, ciência da computação, big o, aws, banco de dados, sql, algorithms, data structures",
+      },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:creator", content: "@ramonxavierm" },
+    ],
+
     colorMode: {
       defaultMode: "dark",
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },
-    
-    image: "img/brain-social-card.jpg",
-    
+
+    docs: {
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: true,
+      },
+    },
+
     navbar: {
-      title: "Home",
+      title: "brain.xavier",
+      logo: {
+        alt: "brain.xavier",
+        src: "img/android-chrome-192x192.png",
+        width: 28,
+        height: 28,
+      },
+      hideOnScroll: false,
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'conceptsSidebar',
-          position: 'left',
-          label: 'Conceitos',
-        },
-      
-        {
-          type: 'docSidebar',
-          sidebarId: 'topicsSidebar',
-          position: 'left',
-          label: 'Tópicos',
+          type: "docSidebar",
+          sidebarId: "conceptsSidebar",
+          position: "left",
+          label: "Conceitos",
         },
         {
-          type: 'docSidebar',
-          sidebarId: 'dataStructuresSidebar',
-          position: 'left',
-          label: 'Estruturas de Dados',
+          type: "docSidebar",
+          sidebarId: "dataStructuresSidebar",
+          position: "left",
+          label: "Estruturas de Dados",
         },
         {
-          type: 'docSidebar',
-          sidebarId: 'algorithmsSidebar',
-          position: 'left',
-          label: 'Algoritmos',
+          type: "docSidebar",
+          sidebarId: "algorithmsSidebar",
+          position: "left",
+          label: "Algoritmos",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "topicsSidebar",
+          position: "left",
+          label: "Tópicos",
+        },
+        {
+          type: "search",
+          position: "right",
         },
         {
           type: "localeDropdown",
           position: "right",
         },
         {
-          label: 'Buy me a coffee',
-          href: 'https://www.buymeacoffee.com/ramonxm',
-          position: 'right',
-        },
-        {
-          label: 'GitHub',
-          href: `https://github.com/${organizationName}/${projectName}`,
-          position: 'right',
-        },
-        {
-          type: 'search',
-          position: 'right',
-        },
-        {
-          href: `https://github.com/${organizationName}/${projectName}`,
-          position: 'right',
-          className: 'header-github-link',
-          'aria-label': 'GitHub repository',
+          href: repoUrl,
+          position: "right",
+          className: "header-github-link",
+          "aria-label": "GitHub",
         },
       ],
-      hideOnScroll: true,
     },
-    
+
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'Content',
+          title: "Conteúdo",
           items: [
-            {
-              label: 'Intro',
-              to: '/docs/concepts/big-o-notation',
-            },
+            { label: "Conceitos", to: "/docs/concepts" },
+            { label: "Estruturas de Dados", to: "/docs/data-structures" },
+            { label: "Algoritmos", to: "/docs/algorithms" },
+            { label: "Tópicos", to: "/docs/topics" },
           ],
         },
         {
-          title: 'Community',
+          title: "Comunidade",
           items: [
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/ramonxavierm',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/ramonxm/brain',
-            },
-            {
-              label: 'LinkedIn',
-              href: 'https://www.linkedin.com/in/ramonxm/',
-            },
-            
+            { label: "GitHub", href: repoUrl },
+            { label: "LinkedIn", href: "https://www.linkedin.com/in/ramonxm/" },
+            { label: "Twitter", href: "https://twitter.com/ramonxavierm" },
           ],
         },
         {
-          title: 'More',
+          title: "Mais",
           items: [
+            { label: "Dev.to", href: "https://dev.to/ramonxm" },
+            { label: "Medium", href: "https://medium.com/@ramonxm" },
             {
-              label: 'Dev.to',
-              href: 'https://dev.to/ramonxm',
-            },
-            {
-              label: 'Medium',
-              href: 'https://medium.com/@ramonxm',
+              label: "Buy me a coffee",
+              href: "https://www.buymeacoffee.com/ramonxm",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Ramon Xavier`,
+      copyright: `© ${new Date().getFullYear()} Ramon Xavier`,
     },
-    
+
     prism: {
       theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      darkTheme: prismThemes.vsDark,
       additionalLanguages: [
-        'java',
-        'python',
-        'cpp',
-        'c',
-        'csharp',
-        'php',
-        'ruby',
-        'go',
-        'rust',
-        'kotlin',
-        'swift',
-        'dart',
-        'scala',
-        'bash',
-        'powershell',
-        'sql',
-        'json',
-        'yaml',
-        'toml',
-        'diff',
+        "java",
+        "python",
+        "cpp",
+        "c",
+        "csharp",
+        "php",
+        "ruby",
+        "go",
+        "rust",
+        "kotlin",
+        "swift",
+        "dart",
+        "scala",
+        "bash",
+        "powershell",
+        "sql",
+        "json",
+        "yaml",
+        "toml",
+        "diff",
       ],
     },
 
-    // Algolia search configuration (uncomment and configure when ready)
-    // algolia: {
-    //   appId: 'YOUR_APP_ID',
-    //   apiKey: 'YOUR_SEARCH_API_KEY',
-    //   indexName: 'brain-algorithms',
-    //   contextualSearch: true,
-    //   searchParameters: {},
-    //   searchPagePath: 'search',
-    // },
-
-    // Table of contents configuration
     tableOfContents: {
       minHeadingLevel: 2,
-      maxHeadingLevel: 4,
+      maxHeadingLevel: 3,
     },
-
-    // Announcement bar (uncomment when needed)
-    // announcementBar: {
-    //   id: 'support_us',
-    //   content:
-    //     '⭐️ Se este projeto te ajudou, considere dar uma estrela no <a target="_blank" rel="noopener noreferrer" href="https://github.com/ramonxm/brain">GitHub</a>! ⭐️',
-    //   backgroundColor: '#fafbfc',
-    //   textColor: '#091E42',
-    //   isCloseable: false,
-    // },
-
   } satisfies Preset.ThemeConfig,
-  
-  // Additional configurations
-  markdown: {
-    mermaid: true,
-  },
-  
-  themes: ['@docusaurus/theme-mermaid'],
 };
 
 export default config;

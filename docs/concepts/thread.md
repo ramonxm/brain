@@ -1,38 +1,79 @@
+---
+sidebar_label: "Threads"
+description: "A menor unidade de execução de um sistema operacional e como usá-la para concorrência."
+---
+
 # Threads
 
-Uma thread é a menor unidade de execução em um sistema operacional. Em um programa, uma thread é uma sequência de instruções que pode ser executada independentemente. Os sistemas operacionais modernos suportam a execução simultânea de múltiplas threads, permitindo que os processos realizem tarefas concorrentemente. As threads compartilham o mesmo espaço de endereço, facilitando a comunicação entre elas. No entanto, isso pode levar a problemas de sincronização, como condições de corrida (race conditions).
+Uma **thread** é a menor unidade de execução que o sistema operacional consegue escalonar. Um processo pode ter várias threads executando concorrentemente, todas compartilhando o mesmo espaço de memória.
 
-## Exemplo de Thread
+## Como funciona
 
-Considere um cenário onde um programa precisa baixar um arquivo da internet e processar dados simultaneamente. Em vez de executar essas tarefas sequencialmente, threads podem ser empregadas para execução concorrente.
+- Cada thread tem sua própria pilha de chamadas e seus registradores
+- Todas as threads de um processo compartilham a [heap](./memory-stack-heap.md), o código e os arquivos abertos
+- O sistema operacional alterna entre as threads (ou as executa em paralelo, em núcleos diferentes)
+
+Compartilhar memória torna a comunicação entre threads barata, mas exige **sincronização** (locks, semáforos, filas) para evitar condições de corrida (*race conditions*), em que o resultado depende da ordem de execução.
+
+## Implementação
+
+Baixar um arquivo e processar dados ao mesmo tempo, em vez de sequencialmente:
 
 ```python
 import threading
 import time
 
+
 def download_file():
-    # Simula o download de um arquivo
     print("Baixando arquivo...")
-    time.sleep(5)  # Simulando o tempo necessário para download
-    print("Arquivo baixado com sucesso")
+    time.sleep(5)  # simula o download
+    print("Arquivo baixado")
+
 
 def process_data():
-    # Simula o processamento de dados
     print("Processando dados...")
-    time.sleep(3)  # Simulando o tempo necessário para processamento
-    print("Dados processados com sucesso")
+    time.sleep(3)  # simula o processamento
+    print("Dados processados")
 
-# Cria duas threads para download e processamento
-download_thread = threading.Thread(target=download_file)
-process_thread = threading.Thread(target=process_data)
 
-# Inicia as threads
-download_thread.start()
-process_thread.start()
+download = threading.Thread(target=download_file)
+process = threading.Thread(target=process_data)
 
-# Aguarda ambas as threads terminarem
-download_thread.join()
-process_thread.join()
+download.start()
+process.start()
 
-print("Ambas as tarefas foram concluídas.")
+download.join()  # aguarda as duas threads terminarem
+process.join()
+
+print("Tarefas concluídas")  # após ~5 s, e não 8 s
 ```
+
+:::info[GIL do Python]
+
+No CPython, o *Global Interpreter Lock* impede que duas threads executem bytecode Python ao mesmo tempo. Threads ainda ajudam em tarefas de I/O (rede, disco); para tarefas de CPU, use `multiprocessing`.
+
+:::
+
+## Vantagens e desvantagens
+
+### Vantagens
+
+- Aproveita o tempo ocioso de operações de I/O
+- Comunicação barata, por memória compartilhada
+- Mais leves de criar que processos
+
+### Desvantagens
+
+- Condições de corrida e *deadlocks*
+- Depuração difícil, pois os erros dependem da ordem de execução
+- Uma falha em uma thread pode derrubar o processo inteiro
+
+## Quando usar
+
+- Quando o programa espera muito por I/O (requisições de rede, leitura de arquivos)
+- Quando a interface precisa continuar responsiva durante uma tarefa longa
+
+## Relacionados
+
+- [Memória stack e heap](./memory-stack-heap.md)
+- [FIFO](./fifo.md)

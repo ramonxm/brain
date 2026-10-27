@@ -1,139 +1,164 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+// Each top-level navbar section has its own sidebar, starting with an overview
+// page (`<section>/index.md`). Category `key`s keep the i18n translation keys
+// stable even if the Portuguese labels change — see
+// i18n/en/docusaurus-plugin-content-docs/current.json.
 
-/**
- * Creating a sidebar enables you to:
- - create an ordered group of docs
- - render a sidebar for each doc of that group
- - provide next/previous navigation
+type Category = {
+  key: string;
+  label: string;
+  description: string;
+  items: SidebarsConfig[string];
+};
 
- The sidebars can be generated from the filesystem, or explicitly defined here.
+const category = ({ key, label, description, items }: Category) => ({
+  type: "category" as const,
+  key,
+  label,
+  collapsed: false,
+  link: { type: "generated-index" as const, slug: `/category/${key}`, description },
+  items,
+});
 
- Create as many sidebars as you want.
- */
 const sidebars: SidebarsConfig = {
   conceptsSidebar: [
-    {
-      type: 'category',
-      label: '💡 Fundamentos',
-      items: [
-        'concepts/big-o-notation',
-        'concepts/memory-stack-heap',
-      ],
-    },
-    {
-      type: 'category',
-      label: '🔄 Mecanismos',
-      items: [
-        'concepts/fifo',
-        'concepts/lifo',
-        'concepts/swap',
-      ],
-    },
-    {
-      type: 'category',
-      label: '⚡ Concorrência',
-      items: [
-        'concepts/thread',
-      ],
-    },
-    {
-      type: 'category',
-      label: '🏗️ Arquitetura',
-      items: [
-        'concepts/serverless',
-      ],
-    },
+    "concepts/index",
+    category({
+      key: "concepts-fundamentals",
+      label: "Fundamentos",
+      description: "Análise de complexidade e organização da memória.",
+      items: ["concepts/big-o-notation", "concepts/memory-stack-heap"],
+    }),
+    category({
+      key: "concepts-mechanisms",
+      label: "Mecanismos",
+      description: "Políticas de acesso a dados e operações elementares.",
+      items: ["concepts/fifo", "concepts/lifo", "concepts/swap"],
+    }),
+    category({
+      key: "concepts-concurrency",
+      label: "Concorrência",
+      description: "Execução simultânea de tarefas.",
+      items: ["concepts/thread"],
+    }),
+    category({
+      key: "concepts-architecture",
+      label: "Arquitetura",
+      description: "Modelos de arquitetura e execução de software.",
+      items: ["concepts/serverless"],
+    }),
   ],
 
   dataStructuresSidebar: [
-    {
-      type: 'category',
-      label: '📦 Estruturas Básicas',
+    "data-structures/index",
+    category({
+      key: "data-structures-linear",
+      label: "Estruturas Lineares",
+      description: "Estruturas que organizam elementos em sequência.",
       items: [
-        'data-structures/array',
-        'data-structures/binary-tree',
-        'data-structures/linked-list',
+        "data-structures/array",
+        "data-structures/linked-list",
+        "data-structures/stack",
+        "data-structures/queue",
       ],
-    },
-    {
-      type: 'category',
-      label: '📚 Pilhas e Filas',
-      items: [
-        'data-structures/stack',
-        'data-structures/queue',
-      ],
-    },
+    }),
+    category({
+      key: "data-structures-trees",
+      label: "Árvores",
+      description: "Estruturas hierárquicas formadas por nós.",
+      items: ["data-structures/binary-tree"],
+    }),
   ],
 
   algorithmsSidebar: [
-    {
-      type: 'category',
-      label: '🔄 Algoritmos de Ordenação',
+    "algorithms/index",
+    category({
+      key: "algorithms-sorting",
+      label: "Ordenação",
+      description: "Algoritmos para colocar coleções em ordem.",
       items: [
-        'algorithms/sorting/bubble-sort',
-        'algorithms/sorting/selection-sort',
-        'algorithms/sorting/merge-sort',
-        'algorithms/sorting/quick-sort',
+        "algorithms/sorting/bubble-sort",
+        "algorithms/sorting/selection-sort",
+        "algorithms/sorting/merge-sort",
+        "algorithms/sorting/quick-sort",
       ],
-    },
+    }),
+    category({
+      key: "algorithms-search",
+      label: "Busca",
+      description: "Algoritmos para localizar elementos em coleções.",
+      items: ["algorithms/search/binary-search"],
+    }),
+    category({
+      key: "algorithms-graphs",
+      label: "Grafos",
+      description: "Algoritmos para percorrer e analisar grafos.",
+      items: ["algorithms/graph/breadth-first-search"],
+    }),
+    category({
+      key: "algorithms-paradigms",
+      label: "Paradigmas",
+      description: "Estratégias gerais para projetar algoritmos.",
+      items: ["algorithms/greedy/index"],
+    }),
     {
-      type: 'category',
-      label: '🔍 Algoritmos de Busca',
+      type: "category",
+      key: "algorithms-contests",
+      label: "Programação Competitiva",
+      collapsed: true,
+      link: {
+        type: "generated-index",
+        slug: "/category/algorithms-contests",
+        description: "Soluções comentadas de problemas do LeetCode e do AtCoder.",
+      },
       items: [
-        'algorithms/search/binary-search',
-      ],
-    },
-    {
-      type: 'category',
-      label: '🕸️ Algoritmos de Grafo',
-      items: [
-        'algorithms/graph/breadth-first-search',
-      ],
-    },
-    {
-      type: 'category',
-      label: '🔧 Algoritmos Ganancioso',
-      items: [
-        'algorithms/greedy/greedy-index',
-      ],
-    },
-    {
-      type: 'category',
-      label: '🏆 Problemas de Competição',
-      items: [
-        'algorithms/contests/leetcode/two-sum',
-        'algorithms/contests/leetcode/single-number',
-        'algorithms/contests/leetcode/sort-list',
-        'algorithms/contests/leetcode/roman-to-integer',
-        'algorithms/contests/atcoder/abc156',
-        'algorithms/contests/atcoder/abc158',
-        'algorithms/contests/atcoder/abc175',
+        {
+          type: "category",
+          key: "algorithms-contests-leetcode",
+          label: "LeetCode",
+          items: [
+            "algorithms/contests/leetcode/two-sum",
+            "algorithms/contests/leetcode/single-number",
+            "algorithms/contests/leetcode/roman-to-integer",
+            "algorithms/contests/leetcode/sort-list",
+            "algorithms/contests/leetcode/construct-binary-tree-from-preorder-and-inorder-traversal",
+          ],
+        },
+        {
+          type: "category",
+          key: "algorithms-contests-atcoder",
+          label: "AtCoder",
+          items: [
+            "algorithms/contests/atcoder/abc156",
+            "algorithms/contests/atcoder/abc158",
+            "algorithms/contests/atcoder/abc175",
+          ],
+        },
       ],
     },
   ],
 
   topicsSidebar: [
+    "topics/index",
     {
-      type: 'category',
-      label: 'AWS',
-      items: [
-        'topics/aws/index',
-        'topics/aws/regions',
-        'topics/aws/iam',
-        'topics/aws/policies',
-      ],
+      type: "category",
+      key: "topics-aws",
+      label: "AWS",
+      collapsed: false,
+      link: { type: "doc", id: "topics/aws/index" },
+      items: ["topics/aws/regions", "topics/aws/iam", "topics/aws/policies"],
     },
-    {
-      type: 'category',
-      label: 'Database',
+    category({
+      key: "topics-database",
+      label: "Banco de Dados",
+      description: "Sistemas gerenciadores, modelo relacional e SQL.",
       items: [
-        'topics/database/definitions',
-        'topics/database/relational-database',
-        'topics/database/sql',
+        "topics/database/definitions",
+        "topics/database/relational-database",
+        "topics/database/sql",
       ],
-    },
+    }),
   ],
 };
 

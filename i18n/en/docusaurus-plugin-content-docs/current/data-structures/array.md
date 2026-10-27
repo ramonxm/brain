@@ -1,55 +1,75 @@
-# 📦 Array
+---
+sidebar_label: "Array"
+description: "A sequence of elements stored in contiguous memory, with O(1) access by index."
+---
 
-## Introduction
+# Array
 
-An **array** is a data structure that stores a fixed-size sequence of elements of the same type in contiguous memory locations.
+An **array** stores a sequence of elements of the same type in **contiguous** memory positions. Since each element's position can be computed from its index, access is immediate.
 
-## Key Properties
-- **Indexed**: Each element can be accessed directly by its index
-- **Fixed size**: The size is defined at creation and cannot be changed
-- **Homogeneous**: All elements are of the same type
+## How it works
 
-## Common Operations
-- **Access**: O(1) - Direct access by index
-- **Update**: O(1) - Direct update by index
-- **Search**: O(n) - Linear search for an element
-- **Insert/Delete**: O(n) - May require shifting elements
+- **Indexed**: element `i` lives at address `start + i × element_size`
+- **Fixed size**: set at creation, in most low-level languages
+- **Homogeneous**: every element has the same type
 
-## Example (Python)
+Dynamic arrays (`list` in Python, `vector` in C++, `Array` in JavaScript) double their capacity when full, which makes appending O(1) amortized.
+
+## Complexity
+
+| Operation                   | Complexity      |
+| :-------------------------- | :-------------- |
+| Access by index             | O(1)            |
+| Update by index             | O(1)            |
+| Search by value             | O(n)            |
+| Append                      | O(1) amortized  |
+| Insert/remove in the middle | O(n)            |
+
+## Implementation
 
 ```python
-# Creating an array
 arr = [10, 20, 30, 40, 50]
 
-# Accessing elements
 print(arr[2])  # Output: 30
 
-# Updating elements
 arr[1] = 25
 print(arr)  # Output: [10, 25, 30, 40, 50]
 
-# Searching for an element
-if 40 in arr:
-    print("Found!")
+if 40 in arr:  # linear search
+    print("Found")
 
-# Inserting an element (at the end)
-arr.append(60)
-
-# Deleting an element (by value)
-arr.remove(30)
+arr.append(60)  # insert at the end
+arr.remove(30)  # remove by value, shifting the following elements
 print(arr)  # Output: [10, 25, 40, 50, 60]
 ```
 
-## When to Use Arrays
-- When you need fast, direct access to elements by index
-- When the number of elements is known and fixed
-- For implementing other data structures (stacks, queues, etc.)
+## Applications
 
-## Limitations
-- Fixed size (in most languages)
-- Insertion and deletion can be costly (O(n))
-- All elements must be of the same type
+- Collections with frequent access by position
+- Building block for other structures (stacks, queues, heaps, hash tables)
+- Matrices and buffers
 
-## Related Data Structures
-- **Dynamic Array (List in Python, Vector in C++)**: Resizable version of an array
-- **Linked List**: Allows efficient insertions/deletions but slower access 
+## Pros and cons
+
+### Advantages
+
+- O(1) access by index
+- Excellent cache usage, thanks to contiguous memory
+- No extra memory overhead per element
+
+### Disadvantages
+
+- Fixed size for static arrays
+- Insertions and removals in the middle cost O(n)
+- Every element must have the same type (in typed languages)
+
+## When to use
+
+- When the number of elements is known or rarely changes
+- When access by index is the most frequent operation
+
+## Related
+
+- [Linked list](./linked-list.md)
+- [Stack](./stack.md)
+- [Binary search](../algorithms/search/binary-search.md)

@@ -1,20 +1,30 @@
-# 🔄 Selection Sort
+---
+sidebar_label: "Selection Sort"
+description: "Sorting by selecting the smallest element on each pass, O(n²)."
+---
 
-## Introduction
+# Selection Sort
 
-**Selection Sort** is a simple comparison-based sorting algorithm. It repeatedly selects the smallest (or largest) element from the unsorted part and moves it to the beginning (or end) of the list.
+**Selection Sort** is a comparison-based sorting algorithm that, on each pass, selects the smallest element of the unsorted part and puts it in its final position.
+
+## How it works
+
+1. Find the smallest element in the unsorted part of the array.
+2. Swap it with the first element of the unsorted part.
+3. Move the boundary of the sorted part one position forward.
+4. Repeat until the whole array is sorted.
 
 ## Complexity
-- **Time**: O(n²) in the worst and average case
-- **Space**: O(1) (in-place)
 
-## How It Works
-1. Find the minimum element in the unsorted part
-2. Swap it with the first unsorted element
-3. Move the boundary of the sorted part one step forward
-4. Repeat until the list is sorted
+| Metric | Complexity |
+| :----- | :--------- |
+| Time   | O(n²)      |
+| Space  | O(1)       |
+
+The number of comparisons is always the same regardless of the input, so all three cases are O(n²). The algorithm is **in-place** but **not stable**.
 
 ## Implementation
+
 ```python
 def selection_sort(arr):
     n = len(arr)
@@ -26,28 +36,36 @@ def selection_sort(arr):
         arr[i], arr[min_idx] = arr[min_idx], arr[i]
 ```
 
-## Usage Example
+## Usage example
+
 ```python
 arr = [64, 25, 12, 22, 11]
 selection_sort(arr)
 print(arr)  # Output: [11, 12, 22, 25, 64]
 ```
 
-## Advantages and Disadvantages
+## Pros and cons
 
-### ✅ Advantages
+### Advantages
+
 - Simple to understand and implement
-- Does not require extra memory (in-place)
-- Performs well on small lists
+- Uses no extra memory
+- Performs at most n − 1 swaps, useful when writing to memory is expensive
 
-### ❌ Disadvantages
-- Very slow for large lists (O(n²))
-- Not stable by default (can be made stable with modifications)
+### Disadvantages
 
-## When to Use Selection Sort
-- For educational purposes and learning sorting concepts
-- When working with very small datasets
+- Very slow for large arrays
+- Does not benefit from nearly sorted arrays
+- Not stable
 
-## Related Algorithms
-- **Bubble Sort**: Swaps adjacent elements to sort
-- **Insertion Sort**: Builds the sorted array one item at a time 
+## When to use
+
+- For teaching, when comparing sorting algorithms
+- On very small collections, where simplicity matters more than performance
+
+## Related
+
+- [Bubble Sort](./bubble-sort.md)
+- [Quick Sort](./quick-sort.md)
+- [Swap](../../concepts/swap.md)
+- Insertion Sort

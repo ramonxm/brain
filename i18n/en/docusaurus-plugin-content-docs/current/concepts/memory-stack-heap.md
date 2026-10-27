@@ -1,21 +1,62 @@
-# 🧠 Memória Heap e Stack
+---
+sidebar_label: "Stack and Heap"
+description: "The two main memory regions of a program and when each one is used."
+---
 
-Quando um programa é executado, a memória é alocada para armazenar variáveis e dados temporários. Duas áreas principais de memória são comumente utilizadas: heap e stack.
+# Stack and heap memory
 
-## Memória Stack
+While running, a program uses two main memory regions: the **stack**, for temporary data from function calls, and the **heap**, for dynamically allocated data that must outlive a single call.
 
-A memória stack é uma região que armazena variáveis locais e informações relacionadas às funções que estão sendo executadas no momento. Cada função tem seu próprio frame de stack, contendo parâmetros, endereço de retorno e variáveis locais. A alocação e desalocação de memória na stack são feitas automaticamente conforme as funções são chamadas e retornadas.
+## How it works
 
-As operações na stack seguem o modelo Last In, First Out (LIFO), onde o último item adicionado é o primeiro a ser removido. Isso torna a stack eficiente para gerenciar a execução de funções, mas vem com uma capacidade limitada.
+### Stack
 
-## Memória Heap
+Each function call pushes a block (*frame*) onto the stack containing:
 
-A memória heap é uma área de memória dinâmica usada para alocar memória durante a execução do programa. A alocação e desalocação de memória no heap são controladas explicitamente pelo programador. Isso permite a criação de estruturas de dados flexíveis e gerenciamento eficiente de memória conforme necessário.
+- Function parameters
+- Local variables (especially primitive types)
+- Return address
 
-Diferente da stack, o heap não possui uma estrutura organizacional específica, e a alocação de memória pode ocorrer de forma esporádica. É responsabilidade do programador liberar a memória heap alocada quando ela não for mais necessária, evitando vazamentos de memória.
+When the function returns, the frame is removed automatically. The stack follows the [LIFO](./lifo.md) model: the last frame pushed is the first one removed.
 
-## Conclusão
+- **Allocation**: automatic, managed by the runtime
+- **Speed**: very fast
+- **Size**: limited; deep recursion causes a *stack overflow*
 
-Em resumo, a memória stack é usada para armazenar dados temporários e informações relacionadas a funções, com alocação e desalocação automática. Por outro lado, a memória heap permite alocação dinâmica de memória, fornecendo mais controle ao programador, mas exigindo um gerenciamento responsável de memória.
+### Heap
 
-Ambas as áreas de memória desempenham papéis vitais na operação do programa, e uma compreensão adequada delas é crucial para um desenvolvimento eficiente e livre de bugs.
+The heap holds memory reserved on demand at run time, such as objects, lists, trees and graphs.
+
+- **Allocation**: manual in C/C++ (`malloc`/`free`), automatic via a *garbage collector* in Java, JavaScript, Python and C#
+- **Speed**: slower than the stack, due to management overhead
+- **Size**: usually much larger than the stack
+- **Risks**: memory leaks in languages without a garbage collector
+
+```python
+def build_list(n):
+    size = n            # 'size' and the 'items' reference live in the frame (stack)
+    items = [0] * size  # the list itself is allocated on the heap
+    return items        # the frame is discarded; the list stays on the heap
+```
+
+## Comparison
+
+| Characteristic | Stack                          | Heap                               |
+| :------------- | :----------------------------- | :--------------------------------- |
+| Allocation     | Automatic                      | Manual (C/C++) or automatic (GC)   |
+| Speed          | Very fast                      | Slower                             |
+| Size           | Limited                        | Usually larger                     |
+| Usage          | Local variables and calls      | Objects and dynamic structures     |
+| Deallocation   | When the function returns      | Manual or by the garbage collector |
+| Risks          | Stack overflow                 | Leaks and fragmentation            |
+
+## When to use
+
+- **Stack**: small data whose lifetime is limited to one function
+- **Heap**: large data, data whose size is unknown at compile time, or data that must outlive the function that created it
+
+## Related
+
+- [LIFO](./lifo.md)
+- [Stack](../data-structures/stack.md)
+- [Threads](./thread.md)
