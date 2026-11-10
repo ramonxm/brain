@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Swap"
+sidebar_position: 6
 description: "Troca de valores entre duas variáveis ou posições de um array."
 ---
 
@@ -68,6 +69,29 @@ console.log(reverse([10, 30, 40, 55])); // Saída: [55, 40, 30, 10]
 - Algoritmos de ordenação baseados em comparação
 - Inversão e rotação de arrays
 - Embaralhamento (algoritmo de Fisher–Yates)
+
+## Perguntas de revisão
+
+<details>
+<summary>Por que a troca clássica precisa de uma variável temporária?</summary>
+
+Ao fazer `a = b`, o valor original de `a` se perderia. A variável `temp` o guarda até ele ser copiado para `b`.
+
+</details>
+
+<details>
+<summary>Qual a complexidade de inverter um array com dois índices e trocas?</summary>
+
+O(n) de tempo, com n/2 trocas, e O(1) de espaço.
+
+</details>
+
+<details>
+<summary>Que algoritmos de ordenação dependem de swap?</summary>
+
+Bubble Sort, Selection Sort e Quick Sort, no particionamento.
+
+</details>
 
 ## Relacionados
 

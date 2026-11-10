@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Selection Sort"
+sidebar_position: 2
 description: "Sorting by selecting the smallest element on each pass, O(n²)."
 ---
 
@@ -62,6 +63,29 @@ print(arr)  # Output: [11, 12, 22, 25, 64]
 
 - For teaching, when comparing sorting algorithms
 - On very small collections, where simplicity matters more than performance
+
+## Review questions
+
+<details>
+<summary>Why are all three cases O(n²)?</summary>
+
+Every pass scans the whole unsorted part for the minimum, regardless of the input.
+
+</details>
+
+<details>
+<summary>When is making at most n − 1 swaps an advantage?</summary>
+
+When writing to memory is expensive, as with flash memory.
+
+</details>
+
+<details>
+<summary>Why is Selection Sort unstable? Give an example.</summary>
+
+A swap can move an element past an equal one. In `[2a, 2b, 1]`, swapping `2a` with `1` gives `[1, 2b, 2a]`.
+
+</details>
 
 ## Related
 

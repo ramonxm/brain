@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Stack and Heap"
+sidebar_position: 3
 description: "The two main memory regions of a program and when each one is used."
 ---
 
@@ -54,6 +55,29 @@ def build_list(n):
 
 - **Stack**: small data whose lifetime is limited to one function
 - **Heap**: large data, data whose size is unknown at compile time, or data that must outlive the function that created it
+
+## Review questions
+
+<details>
+<summary>What happens to local variables when the function returns?</summary>
+
+The frame is popped and they cease to exist. Heap objects stay alive as long as something references them, such as a list returned by the function.
+
+</details>
+
+<details>
+<summary>Why does very deep recursion cause a stack overflow, while a large object does not?</summary>
+
+Each call pushes a frame onto a stack of limited size. Large objects go to the heap, which is much bigger.
+
+</details>
+
+<details>
+<summary>In `items = [0] * size`, where do `items` and the list live?</summary>
+
+The `items` reference lives in the frame, on the stack. The list itself lives on the heap.
+
+</details>
 
 ## Related
 

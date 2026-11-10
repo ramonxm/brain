@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Notação Big O"
+sidebar_position: 2
 description: "Como medir o crescimento do tempo e da memória de um algoritmo conforme a entrada aumenta."
 ---
 
@@ -61,6 +62,29 @@ O(2ⁿ) e O(n!) se tornam impraticáveis mesmo para entradas pequenas: com `n = 
 O(1): acesso direto · O(log n): dividir pela metade · O(n): um laço · O(n log n): dividir e conquistar · O(n²): dois laços aninhados · O(2ⁿ): todas as combinações · O(n!): todas as ordens
 
 :::
+
+## Perguntas de revisão
+
+<details>
+<summary>Por que `3n² + 5n + 2` é O(n²)?</summary>
+
+Para `n` grande, o termo `n²` domina os demais. O Big O mantém só o termo de maior crescimento e descarta as constantes.
+
+</details>
+
+<details>
+<summary>Que formato de código costuma indicar O(log n)? E O(n²)?</summary>
+
+O(log n): reduzir o problema pela metade a cada passo, como na busca binária. O(n²): dois laços aninhados sobre a entrada.
+
+</details>
+
+<details>
+<summary>O Big O mede o tempo de execução em segundos?</summary>
+
+Não. Ele mede a taxa de crescimento em função de `n`, normalmente no pior caso.
+
+</details>
 
 ## Relacionados
 

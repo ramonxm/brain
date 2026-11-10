@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Array"
+sidebar_position: 2
 description: "Sequência de elementos armazenados em posições contíguas de memória, com acesso O(1) por índice."
 ---
 
@@ -67,6 +68,29 @@ print(arr)  # Saída: [10, 25, 40, 50, 60]
 
 - Quando o número de elementos é conhecido ou muda pouco
 - Quando o acesso por índice é a operação mais frequente
+
+## Perguntas de revisão
+
+<details>
+<summary>Por que o acesso por índice é O(1)?</summary>
+
+Os elementos são contíguos, então o endereço é calculado diretamente: `início + i × tamanho_do_elemento`.
+
+</details>
+
+<details>
+<summary>Por que inserir no meio de um array é O(n)?</summary>
+
+Todos os elementos seguintes precisam ser deslocados uma posição.
+
+</details>
+
+<details>
+<summary>Como a inserção no final de um array dinâmico é O(1) amortizado, se às vezes ele precisa realocar?</summary>
+
+A capacidade dobra a cada realocação. A cópia O(n) acontece cada vez mais raramente, e o custo médio por inserção fica constante.
+
+</details>
 
 ## Relacionados
 

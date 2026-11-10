@@ -1,5 +1,6 @@
 ---
 sidebar_label: "SQL"
+sidebar_position: 3
 description: "A linguagem padrão para definir, consultar e manipular bancos relacionais."
 ---
 
@@ -54,6 +55,29 @@ DELETE FROM customers WHERE id = 1;
 - Liste as colunas em vez de usar `SELECT *` em código de produção
 - Use parâmetros (*prepared statements*) em vez de concatenar valores, para evitar SQL injection
 - Crie índices para as colunas usadas com frequência em filtros e `JOIN`s
+
+## Perguntas de revisão
+
+<details>
+<summary>A que categoria pertencem `SELECT`, `INSERT` e `GRANT`?</summary>
+
+`SELECT` é DQL, `INSERT` é DML e `GRANT` é DCL.
+
+</details>
+
+<details>
+<summary>O que significa dizer que SQL é declarativa?</summary>
+
+A consulta descreve o resultado desejado, e o banco decide como executá-la.
+
+</details>
+
+<details>
+<summary>Como evitar SQL injection?</summary>
+
+Usando parâmetros (*prepared statements*) em vez de concatenar valores na consulta.
+
+</details>
 
 ## Relacionados
 

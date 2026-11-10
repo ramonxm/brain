@@ -28,6 +28,29 @@ description: "An overview of Amazon Web Services and its main services."
 
 Today AWS is the global leader in cloud computing, serving everyone from startups to governments and academic institutions.
 
+## Review questions
+
+<details>
+<summary>Which services in the table are compute, storage and security?</summary>
+
+Compute: EC2 and Lambda. Storage: S3. Security: IAM.
+
+</details>
+
+<details>
+<summary>What does elasticity mean?</summary>
+
+Resources grow and shrink with demand, without upfront capacity planning.
+
+</details>
+
+<details>
+<summary>Which service provides managed relational databases?</summary>
+
+RDS.
+
+</details>
+
 ## Related
 
 - [Regions and AZs](./regions.md)

@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Selection Sort"
+sidebar_position: 2
 description: "Ordenação que seleciona o menor elemento a cada passada, O(n²)."
 ---
 
@@ -62,6 +63,29 @@ print(arr)  # Saída: [11, 12, 22, 25, 64]
 
 - Para fins didáticos, comparando algoritmos de ordenação
 - Em coleções muito pequenas, onde a simplicidade importa mais que o desempenho
+
+## Perguntas de revisão
+
+<details>
+<summary>Por que os três casos são O(n²)?</summary>
+
+A cada passada, ele procura o mínimo em toda a parte não ordenada, independentemente da entrada.
+
+</details>
+
+<details>
+<summary>Quando fazer no máximo n − 1 trocas é uma vantagem?</summary>
+
+Quando escrever na memória é caro, como em memória flash.
+
+</details>
+
+<details>
+<summary>Por que o Selection Sort não é estável? Dê um exemplo.</summary>
+
+A troca pode levar um elemento por cima de outro igual. Em `[2a, 2b, 1]`, trocar `2a` com `1` gera `[1, 2b, 2a]`.
+
+</details>
 
 ## Relacionados
 

@@ -78,6 +78,29 @@ print(bfs(graph, "A"))  # Output: ['A', 'B', 'C', 'D', 'E', 'F']
 - To get the fewest steps between two vertices
 - To explore every vertex of a level before going deeper (social networks, web crawlers, mazes)
 
+## Review questions
+
+<details>
+<summary>Why does BFS find the shortest path in unweighted graphs?</summary>
+
+It visits level by level. The first time it reaches a vertex is necessarily through the path with the fewest edges.
+
+</details>
+
+<details>
+<summary>Why mark a vertex as visited when enqueuing it, and not when dequeuing it?</summary>
+
+So the same vertex doesn't enter the queue several times through different neighbors.
+
+</details>
+
+<details>
+<summary>What is the complexity of BFS?</summary>
+
+O(V + E) time and O(V) space.
+
+</details>
+
 ## Related
 
 - [Queue](../../data-structures/queue.md)

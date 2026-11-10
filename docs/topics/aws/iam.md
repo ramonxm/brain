@@ -1,5 +1,6 @@
 ---
 sidebar_label: "IAM"
+sidebar_position: 2
 description: "Identity and Access Management: controle de acesso aos recursos da AWS."
 ---
 
@@ -33,6 +34,29 @@ Toda requisição à AWS é feita por uma identidade autenticada. O IAM avalia a
 - Conceda o mínimo de permissões necessário (princípio do menor privilégio)
 - Prefira *roles* com credenciais temporárias a chaves de acesso de longo prazo
 - Revise periodicamente as permissões e remova o que não é usado
+
+## Perguntas de revisão
+
+<details>
+<summary>O que acontece com uma requisição que nenhuma policy permite?</summary>
+
+Ela é negada. No IAM, tudo é negado por padrão.
+
+</details>
+
+<details>
+<summary>Por que preferir *roles* a chaves de acesso de longo prazo?</summary>
+
+*Roles* usam credenciais temporárias. Chaves fixas podem vazar e continuam válidas indefinidamente.
+
+</details>
+
+<details>
+<summary>Qual a diferença entre usuário, grupo e *role*?</summary>
+
+Usuário é uma identidade com credenciais de longo prazo. Grupo é um conjunto de usuários com as mesmas permissões. *Role* é uma identidade assumida temporariamente por usuários, serviços ou outras contas.
+
+</details>
 
 ## Relacionados
 

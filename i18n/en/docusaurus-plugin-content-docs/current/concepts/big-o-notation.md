@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Big O Notation"
+sidebar_position: 2
 description: "How to measure how an algorithm's time and memory grow as the input increases."
 ---
 
@@ -61,6 +62,29 @@ O(2ⁿ) and O(n!) become impractical even for small inputs: with `n = 20`, O(2�
 O(1): direct access · O(log n): halving · O(n): one loop · O(n log n): divide and conquer · O(n²): two nested loops · O(2ⁿ): every combination · O(n!): every ordering
 
 :::
+
+## Review questions
+
+<details>
+<summary>Why is `3n² + 5n + 2` O(n²)?</summary>
+
+For large `n`, the `n²` term dominates the others. Big O keeps only the fastest-growing term and drops the constants.
+
+</details>
+
+<details>
+<summary>What code shape usually means O(log n)? And O(n²)?</summary>
+
+O(log n): halving the problem at every step, as in binary search. O(n²): two nested loops over the input.
+
+</details>
+
+<details>
+<summary>Does Big O measure running time in seconds?</summary>
+
+No. It measures the growth rate as a function of `n`, usually in the worst case.
+
+</details>
 
 ## Related
 

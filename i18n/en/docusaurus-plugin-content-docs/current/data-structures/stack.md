@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Stack"
+sidebar_position: 4
 description: "A linear LIFO structure with insertion and removal at the top."
 ---
 
@@ -65,6 +66,29 @@ if not stack:
 
 - When you need to reverse the order of data
 - To keep track of nested or recursive operations
+
+## Review questions
+
+<details>
+<summary>What are the operations of a stack and their complexities?</summary>
+
+Push, pop and peek in O(1). Searching for a value costs O(n).
+
+</details>
+
+<details>
+<summary>Why does a stack solve balanced-parentheses checking?</summary>
+
+The last opened bracket must be the first one closed. Push each opening bracket and, on each closing one, pop and check that they match.
+
+</details>
+
+<details>
+<summary>In Python, which end of a `list` should be the top?</summary>
+
+The end: `append` and `pop()` are O(1). Using the front would cost O(n) per operation.
+
+</details>
 
 ## Related
 

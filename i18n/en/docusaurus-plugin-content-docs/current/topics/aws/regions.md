@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Regions and AZs"
+sidebar_position: 1
 description: "How AWS global infrastructure is organized into regions and availability zones."
 ---
 
@@ -37,6 +38,29 @@ Physical facilities that house servers, storage and networking equipment. AWS sp
 - Spread critical applications across at least two AZs
 - Choose the region based on latency, cost and legal requirements
 - Use multiple regions only when there is a real need for disaster recovery or global reach
+
+## Review questions
+
+<details>
+<summary>What is the difference between a region and an availability zone?</summary>
+
+A region is an isolated geographic area. An AZ is a physically separate group of data centers within a region.
+
+</details>
+
+<details>
+<summary>Why spread an application across at least two AZs?</summary>
+
+So it stays up if a data center fails.
+
+</details>
+
+<details>
+<summary>What criteria matter when choosing a region?</summary>
+
+Latency, cost, legal compliance and service availability.
+
+</details>
 
 ## Related
 

@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Fila (Queue)"
+sidebar_position: 5
 description: "Estrutura linear FIFO com inserção no final e remoção no início."
 ---
 
@@ -67,6 +68,29 @@ if not queue:
 
 - Quando os itens precisam ser processados na ordem de chegada
 - Em algoritmos que exploram dados por níveis, como a BFS
+
+## Perguntas de revisão
+
+<details>
+<summary>Por que `list.pop(0)` é uma má escolha para fila em Python?</summary>
+
+É O(n), pois desloca todos os elementos. `deque.popleft()` faz o mesmo em O(1).
+
+</details>
+
+<details>
+<summary>Por que a BFS usa uma fila?</summary>
+
+A ordem FIFO garante que todos os vértices a distância `k` sejam processados antes dos que estão a distância `k + 1`.
+
+</details>
+
+<details>
+<summary>Qual a diferença de acesso entre pilha e fila?</summary>
+
+A pilha insere e remove no topo. A fila insere no final e remove no início.
+
+</details>
 
 ## Relacionados
 

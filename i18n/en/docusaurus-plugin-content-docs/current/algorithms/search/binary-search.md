@@ -96,6 +96,29 @@ print(binary_search(arr, 4))   # Output: -1
 - For repeated searches over a large sorted collection
 - To find boundaries in monotonic search spaces (for example, the smallest value that satisfies a condition)
 
+## Review questions
+
+<details>
+<summary>What are the prerequisites for binary search?</summary>
+
+Sorted data (or a monotonic search space) and O(1) access by index.
+
+</details>
+
+<details>
+<summary>Why is the loop condition `left <= right`?</summary>
+
+When `left == right`, there is still one element left to check.
+
+</details>
+
+<details>
+<summary>Besides finding a value, what kind of problem does binary search solve?</summary>
+
+Finding boundaries in monotonic spaces, such as the smallest value that satisfies a condition.
+
+</details>
+
 ## Related
 
 - [Array](../../data-structures/array.md)

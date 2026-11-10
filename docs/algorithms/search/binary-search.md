@@ -96,6 +96,29 @@ print(binary_search(arr, 4))   # Saída: -1
 - Para buscas repetidas em uma coleção ordenada e grande
 - Para encontrar limites em espaços de busca monotônicos (por exemplo, o menor valor que satisfaz uma condição)
 
+## Perguntas de revisão
+
+<details>
+<summary>Quais são os pré-requisitos da busca binária?</summary>
+
+Dados ordenados (ou um espaço de busca monotônico) e acesso por índice em O(1).
+
+</details>
+
+<details>
+<summary>Por que a condição do laço é `left <= right`?</summary>
+
+Quando `left == right`, ainda resta um elemento a verificar.
+
+</details>
+
+<details>
+<summary>Além de achar um valor, que tipo de problema a busca binária resolve?</summary>
+
+Encontrar limites em espaços monotônicos, como o menor valor que satisfaz uma condição.
+
+</details>
+
 ## Relacionados
 
 - [Array](../../data-structures/array.md)

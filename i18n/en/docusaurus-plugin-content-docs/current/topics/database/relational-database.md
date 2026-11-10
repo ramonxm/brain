@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Relational Database"
+sidebar_position: 2
 description: "The building blocks of a relational database."
 ---
 
@@ -38,6 +39,29 @@ Each order points to an existing customer; the RDBMS prevents, for example, an o
 - **One to one**: each row in A matches at most one row in B
 - **One to many**: a customer has many orders (the example above)
 - **Many to many**: students and courses, represented by a junction table
+
+## Review questions
+
+<details>
+<summary>What is the difference between a primary key and a foreign key?</summary>
+
+A primary key uniquely identifies each row. A foreign key references the primary key of another table.
+
+</details>
+
+<details>
+<summary>How is a many-to-many relationship represented?</summary>
+
+With a junction table holding foreign keys to both tables.
+
+</details>
+
+<details>
+<summary>In the example, what prevents an order with `customer_id = 3`?</summary>
+
+Referential integrity: the RDBMS rejects a foreign key that doesn't exist in the referenced table.
+
+</details>
 
 ## Related
 

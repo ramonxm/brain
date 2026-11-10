@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Swap"
+sidebar_position: 6
 description: "Exchanging values between two variables or array positions."
 ---
 
@@ -68,6 +69,29 @@ console.log(reverse([10, 30, 40, 55])); // Output: [55, 40, 30, 10]
 - Comparison-based sorting algorithms
 - Reversing and rotating arrays
 - Shuffling (Fisher–Yates algorithm)
+
+## Review questions
+
+<details>
+<summary>Why does the classic swap need a temporary variable?</summary>
+
+After `a = b`, the original value of `a` would be lost. The `temp` variable holds it until it is copied into `b`.
+
+</details>
+
+<details>
+<summary>What is the complexity of reversing an array with two indices and swaps?</summary>
+
+O(n) time, with n/2 swaps, and O(1) space.
+
+</details>
+
+<details>
+<summary>Which sorting algorithms rely on swaps?</summary>
+
+Bubble Sort, Selection Sort and Quick Sort, in its partition step.
+
+</details>
 
 ## Related
 

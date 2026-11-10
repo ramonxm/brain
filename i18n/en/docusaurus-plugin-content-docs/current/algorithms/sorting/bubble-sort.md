@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Bubble Sort"
+sidebar_position: 1
 description: "Sorting by comparing adjacent pairs, O(n²)."
 ---
 
@@ -65,6 +66,29 @@ print(arr)  # Output: [11, 12, 22, 25, 34, 64, 90]
 
 - To learn the fundamentals of sorting
 - On very small or nearly sorted collections
+
+## Review questions
+
+<details>
+<summary>Why is the best case O(n)?</summary>
+
+With the `swapped` flag, a pass without swaps stops the algorithm. An already sorted array needs a single pass.
+
+</details>
+
+<details>
+<summary>What does each pass guarantee?</summary>
+
+The largest remaining element reaches the last position of the unsorted part, which can then be ignored.
+
+</details>
+
+<details>
+<summary>Is Bubble Sort stable? Why?</summary>
+
+Yes. It only swaps neighbors that are strictly out of order (`>`), so equal elements never swap with each other.
+
+</details>
 
 ## Related
 

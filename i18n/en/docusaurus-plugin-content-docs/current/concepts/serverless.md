@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Serverless"
+sidebar_position: 8
 description: "A cloud computing model where the provider manages all of the infrastructure."
 ---
 
@@ -60,6 +61,29 @@ def handler(event, context):
 - Intermittent or unpredictable workloads
 - Short, event-triggered tasks
 - Prototypes and early-stage products
+
+## Review questions
+
+<details>
+<summary>What is a cold start, and when does it happen?</summary>
+
+It is the extra latency when the provider has to create a fresh environment for the function, usually on the first run after an idle period.
+
+</details>
+
+<details>
+<summary>Why is serverless usually cheaper for intermittent workloads?</summary>
+
+You pay only for execution time. There are no idle servers adding cost.
+
+</details>
+
+<details>
+<summary>Name two limitations of the model.</summary>
+
+Per-execution time and resource limits, vendor lock-in and harder debugging.
+
+</details>
 
 ## Related
 

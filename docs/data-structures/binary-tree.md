@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Árvore Binária"
+sidebar_position: 6
 description: "Estrutura hierárquica em que cada nó tem no máximo dois filhos."
 ---
 
@@ -84,6 +85,29 @@ inorder(root)  # Saída: 2 5 7 10 15
 
 - Para representar relações hierárquicas
 - Quando busca, inserção e remoção precisam ser eficientes e os dados precisam ficar ordenados
+
+## Perguntas de revisão
+
+<details>
+<summary>Qual é a regra de uma árvore binária de busca?</summary>
+
+Em toda subárvore, os valores à esquerda são menores que o nó e os da direita, maiores.
+
+</details>
+
+<details>
+<summary>Por que uma BST pode degradar para O(n)?</summary>
+
+Inserir valores já ordenados gera uma árvore em que cada nó tem um único filho, ou seja, uma lista com altura `n`.
+
+</details>
+
+<details>
+<summary>O que o percurso em ordem devolve em uma BST?</summary>
+
+Os valores em ordem crescente.
+
+</details>
 
 ## Relacionados
 

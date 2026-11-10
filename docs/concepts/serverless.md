@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Serverless"
+sidebar_position: 8
 description: "Modelo de computação em nuvem em que o provedor gerencia toda a infraestrutura."
 ---
 
@@ -60,6 +61,29 @@ def handler(event, context):
 - Cargas intermitentes ou imprevisíveis
 - Tarefas curtas disparadas por eventos
 - Protótipos e produtos em fase inicial
+
+## Perguntas de revisão
+
+<details>
+<summary>O que é *cold start* e quando ele acontece?</summary>
+
+É a latência extra quando o provedor precisa criar um ambiente novo para a função, normalmente na primeira execução após um período ocioso.
+
+</details>
+
+<details>
+<summary>Por que serverless costuma ser mais barato para cargas intermitentes?</summary>
+
+Paga-se apenas pelo tempo de execução. Não há servidor ocioso gerando custo.
+
+</details>
+
+<details>
+<summary>Cite duas limitações do modelo.</summary>
+
+Limites de tempo e de recursos por execução, dependência do provedor (*vendor lock-in*) e depuração mais difícil.
+
+</details>
 
 ## Relacionados
 

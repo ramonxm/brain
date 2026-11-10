@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Linked List"
+sidebar_position: 3
 description: "A sequence of nodes where each node points to the next one."
 ---
 
@@ -92,6 +93,29 @@ print(linked)  # Output: 10 -> 20 -> 30
 
 - When there are many insertions and removals at the start or in the middle
 - When the collection size changes often
+
+## Review questions
+
+<details>
+<summary>Why is access by position O(n), and not O(1) as in an array?</summary>
+
+Nodes are not contiguous. To reach position `i`, you have to follow the pointers from the head.
+
+</details>
+
+<details>
+<summary>When is a linked list better than an array?</summary>
+
+When there are many insertions and removals at the front or at known positions, or when the size changes often.
+
+</details>
+
+<details>
+<summary>Why is appending O(n) without a tail pointer?</summary>
+
+You have to walk the whole list to the last node. Keeping a tail pointer makes it O(1).
+
+</details>
 
 ## Related
 

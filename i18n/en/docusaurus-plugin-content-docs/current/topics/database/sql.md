@@ -1,5 +1,6 @@
 ---
 sidebar_label: "SQL"
+sidebar_position: 3
 description: "The standard language to define, query and manipulate relational databases."
 ---
 
@@ -54,6 +55,29 @@ DELETE FROM customers WHERE id = 1;
 - List columns instead of using `SELECT *` in production code
 - Use parameters (*prepared statements*) instead of concatenating values, to avoid SQL injection
 - Index columns frequently used in filters and `JOIN`s
+
+## Review questions
+
+<details>
+<summary>Which category do `SELECT`, `INSERT` and `GRANT` belong to?</summary>
+
+`SELECT` is DQL, `INSERT` is DML and `GRANT` is DCL.
+
+</details>
+
+<details>
+<summary>What does it mean that SQL is declarative?</summary>
+
+A query describes the desired result, and the database decides how to execute it.
+
+</details>
+
+<details>
+<summary>How do you prevent SQL injection?</summary>
+
+By using parameters (prepared statements) instead of concatenating values into the query.
+
+</details>
 
 ## Related
 

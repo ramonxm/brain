@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Quick Sort"
+sidebar_position: 4
 description: "In-place sorting by partitioning around a pivot, O(n log n) on average."
 ---
 
@@ -86,6 +87,29 @@ Choosing the pivot at random, or as the median of three elements (start, middle 
 - To sort large in-memory arrays
 - When extra memory is a constraint
 - When stability is not required
+
+## Review questions
+
+<details>
+<summary>When does Quick Sort degrade to O(n²)?</summary>
+
+When the pivot is always the smallest or largest element, as when using the last element of an already sorted array. The partitions become completely unbalanced.
+
+</details>
+
+<details>
+<summary>How do you avoid the worst case in practice?</summary>
+
+By picking the pivot at random or by median of three (start, middle and end).
+
+</details>
+
+<details>
+<summary>What does partitioning guarantee?</summary>
+
+The pivot ends up in its final position, with smaller-or-equal elements to its left and larger ones to its right.
+
+</details>
 
 ## Related
 

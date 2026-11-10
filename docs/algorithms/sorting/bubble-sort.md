@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Bubble Sort"
+sidebar_position: 1
 description: "Ordenação por comparação de pares adjacentes, O(n²)."
 ---
 
@@ -65,6 +66,29 @@ print(arr)  # Saída: [11, 12, 22, 25, 34, 64, 90]
 
 - Para aprender os fundamentos de ordenação
 - Em coleções muito pequenas ou quase ordenadas
+
+## Perguntas de revisão
+
+<details>
+<summary>Por que o melhor caso é O(n)?</summary>
+
+Com a flag `swapped`, uma passada sem trocas encerra o algoritmo. Um array já ordenado precisa de uma única passada.
+
+</details>
+
+<details>
+<summary>O que cada passada garante?</summary>
+
+O maior elemento restante chega à última posição da parte não ordenada, que então pode ser ignorada.
+
+</details>
+
+<details>
+<summary>O Bubble Sort é estável? Por quê?</summary>
+
+Sim. Ele só troca vizinhos estritamente fora de ordem (`>`), então elementos iguais nunca trocam de posição entre si.
+
+</details>
 
 ## Relacionados
 
