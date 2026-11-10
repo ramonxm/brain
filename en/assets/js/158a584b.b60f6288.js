@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbrain=self.webpackChunkbrain||[]).push([["7722"],{2532(e){e.exports=JSON.parse('{"metadata":{"permalink":"/brain/en/til","page":1,"postsPerPage":20,"totalPages":1,"totalCount":1,"blogDescription":"Short notes on what I learned each day.","blogTitle":"TIL"}}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbrain=self.webpackChunkbrain||[]).push([["1833"],{5513(s){s.exports=JSON.parse('{"title":"Todos os registros","items":[{"title":"Docusaurus ignora arquivos com prefixo _","permalink":"/brain/til/2026/11/10/docusaurus-underscore","unlisted":false,"date":"2026-11-10T00:00:00.000Z"}]}')}}]);

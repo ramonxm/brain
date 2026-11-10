@@ -1,0 +1,19 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "brain.xavier Blog",
+    "home_page_url": "https://ramonxm.github.io/brain/en/til",
+    "description": "brain.xavier Blog",
+    "items": [
+        {
+            "id": "https://ramonxm.github.io/brain/en/til/2026/11/10/docusaurus-underscore",
+            "content_html": "<p>Files and folders in <code>docs/</code> that start with <code>_</code> don't become pages: the docs plugin's default exclude pattern includes <code>**/_*.{js,jsx,ts,tsx,md,mdx}</code> and <code>**/_*/**</code>. That's how <code>docs/_inbox/</code> and <code>docs/_templates/</code> stay out of the site while remaining visible in Obsidian.</p>\n<p>Related: <a href=\"https://github.com/ramonxm/brain/blob/main/CONTRIBUTING.md\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"\">how notes are written in this repository</a>.</p>",
+            "url": "https://ramonxm.github.io/brain/en/til/2026/11/10/docusaurus-underscore",
+            "title": "Docusaurus ignores files prefixed with _",
+            "summary": "Files and folders in docs/ that start with ` don't become pages: the docs plugin's default exclude pattern includes **/.{js,jsx,ts,tsx,md,mdx} and /_/. That's how docs/inbox/ and docs/templates/` stay out of the site while remaining visible in Obsidian.",
+            "date_modified": "2026-11-10T00:00:00.000Z",
+            "tags": [
+                "docusaurus"
+            ]
+        }
+    ]
+}

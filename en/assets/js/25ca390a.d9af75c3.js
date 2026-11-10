@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbrain=self.webpackChunkbrain||[]).push([["6106"],{1692(s){s.exports=JSON.parse('{"tags":[{"label":"docusaurus","permalink":"/brain/en/til/tags/docusaurus","count":1}]}')}}]);

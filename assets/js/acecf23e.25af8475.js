@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbrain=self.webpackChunkbrain||[]).push([["3220"],{1912(a){a.exports=JSON.parse('{"blogBasePath":"/brain/til","blogTitle":"TIL","authorsListPath":"/brain/til/authors"}')}}]);

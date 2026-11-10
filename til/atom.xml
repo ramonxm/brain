@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://ramonxm.github.io/brain/til</id>
+    <title>brain.xavier Blog</title>
+    <updated>2026-11-10T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://ramonxm.github.io/brain/til"/>
+    <subtitle>brain.xavier Blog</subtitle>
+    <icon>https://ramonxm.github.io/brain/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Docusaurus ignora arquivos com prefixo _]]></title>
+        <id>https://ramonxm.github.io/brain/til/2026/11/10/docusaurus-underscore</id>
+        <link href="https://ramonxm.github.io/brain/til/2026/11/10/docusaurus-underscore"/>
+        <updated>2026-11-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Arquivos e pastas de docs/ que começam com ` não viram páginas: o padrão de exclusão do plugin de docs inclui **/.{js,jsx,ts,tsx,md,mdx} e /_/. É assim que docs/inbox/ e docs/templates/` ficam fora do site, mas continuam visíveis no Obsidian.]]></summary>
+        <content type="html"><![CDATA[<p>Arquivos e pastas de <code>docs/</code> que começam com <code>_</code> não viram páginas: o padrão de exclusão do plugin de docs inclui <code>**/_*.{js,jsx,ts,tsx,md,mdx}</code> e <code>**/_*/**</code>. É assim que <code>docs/_inbox/</code> e <code>docs/_templates/</code> ficam fora do site, mas continuam visíveis no Obsidian.</p>
+<p>Relacionado: <a href="https://github.com/ramonxm/brain/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" class="">como escrever notas neste repositório</a>.</p>]]></content>
+        <category label="docusaurus" term="docusaurus"/>
+    </entry>
+</feed>
