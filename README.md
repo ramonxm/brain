@@ -52,6 +52,7 @@ yarn typecheck  # checagem de tipos
 yarn new nota "Título"                         # nota rápida em docs/_inbox/
 yarn new <tipo> <caminho-em-docs> "Título"     # nota a partir de um template
 yarn anki       # exporta as perguntas de revisão para anki/
+yarn check:notes  # valida as notas contra o guia de escrita (também roda no CI)
 ```
 
 > O servidor de desenvolvimento roda **um idioma por vez**. Para testar a troca de idioma, use `yarn build && yarn serve`.
@@ -94,13 +95,13 @@ yarn anki       # exporta as perguntas de revisão para anki/
    yarn new algoritmo algorithms/sorting/insertion-sort "Insertion Sort"
    ```
 
-   Tipos: `nota` (inbox), `conceito`, `estrutura`, `algoritmo`, `problema` e `padrao`.
+   Tipos: `nota` (inbox), `conceito`, `estrutura`, `topico`, `algoritmo`, `problema` e `padrao`.
 
 2. Escreva o conteúdo, ligue a nota a pelo menos uma nota existente e preencha as perguntas de revisão.
 3. Opcional: defina `sidebar_position` no frontmatter. A sidebar é gerada das pastas, sem registro manual.
 4. Opcional: crie a tradução em `i18n/en/docusaurus-plugin-content-docs/current/<mesmo caminho>.md`. Sem ela, o site em inglês mostra a versão em português.
 5. Se criou uma **pasta** nova, adicione um `_category_.json` com `key` estável e rode `yarn i18n:write-en` para gerar as chaves de tradução.
-6. Rode `yarn build`: links quebrados fazem o build falhar.
+6. Rode `yarn check:notes` e `yarn build`: notas fora do template ou links quebrados fazem os dois falharem.
 
 O fluxo completo (inbox, rascunhos, Obsidian, Anki) e as convenções de escrita estão no [guia de escrita](CONTRIBUTING.md).
 

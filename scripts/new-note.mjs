@@ -15,6 +15,7 @@ const TEMPLATES = {
   nota: "nota-rapida",
   conceito: "conceito",
   estrutura: "conceito",
+  topico: "conceito",
   algoritmo: "algoritmo",
   problema: "problema",
   padrao: "padrao",

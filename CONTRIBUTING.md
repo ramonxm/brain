@@ -150,6 +150,12 @@ Os elementos são contíguos, então o endereço é calculado diretamente: `iní
 
 `yarn anki` gera `anki/brain-pt-BR.txt` e `anki/brain-en.txt` com todas as perguntas de revisão e todos os insights-chave. No Anki, use **Arquivo > Importar**. Cada cartão tem um id estável, então importar de novo atualiza os cartões existentes em vez de duplicá-los. As tags seguem o caminho da nota (`algorithms::sorting::merge-sort`).
 
+## Validação
+
+`yarn check:notes` confere as notas contra este guia: frontmatter, título único, seções obrigatórias e ordem por tipo, perguntas de revisão, blocos de código com linguagem, links quebrados, `_category_.json` das pastas e a paridade com a tradução. Roda no CI e, no Claude Code, depois de cada edição de nota (hook em `.claude/settings.json`). Para validar só alguns arquivos: `yarn check:notes docs/concepts/swap.md`.
+
+Rascunhos (`draft: true`) e visões gerais de seção só passam pelas checagens de formato, sem exigência de seções.
+
 ## Formatos
 
 ### Títulos

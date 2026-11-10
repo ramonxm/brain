@@ -16,6 +16,7 @@
     "i18n:write-en": "docusaurus write-translations --locale en",
     "new": "node scripts/new-note.mjs",
     "anki": "node scripts/anki.mjs",
+    "check:notes": "node scripts/check-notes.mjs",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "deploy-gh-pages": "GIT_USER=ramonxm USE_SSH=true yarn deploy",
