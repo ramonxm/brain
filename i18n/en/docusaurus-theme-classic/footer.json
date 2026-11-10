@@ -50,5 +50,13 @@
   "link.item.label.Buy me a coffee": {
     "message": "Buy me a coffee",
     "description": "The label of footer link with label=Buy me a coffee linking to https://www.buymeacoffee.com/ramonxm"
+  },
+  "link.item.label.TIL": {
+    "message": "TIL",
+    "description": "The label of footer link with label=TIL linking to /til"
+  },
+  "copyright": {
+    "message": "© 2026 Ramon Xavier",
+    "description": "The footer copyright"
   }
 }

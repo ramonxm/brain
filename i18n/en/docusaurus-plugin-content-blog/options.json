@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "TIL",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "Short notes on what I learned each day.",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "All entries",
+    "description": "The label for the left sidebar"
+  }
+}

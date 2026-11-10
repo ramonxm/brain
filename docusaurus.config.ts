@@ -1,6 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import remarkBacklinks from "./src/remark/backlinks.mjs";
 
 const organizationName = "ramonxm";
 const projectName = "brain";
@@ -95,8 +96,26 @@ const config: Config = {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           breadcrumbs: true,
+          // Adds a "Mencionado em" section with the notes that link to each page
+          beforeDefaultRemarkPlugins: [remarkBacklinks],
         },
-        blog: false,
+        // TIL ("today I learned"): short, unstructured daily notes in til/
+        blog: {
+          path: "til",
+          routeBasePath: "til",
+          blogTitle: "TIL",
+          blogDescription: "Registros curtos do que aprendi no dia.",
+          blogSidebarTitle: "Todos os registros",
+          blogSidebarCount: "ALL",
+          postsPerPage: 20,
+          showReadingTime: false,
+          editUrl: `${repoUrl}/tree/main/`,
+          editLocalizedFiles: true,
+          onInlineAuthors: "ignore",
+          onInlineTags: "ignore",
+          onUntruncatedBlogPosts: "ignore",
+          feedOptions: { type: "all" },
+        },
         theme: {
           customCss: "./src/css/custom.css",
         },
@@ -104,7 +123,7 @@ const config: Config = {
           lastmod: "date",
           changefreq: "weekly",
           priority: 0.5,
-          ignorePatterns: ["/tags/**"],
+          ignorePatterns: ["/tags/**", "/til/tags/**", "/til/page/**"],
           filename: "sitemap.xml",
         },
       } satisfies Preset.Options,
@@ -131,7 +150,9 @@ const config: Config = {
       {
         hashed: true,
         language: ["pt", "en"],
-        indexBlog: false,
+        indexBlog: true,
+        blogRouteBasePath: "/til",
+        blogDir: "til",
         docsRouteBasePath: "/docs",
         highlightSearchTermsOnTargetPage: true,
         explicitSearchResultPath: true,
@@ -206,6 +227,7 @@ const config: Config = {
           position: "left",
           label: "Tópicos",
         },
+        { to: "/til", label: "TIL", position: "left" },
         {
           type: "search",
           position: "right",
@@ -233,6 +255,7 @@ const config: Config = {
             { label: "Estruturas de Dados", to: "/docs/data-structures" },
             { label: "Algoritmos", to: "/docs/algorithms" },
             { label: "Tópicos", to: "/docs/topics" },
+            { label: "TIL", to: "/til" },
           ],
         },
         {
