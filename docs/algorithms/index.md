@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Visão geral"
+sidebar_position: 1
 description: "Algoritmos clássicos de ordenação, busca e grafos, paradigmas de projeto e problemas de competição resolvidos."
 ---
 
@@ -23,9 +24,14 @@ Implementações comentadas de algoritmos clássicos, sempre acompanhadas de com
 | [Busca Binária](./search/binary-search.md)                 | O(log n)  | O(1)   |
 | [Busca em Largura (BFS)](./graph/breadth-first-search.md)  | O(V + E)  | O(V)   |
 
-## Paradigmas
+## Paradigmas e padrões
 
-- [Algoritmos Gulosos](./greedy/index.md): a melhor escolha local a cada passo
+Ideias que se repetem em vários algoritmos e problemas. Cada nota de padrão lista os lugares onde ele aparece, o que ajuda a reconhecê-lo em problemas novos.
+
+- [Algoritmos gulosos](./greedy/index.md): a melhor escolha local a cada passo
+- [Divisão e conquista](./patterns/divide-and-conquer.md): dividir, resolver as partes e combinar
+- [Dois ponteiros](./patterns/two-pointers.md): dois índices que se movem por regras próprias
+- [Hash map como índice](./patterns/hash-map-lookup.md): trocar buscas O(n) por consultas O(1)
 
 ## Programação competitiva
 

@@ -1,0 +1,11 @@
+{
+  "key": "algorithms-patterns",
+  "label": "Padrões",
+  "position": 6,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/algorithms-patterns",
+    "description": "Ideias que se repetem em vários algoritmos e problemas. Cada nota liga os lugares onde o padrão aparece."
+  }
+}
