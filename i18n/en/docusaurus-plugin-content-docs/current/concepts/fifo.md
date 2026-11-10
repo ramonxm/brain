@@ -1,69 +1,51 @@
 ---
 sidebar_label: "FIFO"
+sidebar_position: 4
 description: "First In, First Out: the first element added is the first one removed."
 ---
 
 # FIFO (First In, First Out)
 
-**FIFO** ("first in, first out") is the policy in which elements are removed in the same order they were added, like a supermarket checkout line: whoever arrives first is served first.
+**FIFO** ("first in, first out") is the policy in which elements are removed in the same order they were added, like a supermarket line: whoever arrives first is served first.
 
 ## How it works
 
-The structure that implements FIFO is the [queue](../data-structures/queue.md), with two operations:
+The policy only defines **which** element leaves, not how elements are stored. Elements enter at one end and leave at the other, so the output order is the **same** as the input order: inserting `1, 2, 3` and removing everything returns `1, 2, 3`.
 
-- **Enqueue**: adds an element to the back
-- **Dequeue**: removes the element at the front
-
-## Complexity
-
-| Operation | Complexity |
-| :-------- | :--------- |
-| Enqueue   | O(1)       |
-| Dequeue   | O(1)       |
-
-## Implementation
-
-```python
-from collections import deque
-
-
-class Queue:
-    def __init__(self):
-        self.items = deque()
-
-    def enqueue(self, item):
-        self.items.append(item)
-
-    def dequeue(self):
-        return self.items.popleft() if self.items else None
-
-    def is_empty(self):
-        return len(self.items) == 0
-
-
-queue = Queue()
-queue.enqueue(1)
-queue.enqueue(2)
-queue.enqueue(3)
-
-print(queue.dequeue())  # Output: 1
-print(queue.dequeue())  # Output: 2
-```
-
-:::warning[Watch out for lists]
-
-In Python, `list.pop(0)` is O(n) because it shifts every element. Use `collections.deque` to get O(1) at both ends.
-
-:::
+That makes FIFO the natural policy for anything that must be **fair** or handled **in arrival order**. The structure that implements it is the [queue](../data-structures/queue.md). The [comparison with LIFO](./lifo.md#comparison) shows both side by side.
 
 ## Applications
 
-- Print and task queues
-- Process scheduling
-- Network and I/O buffers
-- [Breadth-first search (BFS)](../algorithms/graph/breadth-first-search.md)
+- [Breadth-first search (BFS)](../algorithms/graph/breadth-first-search.md): processes vertices by distance level
+- Scheduling processes and [threads](./thread.md) in arrival order
+- Print, task and message queues
+- Network and I/O buffers, which must preserve the order of the data
+
+## Review questions
+
+<details>
+<summary>What kind of problem usually calls for FIFO?</summary>
+
+Problems where arrival order matters or where everything must be processed in layers, such as BFS and task queues.
+
+</details>
+
+<details>
+<summary>Why does a queue preserve order while a stack reverses it?</summary>
+
+In a queue, insertion and removal happen at opposite ends; in a stack, at the same end.
+
+</details>
+
+<details>
+<summary>Why does BFS rely on FIFO to find the shortest path?</summary>
+
+FIFO guarantees that every vertex at distance `k` leaves the queue before those at distance `k + 1`.
+
+</details>
 
 ## Related
 
-- [LIFO](./lifo.md)
 - [Queue](../data-structures/queue.md)
+- [LIFO](./lifo.md)
+- [Breadth-first search (BFS)](../algorithms/graph/breadth-first-search.md)
