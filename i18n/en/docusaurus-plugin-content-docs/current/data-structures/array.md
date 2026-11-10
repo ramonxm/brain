@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Array"
+sidebar_position: 2
 description: "A sequence of elements stored in contiguous memory, with O(1) access by index."
 ---
 
@@ -67,6 +68,29 @@ print(arr)  # Output: [10, 25, 40, 50, 60]
 
 - When the number of elements is known or rarely changes
 - When access by index is the most frequent operation
+
+## Review questions
+
+<details>
+<summary>Why is access by index O(1)?</summary>
+
+Elements are contiguous, so the address is computed directly: `start + i × element_size`.
+
+</details>
+
+<details>
+<summary>Why is inserting in the middle of an array O(n)?</summary>
+
+Every following element has to shift one position.
+
+</details>
+
+<details>
+<summary>How is appending to a dynamic array O(1) amortized if it sometimes has to reallocate?</summary>
+
+Capacity doubles on each reallocation. The O(n) copy happens less and less often, so the average cost per append stays constant.
+
+</details>
 
 ## Related
 

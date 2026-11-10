@@ -1,0 +1,11 @@
+{
+  "key": "algorithms-contests",
+  "label": "Programação Competitiva",
+  "position": 7,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/algorithms-contests",
+    "description": "Soluções comentadas de problemas do LeetCode e do AtCoder."
+  }
+}

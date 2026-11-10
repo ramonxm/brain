@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Single Number"
+sidebar_position: 2
 description: "Find the element that appears only once using XOR."
 ---
 
@@ -16,6 +17,10 @@ Finding the only unpaired element of an array, in linear time and constant memor
 ## Problem
 
 Given a non-empty array of integers `nums` where every element appears twice except one, find that element. The solution must run in O(n) time and use only O(1) extra space.
+
+## Key insight
+
+XOR cancels pairs (`x ^ x = 0`) and doesn't depend on order. XOR-ing every element leaves only the one without a pair.
 
 ## Solution
 
@@ -56,6 +61,12 @@ console.log(singleNumber([4, 1, 2, 1, 2]));  // Output: 4
 console.log(singleNumber([1]));              // Output: 1
 console.log(singleNumber([-1, -1, -2]));     // Output: -2
 ```
+
+## How to spot the pattern
+
+- Every element appears in pairs except one
+- The statement requires O(1) extra memory, which rules out a hash set
+- Pairs that cancel out suggest an operation that is its own inverse
 
 ## Related
 

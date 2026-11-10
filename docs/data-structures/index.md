@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Visão geral"
+sidebar_position: 1
 description: "Formas de organizar dados na memória e o custo de cada operação."
 ---
 

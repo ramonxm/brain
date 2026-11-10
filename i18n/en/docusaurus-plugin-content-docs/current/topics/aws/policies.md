@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Policies"
+sidebar_position: 3
 description: "JSON documents that define permissions in AWS."
 ---
 
@@ -50,6 +51,29 @@ A **policy** is a JSON document that defines permissions in AWS: **who** can per
 - Avoid wildcards (`"Action": "*"`, `"Resource": "*"`) outside test environments
 - Use `Condition` to restrict access further
 - Validate policies with IAM Access Analyzer
+
+## Review questions
+
+<details>
+<summary>If one policy allows an action and another explicitly denies it, which wins?</summary>
+
+The explicit `Deny` always wins.
+
+</details>
+
+<details>
+<summary>What are the fields of a statement?</summary>
+
+`Effect`, `Action`, `Resource` and, optionally, `Condition`.
+
+</details>
+
+<details>
+<summary>What is the difference between identity-based and resource-based policies?</summary>
+
+The first is attached to a user, group or role. The second is attached to the resource itself, like an S3 bucket policy.
+
+</details>
 
 ## Related
 

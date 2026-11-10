@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Sort List"
+sidebar_position: 4
 description: "Ordene uma lista ligada em O(n log n) com Merge Sort."
 ---
 
@@ -16,6 +17,10 @@ Ordenar uma lista ligada em O(n log n) adaptando o [Merge Sort](../../sorting/me
 ## Problema
 
 Dada a cabeça (`head`) de uma lista ligada, retorne a lista ordenada em ordem crescente.
+
+## Insight-chave
+
+O Merge Sort não precisa de acesso por índice. Achar o meio com ponteiros lento e rápido e intercalar religando ponteiros dá O(n log n) sem copiar nós.
 
 ## Solução
 
@@ -103,6 +108,14 @@ console.log(toArray(sortList(fromArray([-1, 5, 3, 4, 0])))); // Saída: [-1, 0, 
 console.log(toArray(sortList(fromArray([3, 1, 3, 1]))));     // Saída: [1, 1, 3, 3]
 console.log(toArray(sortList(fromArray([]))));               // Saída: []
 ```
+
+## Como reconhecer o padrão
+
+- Ordenar ou dividir uma lista ligada
+- Precisar do meio de uma lista sem saber o tamanho: ponteiros lento e rápido
+- Exigência de O(n log n) com memória baixa em lista ligada: Merge Sort
+
+Padrões: [Divisão e conquista](../../patterns/divide-and-conquer.md), [Dois ponteiros](../../patterns/two-pointers.md).
 
 ## Relacionados
 

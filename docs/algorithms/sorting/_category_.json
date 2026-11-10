@@ -1,0 +1,11 @@
+{
+  "key": "algorithms-sorting",
+  "label": "Ordenação",
+  "position": 2,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/algorithms-sorting",
+    "description": "Algoritmos para colocar coleções em ordem."
+  }
+}

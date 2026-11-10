@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Greedy Algorithms"
+sidebar_position: 5
 description: "Algorithms that make the locally optimal choice at each step."
 ---
 
@@ -93,6 +94,29 @@ With coins `[4, 3, 1]` and amount `6`, the greedy strategy returns `[4, 1, 1]` (
 
 - When you can prove the local choice leads to the global optimum
 - When a fast approximate solution is good enough
+
+## Review questions
+
+<details>
+<summary>Which two properties guarantee that a greedy strategy reaches the optimum?</summary>
+
+The greedy-choice property (some optimal solution starts with the best local choice) and optimal substructure.
+
+</details>
+
+<details>
+<summary>Give a counterexample for greedy change-making.</summary>
+
+Coins `[4, 3, 1]` and amount `6`: greedy returns `[4, 1, 1]`, but the optimum is `[3, 3]`.
+
+</details>
+
+<details>
+<summary>What is the key difference between greedy and dynamic programming?</summary>
+
+Greedy decides locally and never backtracks. Dynamic programming considers every subproblem and memoizes the results.
+
+</details>
 
 ## Related
 

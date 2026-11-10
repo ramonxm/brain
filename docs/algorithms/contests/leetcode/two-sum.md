@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Two Sum"
+sidebar_position: 1
 description: "Encontre dois índices cujos valores somam o alvo, em O(n) com hash map."
 ---
 
@@ -16,6 +17,10 @@ Encontrar dois elementos de um array que somam um valor alvo, usando um hash map
 ## Problema
 
 Dado um array de inteiros `nums` e um inteiro `target`, retorne os índices dos dois números de `nums` cuja soma é `target`. Cada entrada tem exatamente uma solução, e o mesmo elemento não pode ser usado duas vezes.
+
+## Insight-chave
+
+Para cada número, a pergunta "o complemento dele já apareceu?" é uma busca. Um hash map de valor → índice responde em O(1), trocando O(n²) de tempo por O(n) de memória.
 
 ## Solução
 
@@ -59,6 +64,14 @@ console.log(twoSum([2, 7, 11, 15], 9));          // Saída: [0, 1]
 console.log(twoSum([-1, -2, -3, -4, -5], -8));   // Saída: [2, 4]
 console.log(twoSum([3, 3], 6));                  // Saída: [0, 1]
 ```
+
+## Como reconhecer o padrão
+
+- O problema pede um par que satisfaz uma relação (`a + b = alvo`, `a − b = k`)
+- A força bruta compara todos os pares em O(n²)
+- Dado um elemento, dá para calcular exatamente o que se procura
+
+Padrão: [Hash map como índice](../../patterns/hash-map-lookup.md).
 
 ## Relacionados
 

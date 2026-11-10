@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Regiões e AZs"
+sidebar_position: 1
 description: "Como a infraestrutura global da AWS é organizada em regiões e zonas de disponibilidade."
 ---
 
@@ -37,6 +38,29 @@ Instalações físicas que abrigam servidores, armazenamento e equipamentos de r
 - Distribua aplicações críticas em pelo menos duas AZs
 - Escolha a região considerando latência, custo e requisitos legais
 - Use múltiplas regiões apenas quando houver necessidade real de recuperação de desastres ou alcance global
+
+## Perguntas de revisão
+
+<details>
+<summary>Qual a diferença entre região e zona de disponibilidade?</summary>
+
+Uma região é uma área geográfica isolada. Uma AZ é um grupo de data centers fisicamente separado dentro de uma região.
+
+</details>
+
+<details>
+<summary>Por que distribuir uma aplicação em pelo menos duas AZs?</summary>
+
+Para que ela continue no ar se um data center falhar.
+
+</details>
+
+<details>
+<summary>Que critérios pesam na escolha de uma região?</summary>
+
+Latência, custo, conformidade legal e disponibilidade dos serviços.
+
+</details>
 
 ## Relacionados
 

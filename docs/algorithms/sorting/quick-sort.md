@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Quick Sort"
+sidebar_position: 4
 description: "Ordenação in-place por particionamento em torno de um pivô, O(n log n) em média."
 ---
 
@@ -86,6 +87,29 @@ Escolher o pivô aleatoriamente ou pela mediana de três elementos (início, mei
 - Para ordenar arrays grandes em memória
 - Quando memória extra é uma restrição
 - Quando a estabilidade não é necessária
+
+## Perguntas de revisão
+
+<details>
+<summary>Quando o Quick Sort cai para O(n²)?</summary>
+
+Quando o pivô é sempre o menor ou o maior elemento, como ao usar o último elemento de um array já ordenado. As partições ficam totalmente desbalanceadas.
+
+</details>
+
+<details>
+<summary>Como evitar o pior caso na prática?</summary>
+
+Escolhendo o pivô aleatoriamente ou pela mediana de três (início, meio e fim).
+
+</details>
+
+<details>
+<summary>O que o particionamento garante?</summary>
+
+O pivô termina na sua posição final, com os menores ou iguais à esquerda e os maiores à direita.
+
+</details>
 
 ## Relacionados
 

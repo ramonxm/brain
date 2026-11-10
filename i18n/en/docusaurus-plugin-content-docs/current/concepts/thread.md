@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Threads"
+sidebar_position: 7
 description: "The smallest unit of execution in an operating system and how to use it for concurrency."
 ---
 
@@ -72,6 +73,29 @@ In CPython, the *Global Interpreter Lock* prevents two threads from running Pyth
 
 - When the program spends a lot of time waiting on I/O (network requests, file reads)
 - When the interface must stay responsive during a long task
+
+## Review questions
+
+<details>
+<summary>What do the threads of a process share, and what does each one own?</summary>
+
+They share the heap, the code and open files. Each one has its own call stack and registers.
+
+</details>
+
+<details>
+<summary>What is a race condition?</summary>
+
+A situation where the result depends on the order in which threads run, because they access shared data without synchronization.
+
+</details>
+
+<details>
+<summary>Why do threads in CPython help with I/O but not with CPU-bound work?</summary>
+
+The GIL prevents two threads from running Python bytecode at the same time, but it is released during I/O. For CPU-bound work, use `multiprocessing`.
+
+</details>
 
 ## Related
 

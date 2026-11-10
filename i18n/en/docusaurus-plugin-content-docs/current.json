@@ -3,54 +3,6 @@
     "message": "Next",
     "description": "The label for version current"
   },
-  "sidebar.conceptsSidebar.category.concepts-fundamentals": {
-    "message": "Fundamentals",
-    "description": "The label for category 'Fundamentos' in sidebar 'conceptsSidebar'"
-  },
-  "sidebar.conceptsSidebar.category.concepts-fundamentals.link.generated-index.description": {
-    "message": "Complexity analysis and memory layout.",
-    "description": "The generated-index page description for category 'Fundamentos' in sidebar 'conceptsSidebar'"
-  },
-  "sidebar.conceptsSidebar.category.concepts-mechanisms": {
-    "message": "Mechanisms",
-    "description": "The label for category 'Mecanismos' in sidebar 'conceptsSidebar'"
-  },
-  "sidebar.conceptsSidebar.category.concepts-mechanisms.link.generated-index.description": {
-    "message": "Data access policies and elementary operations.",
-    "description": "The generated-index page description for category 'Mecanismos' in sidebar 'conceptsSidebar'"
-  },
-  "sidebar.conceptsSidebar.category.concepts-concurrency": {
-    "message": "Concurrency",
-    "description": "The label for category 'Concorrência' in sidebar 'conceptsSidebar'"
-  },
-  "sidebar.conceptsSidebar.category.concepts-concurrency.link.generated-index.description": {
-    "message": "Running tasks simultaneously.",
-    "description": "The generated-index page description for category 'Concorrência' in sidebar 'conceptsSidebar'"
-  },
-  "sidebar.conceptsSidebar.category.concepts-architecture": {
-    "message": "Architecture",
-    "description": "The label for category 'Arquitetura' in sidebar 'conceptsSidebar'"
-  },
-  "sidebar.conceptsSidebar.category.concepts-architecture.link.generated-index.description": {
-    "message": "Software architecture and execution models.",
-    "description": "The generated-index page description for category 'Arquitetura' in sidebar 'conceptsSidebar'"
-  },
-  "sidebar.dataStructuresSidebar.category.data-structures-linear": {
-    "message": "Linear Structures",
-    "description": "The label for category 'Estruturas Lineares' in sidebar 'dataStructuresSidebar'"
-  },
-  "sidebar.dataStructuresSidebar.category.data-structures-linear.link.generated-index.description": {
-    "message": "Structures that keep elements in sequence.",
-    "description": "The generated-index page description for category 'Estruturas Lineares' in sidebar 'dataStructuresSidebar'"
-  },
-  "sidebar.dataStructuresSidebar.category.data-structures-trees": {
-    "message": "Trees",
-    "description": "The label for category 'Árvores' in sidebar 'dataStructuresSidebar'"
-  },
-  "sidebar.dataStructuresSidebar.category.data-structures-trees.link.generated-index.description": {
-    "message": "Hierarchical structures made of nodes.",
-    "description": "The generated-index page description for category 'Árvores' in sidebar 'dataStructuresSidebar'"
-  },
   "sidebar.algorithmsSidebar.category.algorithms-sorting": {
     "message": "Sorting",
     "description": "The label for category 'Ordenação' in sidebar 'algorithmsSidebar'"
@@ -74,14 +26,6 @@
   "sidebar.algorithmsSidebar.category.algorithms-graphs.link.generated-index.description": {
     "message": "Algorithms that traverse and analyze graphs.",
     "description": "The generated-index page description for category 'Grafos' in sidebar 'algorithmsSidebar'"
-  },
-  "sidebar.algorithmsSidebar.category.algorithms-paradigms": {
-    "message": "Paradigms",
-    "description": "The label for category 'Paradigmas' in sidebar 'algorithmsSidebar'"
-  },
-  "sidebar.algorithmsSidebar.category.algorithms-paradigms.link.generated-index.description": {
-    "message": "General strategies for designing algorithms.",
-    "description": "The generated-index page description for category 'Paradigmas' in sidebar 'algorithmsSidebar'"
   },
   "sidebar.algorithmsSidebar.category.algorithms-contests": {
     "message": "Competitive Programming",
@@ -110,5 +54,13 @@
   "sidebar.topicsSidebar.category.topics-database.link.generated-index.description": {
     "message": "Database management systems, the relational model and SQL.",
     "description": "The generated-index page description for category 'Banco de Dados' in sidebar 'topicsSidebar'"
+  },
+  "sidebar.algorithmsSidebar.category.algorithms-patterns": {
+    "message": "Patterns",
+    "description": "The label for category 'Padrões' in sidebar 'algorithmsSidebar'"
+  },
+  "sidebar.algorithmsSidebar.category.algorithms-patterns.link.generated-index.description": {
+    "message": "Ideas that recur across algorithms and problems. Each note links the places where the pattern shows up.",
+    "description": "The generated-index page description for category 'Padrões' in sidebar 'algorithmsSidebar'"
   }
 }

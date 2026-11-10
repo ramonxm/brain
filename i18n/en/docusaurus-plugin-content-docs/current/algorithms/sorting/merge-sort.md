@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Merge Sort"
+sidebar_position: 3
 description: "Stable divide-and-conquer sorting, O(n log n)."
 ---
 
@@ -81,6 +82,29 @@ console.log(sorted); // Output: [3, 9, 10, 27, 38, 43, 82]
 - When the sort must be stable
 - When worst-case performance matters
 - To sort [linked lists](../../data-structures/linked-list.md)
+
+## Review questions
+
+<details>
+<summary>Where do the log n and the n in O(n log n) come from?</summary>
+
+There are log n levels of splitting, and each level does O(n) work merging.
+
+</details>
+
+<details>
+<summary>What makes Merge Sort stable?</summary>
+
+When merging, on a tie (`<=`) the element from the left half is copied first.
+
+</details>
+
+<details>
+<summary>Why is it a good fit for linked lists?</summary>
+
+Merging only relinks pointers and needs no index access, so the O(n) extra memory of the array version goes away.
+
+</details>
 
 ## Related
 

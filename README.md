@@ -15,14 +15,17 @@
 
 ## Sobre
 
-Base de conhecimento pessoal, publicada como site de documentação, em **português** (idioma padrão) e **inglês**. Cada artigo traz explicação, implementação, análise de complexidade e quando usar (ou não) cada técnica.
+Base de conhecimento pessoal, publicada como site de documentação, em **português** (idioma padrão) e **inglês**. Cada artigo traz explicação, implementação, análise de complexidade, quando usar (ou não) cada técnica e **perguntas de revisão** para se testar.
+
+As notas funcionam como um Zettelkasten: cada uma trata de uma ideia, liga-se a outras, e cada página mostra automaticamente as notas que apontam para ela ("Mencionado em"). As notas de **padrão** (divisão e conquista, dois ponteiros, hash map como índice) conectam algoritmos e problemas que usam a mesma ideia.
 
 | Seção                   | Conteúdo                                                                |
 | :---------------------- | :---------------------------------------------------------------------- |
 | **Conceitos**           | Big O, Stack e Heap, FIFO, LIFO, Swap, Threads, Serverless              |
 | **Estruturas de Dados** | Array, Lista Ligada, Pilha, Fila, Árvore Binária                        |
-| **Algoritmos**          | Ordenação, Busca Binária, BFS, Algoritmos Gulosos, LeetCode e AtCoder   |
+| **Algoritmos**          | Ordenação, Busca Binária, BFS, Algoritmos Gulosos, Padrões, LeetCode e AtCoder |
 | **Tópicos**             | AWS (Regiões, IAM, Policies) e Banco de Dados (DBMS, modelo relacional, SQL) |
+| **TIL**                 | Registros curtos do que aprendi no dia                                  |
 
 ## Stack
 
@@ -30,6 +33,9 @@ Base de conhecimento pessoal, publicada como site de documentação, em **portug
 - React 19 e TypeScript
 - Busca local offline com [`@easyops-cn/docusaurus-search-local`](https://github.com/easyops-cn/docusaurus-search-local)
 - Diagramas com Mermaid
+- Backlinks gerados no build por um plugin remark próprio (`src/remark/backlinks.mjs`)
+- Exportação das perguntas de revisão para o Anki (`scripts/anki.mjs`)
+- Vault do Obsidian em `docs/`, compatível com os links do Docusaurus
 - Deploy automático no GitHub Pages via GitHub Actions
 
 ## Desenvolvimento
@@ -43,6 +49,10 @@ yarn start:en   # servidor local em inglês
 yarn build      # build de produção de todos os idiomas em ./build
 yarn serve      # serve o build localmente (permite testar a troca de idioma)
 yarn typecheck  # checagem de tipos
+yarn new nota "Título"                         # nota rápida em docs/_inbox/
+yarn new <tipo> <caminho-em-docs> "Título"     # nota a partir de um template
+yarn anki       # exporta as perguntas de revisão para anki/
+yarn check:notes  # valida as notas contra o guia de escrita (também roda no CI)
 ```
 
 > O servidor de desenvolvimento roda **um idioma por vez**. Para testar a troca de idioma, use `yarn build && yarn serve`.
@@ -51,51 +61,49 @@ yarn typecheck  # checagem de tipos
 
 ```text
 .
-├── docs/                         # Conteúdo em pt-BR (idioma padrão)
+├── docs/                         # Conteúdo em pt-BR (idioma padrão) e vault do Obsidian
+│   ├── _inbox/                   # Notas rápidas (não publicadas)
+│   ├── _templates/               # Templates de nota (não publicados)
 │   ├── concepts/
 │   ├── data-structures/
 │   ├── algorithms/
-│   │   ├── sorting/  search/  graph/  greedy/
+│   │   ├── sorting/  search/  graph/  greedy/  patterns/
 │   │   └── contests/{leetcode,atcoder}/
 │   └── topics/{aws,database}/
+├── til/                          # Registros do TIL (blog)
 ├── i18n/en/
 │   ├── code.json                 # Textos da interface e da homepage
 │   ├── docusaurus-theme-classic/ # Navbar e footer
 │   └── docusaurus-plugin-content-docs/
 │       ├── current.json          # Nomes e descrições das categorias da sidebar
-│       └── current/              # Tradução dos docs (espelha docs/)
+│       └── current/              # Tradução dos docs (espelha docs/, opcional)
+├── scripts/                      # yarn new e yarn anki
 ├── src/
 │   ├── css/custom.css            # Tema global
-│   └── pages/index.tsx           # Homepage
+│   ├── pages/index.tsx           # Homepage
+│   └── remark/                   # Plugin de backlinks e leitura do grafo de notas
 ├── static/img/                   # Imagens e ícones
 ├── docusaurus.config.ts
-└── sidebars.ts                   # Uma sidebar por seção da navbar
+└── sidebars.ts                   # Uma sidebar por seção, gerada das pastas
 ```
 
 ## Adicionando um artigo
 
-1. Crie o arquivo em `docs/<seção>/<slug>.md` com o frontmatter:
+1. Crie a nota a partir de um template:
 
-   ```md
-   ---
-   sidebar_label: "Nome curto"
-   description: "Uma frase que resume o artigo (usada em SEO e nos cards)."
-   ---
-
-   # Título completo
+   ```bash
+   yarn new algoritmo algorithms/sorting/insertion-sort "Insertion Sort"
    ```
 
-2. Adicione o id do doc (`<seção>/<slug>`) à categoria correspondente em `sidebars.ts`.
-3. Crie a tradução em `i18n/en/docusaurus-plugin-content-docs/current/<seção>/<slug>.md`, com o mesmo caminho.
-4. Se criou uma **categoria** nova, defina um `key` estável e rode `yarn i18n:write-en` para gerar as chaves de tradução em `current.json`.
-5. Rode `yarn build` — links quebrados fazem o build falhar.
+   Tipos: `nota` (inbox), `conceito`, `estrutura`, `topico`, `algoritmo`, `problema` e `padrao`.
 
-### Convenções
+2. Escreva o conteúdo, ligue a nota a pelo menos uma nota existente e preencha as perguntas de revisão.
+3. Opcional: defina `sidebar_position` no frontmatter. A sidebar é gerada das pastas, sem registro manual.
+4. Opcional: crie a tradução em `i18n/en/docusaurus-plugin-content-docs/current/<mesmo caminho>.md`. Sem ela, o site em inglês mostra a versão em português.
+5. Se criou uma **pasta** nova, adicione um `_category_.json` com `key` estável e rode `yarn i18n:write-en` para gerar as chaves de tradução.
+6. Rode `yarn check:notes` e `yarn build`: notas fora do template ou links quebrados fazem os dois falharem.
 
-- Um `#` por página; seções com `##` e `###`, sem emojis nos títulos.
-- Use admonitions para destaques, com título entre colchetes: `:::tip[Título]`, `:::warning[Título]`.
-- Sempre informe a complexidade de tempo e espaço.
-- Links internos com caminho relativo para o arquivo (`../concepts/big-o-notation.md`).
+O fluxo completo (inbox, rascunhos, Obsidian, Anki) e as convenções de escrita estão no [guia de escrita](CONTRIBUTING.md).
 
 ## Deploy
 

@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Construct Binary Tree"
+sidebar_position: 5
 description: "Reconstrua uma árvore binária a partir dos percursos pré-ordem e em-ordem."
 ---
 
@@ -16,6 +17,10 @@ Reconstruir uma [árvore binária](../../../data-structures/binary-tree.md) a pa
 ## Problema
 
 Dados dois arrays de inteiros `preorder` e `inorder`, que são, respectivamente, os percursos em pré-ordem e em ordem da mesma árvore binária (com valores distintos), construa e retorne a árvore.
+
+## Insight-chave
+
+A pré-ordem revela a raiz; a posição dessa raiz na em-ordem diz quais valores ficam em cada subárvore. Isso reduz o problema a duas reconstruções menores.
 
 ## Solução
 
@@ -86,6 +91,14 @@ console.log(levelOrder(buildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7])));
 console.log(levelOrder(buildTree([-1], [-1])));
 // Saída: [-1]
 ```
+
+## Como reconhecer o padrão
+
+- Reconstruir uma árvore a partir de percursos
+- Um percurso identifica a raiz e o outro separa os lados: recursão nas subárvores
+- Buscas repetidas por posição (`indexOf`) dentro da recursão: pré-calcule um mapa valor → índice
+
+Padrões: [Divisão e conquista](../../patterns/divide-and-conquer.md), [Hash map como índice](../../patterns/hash-map-lookup.md).
 
 ## Relacionados
 

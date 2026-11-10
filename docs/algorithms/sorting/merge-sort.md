@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Merge Sort"
+sidebar_position: 3
 description: "Ordenação estável por divisão e conquista, O(n log n)."
 ---
 
@@ -81,6 +82,29 @@ console.log(sorted); // Saída: [3, 9, 10, 27, 38, 43, 82]
 - Quando a ordenação precisa ser estável
 - Quando o desempenho no pior caso importa
 - Para ordenar [listas ligadas](../../data-structures/linked-list.md)
+
+## Perguntas de revisão
+
+<details>
+<summary>De onde vêm o log n e o n de O(n log n)?</summary>
+
+Há log n níveis de divisão, e cada nível faz O(n) de trabalho na intercalação.
+
+</details>
+
+<details>
+<summary>O que torna o Merge Sort estável?</summary>
+
+Na intercalação, em caso de empate (`<=`), o elemento da metade esquerda é copiado primeiro.
+
+</details>
+
+<details>
+<summary>Por que ele é uma boa escolha para listas ligadas?</summary>
+
+A intercalação só religa ponteiros e não precisa de acesso por índice, então a memória extra O(n) do array desaparece.
+
+</details>
 
 ## Relacionados
 

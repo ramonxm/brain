@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Banco Relacional"
+sidebar_position: 2
 description: "Os elementos que compõem um banco de dados relacional."
 ---
 
@@ -38,6 +39,29 @@ Cada pedido aponta para um cliente existente; o RDBMS impede, por exemplo, um pe
 - **Um para um**: cada linha de A corresponde a no máximo uma linha de B
 - **Um para muitos**: um cliente tem vários pedidos (o caso do exemplo)
 - **Muitos para muitos**: alunos e disciplinas, representado por uma tabela intermediária
+
+## Perguntas de revisão
+
+<details>
+<summary>Qual a diferença entre chave primária e chave estrangeira?</summary>
+
+A chave primária identifica cada linha de forma única. A chave estrangeira referencia a chave primária de outra tabela.
+
+</details>
+
+<details>
+<summary>Como se representa um relacionamento muitos para muitos?</summary>
+
+Com uma tabela intermediária que tem chaves estrangeiras para as duas tabelas.
+
+</details>
+
+<details>
+<summary>No exemplo, o que impede um pedido com `cliente_id = 3`?</summary>
+
+A integridade referencial: o RDBMS rejeita uma chave estrangeira que não existe na tabela referenciada.
+
+</details>
 
 ## Relacionados
 

@@ -28,6 +28,29 @@ A **AWS** é a plataforma de computação em nuvem da Amazon, lançada em 2006 e
 
 Hoje a AWS é líder global em computação em nuvem e atende de startups a governos e instituições acadêmicas.
 
+## Perguntas de revisão
+
+<details>
+<summary>Quais serviços da tabela são de computação, armazenamento e segurança?</summary>
+
+Computação: EC2 e Lambda. Armazenamento: S3. Segurança: IAM.
+
+</details>
+
+<details>
+<summary>O que significa elasticidade?</summary>
+
+Os recursos aumentam e diminuem conforme a demanda, sem planejamento prévio de capacidade.
+
+</details>
+
+<details>
+<summary>Qual serviço oferece bancos relacionais gerenciados?</summary>
+
+O RDS.
+
+</details>
+
 ## Relacionados
 
 - [Regiões e AZs](./regions.md)

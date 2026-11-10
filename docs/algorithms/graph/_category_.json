@@ -1,0 +1,11 @@
+{
+  "key": "algorithms-graphs",
+  "label": "Grafos",
+  "position": 4,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/algorithms-graphs",
+    "description": "Algoritmos para percorrer e analisar grafos."
+  }
+}

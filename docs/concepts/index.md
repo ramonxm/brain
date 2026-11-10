@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Visão geral"
+sidebar_position: 1
 description: "Os princípios que fundamentam a ciência da computação: complexidade, memória, concorrência e arquitetura."
 ---
 

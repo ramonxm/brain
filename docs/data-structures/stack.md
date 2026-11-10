@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Pilha (Stack)"
+sidebar_position: 4
 description: "Estrutura linear LIFO com inserção e remoção no topo."
 ---
 
@@ -65,6 +66,29 @@ if not stack:
 
 - Quando é preciso inverter a ordem dos dados
 - Para controlar operações aninhadas ou recursivas
+
+## Perguntas de revisão
+
+<details>
+<summary>Quais são as operações de uma pilha e suas complexidades?</summary>
+
+Push, pop e peek em O(1). Buscar um valor custa O(n).
+
+</details>
+
+<details>
+<summary>Por que uma pilha resolve a verificação de parênteses balanceados?</summary>
+
+O último parêntese aberto precisa ser o primeiro a fechar. Empilhe cada abertura e, a cada fechamento, desempilhe e confira se formam um par.
+
+</details>
+
+<details>
+<summary>Em Python, qual extremidade da `list` deve ser o topo?</summary>
+
+O final: `append` e `pop()` são O(1). Usar o início custaria O(n) por operação.
+
+</details>
 
 ## Relacionados
 

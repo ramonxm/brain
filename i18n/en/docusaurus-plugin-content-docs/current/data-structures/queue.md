@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Queue"
+sidebar_position: 5
 description: "A linear FIFO structure with insertion at the back and removal at the front."
 ---
 
@@ -67,6 +68,29 @@ if not queue:
 
 - When items must be processed in arrival order
 - In algorithms that explore data level by level, such as BFS
+
+## Review questions
+
+<details>
+<summary>Why is `list.pop(0)` a poor choice for a queue in Python?</summary>
+
+It is O(n) because it shifts every element. `deque.popleft()` does the same in O(1).
+
+</details>
+
+<details>
+<summary>Why does BFS use a queue?</summary>
+
+FIFO order guarantees that every vertex at distance `k` is processed before those at distance `k + 1`.
+
+</details>
+
+<details>
+<summary>How does access differ between a stack and a queue?</summary>
+
+A stack inserts and removes at the top. A queue inserts at the back and removes from the front.
+
+</details>
 
 ## Related
 

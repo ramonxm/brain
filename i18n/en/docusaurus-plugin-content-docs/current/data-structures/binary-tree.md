@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Binary Tree"
+sidebar_position: 6
 description: "A hierarchical structure where each node has at most two children."
 ---
 
@@ -84,6 +85,29 @@ inorder(root)  # Output: 2 5 7 10 15
 
 - To represent hierarchical relationships
 - When search, insertion and removal must be efficient and the data must stay sorted
+
+## Review questions
+
+<details>
+<summary>What is the rule of a binary search tree?</summary>
+
+In every subtree, values on the left are smaller than the node and values on the right are larger.
+
+</details>
+
+<details>
+<summary>Why can a BST degrade to O(n)?</summary>
+
+Inserting already sorted values builds a tree where each node has a single child: a list of height `n`.
+
+</details>
+
+<details>
+<summary>What does an in-order traversal of a BST return?</summary>
+
+The values in ascending order.
+
+</details>
 
 ## Related
 

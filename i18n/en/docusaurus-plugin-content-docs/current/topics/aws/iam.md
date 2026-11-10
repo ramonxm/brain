@@ -1,5 +1,6 @@
 ---
 sidebar_label: "IAM"
+sidebar_position: 2
 description: "Identity and Access Management: controlling access to AWS resources."
 ---
 
@@ -33,6 +34,29 @@ Every request to AWS is made by an authenticated identity. IAM evaluates the [po
 - Grant the minimum permissions required (principle of least privilege)
 - Prefer roles with temporary credentials over long-term access keys
 - Review permissions regularly and remove what is unused
+
+## Review questions
+
+<details>
+<summary>What happens to a request that no policy allows?</summary>
+
+It is denied. In IAM, everything is denied by default.
+
+</details>
+
+<details>
+<summary>Why prefer roles over long-term access keys?</summary>
+
+Roles use temporary credentials. Static keys can leak and stay valid indefinitely.
+
+</details>
+
+<details>
+<summary>What is the difference between a user, a group and a role?</summary>
+
+A user is an identity with long-term credentials. A group is a set of users sharing the same permissions. A role is an identity assumed temporarily by users, services or other accounts.
+
+</details>
 
 ## Related
 

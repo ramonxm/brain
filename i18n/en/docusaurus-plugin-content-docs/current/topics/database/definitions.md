@@ -1,5 +1,6 @@
 ---
 sidebar_label: "DBMS and RDBMS"
+sidebar_position: 1
 description: "What database management systems are, and their relational variant."
 ---
 
@@ -53,6 +54,29 @@ A **DBMS** (*Database Management System*) is the software that creates, manages 
 | Example        | MongoDB                           | PostgreSQL                  |
 
 Every RDBMS is a DBMS, but not every DBMS is relational.
+
+## Review questions
+
+<details>
+<summary>Is every DBMS an RDBMS?</summary>
+
+No. Every RDBMS is a DBMS, but there are non-relational DBMSs, such as MongoDB.
+
+</details>
+
+<details>
+<summary>What does ACID stand for?</summary>
+
+Atomicity, consistency, isolation and durability.
+
+</details>
+
+<details>
+<summary>What guarantees referential integrity?</summary>
+
+Primary and foreign keys: a foreign key can only point to a primary key that exists.
+
+</details>
 
 ## Related
 

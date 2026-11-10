@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Algoritmos Gulosos"
+sidebar_position: 5
 description: "Algoritmos que fazem a melhor escolha local a cada passo."
 ---
 
@@ -93,6 +94,29 @@ Com moedas `[4, 3, 1]` e valor `6`, a estratégia gulosa devolve `[4, 1, 1]` (3 
 
 - Quando é possível provar que a escolha local leva ao ótimo global
 - Quando uma solução aproximada e rápida é suficiente
+
+## Perguntas de revisão
+
+<details>
+<summary>Quais duas propriedades garantem que a estratégia gulosa chega ao ótimo?</summary>
+
+Escolha gulosa (existe uma solução ótima que começa pela escolha local ótima) e subestrutura ótima.
+
+</details>
+
+<details>
+<summary>Dê um contraexemplo para o troco guloso.</summary>
+
+Moedas `[4, 3, 1]` e valor `6`: o guloso devolve `[4, 1, 1]`, mas o ótimo é `[3, 3]`.
+
+</details>
+
+<details>
+<summary>Qual a diferença essencial entre guloso e programação dinâmica?</summary>
+
+O guloso decide localmente e nunca volta atrás. A programação dinâmica considera todos os subproblemas e memoiza os resultados.
+
+</details>
 
 ## Relacionados
 

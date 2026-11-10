@@ -22,5 +22,9 @@
   "item.label.Tópicos": {
     "message": "Topics",
     "description": "Navbar item with label Tópicos"
+  },
+  "item.label.TIL": {
+    "message": "TIL",
+    "description": "Navbar item with label TIL"
   }
 }

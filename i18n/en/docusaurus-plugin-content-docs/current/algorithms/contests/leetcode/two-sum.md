@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Two Sum"
+sidebar_position: 1
 description: "Find two indices whose values add up to the target, in O(n) with a hash map."
 ---
 
@@ -16,6 +17,10 @@ Finding two elements of an array that add up to a target value, using a hash map
 ## Problem
 
 Given an array of integers `nums` and an integer `target`, return the indices of the two numbers in `nums` that add up to `target`. Each input has exactly one solution, and the same element may not be used twice.
+
+## Key insight
+
+For each number, asking "have I seen its complement?" is a lookup. A value → index hash map answers it in O(1), trading O(n²) time for O(n) memory.
 
 ## Solution
 
@@ -59,6 +64,14 @@ console.log(twoSum([2, 7, 11, 15], 9));          // Output: [0, 1]
 console.log(twoSum([-1, -2, -3, -4, -5], -8));   // Output: [2, 4]
 console.log(twoSum([3, 3], 6));                  // Output: [0, 1]
 ```
+
+## How to spot the pattern
+
+- The problem asks for a pair that satisfies a relation (`a + b = target`, `a − b = k`)
+- Brute force compares every pair in O(n²)
+- Given one element, you can compute exactly what you are looking for
+
+Pattern: [Hash map as an index](../../patterns/hash-map-lookup.md).
 
 ## Related
 

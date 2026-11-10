@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Threads"
+sidebar_position: 7
 description: "A menor unidade de execução de um sistema operacional e como usá-la para concorrência."
 ---
 
@@ -72,6 +73,29 @@ No CPython, o *Global Interpreter Lock* impede que duas threads executem bytecod
 
 - Quando o programa espera muito por I/O (requisições de rede, leitura de arquivos)
 - Quando a interface precisa continuar responsiva durante uma tarefa longa
+
+## Perguntas de revisão
+
+<details>
+<summary>O que as threads de um processo compartilham, e o que cada uma tem de próprio?</summary>
+
+Compartilham a heap, o código e os arquivos abertos. Cada uma tem a própria pilha de chamadas e os próprios registradores.
+
+</details>
+
+<details>
+<summary>O que é uma condição de corrida?</summary>
+
+Uma situação em que o resultado depende da ordem de execução das threads, porque elas acessam dados compartilhados sem sincronização.
+
+</details>
+
+<details>
+<summary>Por que threads em CPython ajudam em I/O, mas não em tarefas de CPU?</summary>
+
+O GIL impede duas threads de executar bytecode Python ao mesmo tempo, mas é liberado durante operações de I/O. Para CPU, use `multiprocessing`.
+
+</details>
 
 ## Relacionados
 

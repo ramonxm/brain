@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Stack e Heap"
+sidebar_position: 3
 description: "As duas principais regiões de memória de um programa e quando cada uma é usada."
 ---
 
@@ -54,6 +55,29 @@ def build_list(n):
 
 - **Stack**: dados pequenos com tempo de vida restrito a uma função
 - **Heap**: dados grandes, de tamanho desconhecido em tempo de compilação ou que precisam sobreviver à função que os criou
+
+## Perguntas de revisão
+
+<details>
+<summary>O que acontece com as variáveis locais quando a função retorna?</summary>
+
+O frame é desempilhado e elas deixam de existir. Objetos na heap continuam vivos enquanto houver referências a eles, como uma lista retornada pela função.
+
+</details>
+
+<details>
+<summary>Por que recursão muito profunda causa *stack overflow*, mas um objeto grande não?</summary>
+
+Cada chamada empilha um frame em uma stack de tamanho limitado. Objetos grandes vão para a heap, que é bem maior.
+
+</details>
+
+<details>
+<summary>Em `items = [0] * size`, onde ficam `items` e a lista?</summary>
+
+A referência `items` fica no frame, na stack. A lista em si fica na heap.
+
+</details>
 
 ## Relacionados
 

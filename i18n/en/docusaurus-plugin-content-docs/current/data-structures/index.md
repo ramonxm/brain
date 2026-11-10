@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Overview"
+sidebar_position: 1
 description: "Ways of organizing data in memory and the cost of each operation."
 ---
 

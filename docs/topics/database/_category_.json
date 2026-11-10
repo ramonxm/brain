@@ -1,0 +1,11 @@
+{
+  "key": "topics-database",
+  "label": "Banco de Dados",
+  "position": 3,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/topics-database",
+    "description": "Sistemas gerenciadores, modelo relacional e SQL."
+  }
+}

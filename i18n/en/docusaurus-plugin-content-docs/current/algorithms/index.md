@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Overview"
+sidebar_position: 1
 description: "Classic sorting, search and graph algorithms, design paradigms and solved contest problems."
 ---
 
@@ -23,9 +24,14 @@ Annotated implementations of classic algorithms, always with complexity, usage e
 | [Binary Search](./search/binary-search.md)                   | O(log n) | O(1)  |
 | [Breadth-First Search (BFS)](./graph/breadth-first-search.md) | O(V + E) | O(V)  |
 
-## Paradigms
+## Paradigms and patterns
 
-- [Greedy Algorithms](./greedy/index.md): the best local choice at each step
+Ideas that recur across algorithms and problems. Each pattern note lists the places where it shows up, which helps you recognize it in new problems.
+
+- [Greedy algorithms](./greedy/index.md): the best local choice at each step
+- [Divide and conquer](./patterns/divide-and-conquer.md): split, solve the parts and combine
+- [Two pointers](./patterns/two-pointers.md): two indices that move by their own rules
+- [Hash map as an index](./patterns/hash-map-lookup.md): trade O(n) searches for O(1) lookups
 
 ## Competitive programming
 

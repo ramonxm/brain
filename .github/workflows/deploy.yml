@@ -34,6 +34,9 @@ jobs:
       - name: Typecheck
         run: yarn typecheck
 
+      - name: Check notes against the writing guide
+        run: yarn check:notes
+
       - name: Build website
         run: yarn build
 

@@ -1,0 +1,9 @@
+{
+  "useMarkdownLinks": true,
+  "newLinkFormat": "relative",
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "_inbox",
+  "showUnsupportedFiles": false,
+  "userIgnoreFilters": ["_templates/"]
+}

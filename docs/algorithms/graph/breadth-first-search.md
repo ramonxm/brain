@@ -78,6 +78,29 @@ print(bfs(graph, "A"))  # Saída: ['A', 'B', 'C', 'D', 'E', 'F']
 - Para obter o menor número de passos entre dois vértices
 - Para explorar todos os vértices de um nível antes de ir mais fundo (redes sociais, web crawlers, labirintos)
 
+## Perguntas de revisão
+
+<details>
+<summary>Por que a BFS encontra o menor caminho em grafos não ponderados?</summary>
+
+Ela visita por níveis. A primeira vez que alcança um vértice é necessariamente pelo caminho com menos arestas.
+
+</details>
+
+<details>
+<summary>Por que marcar o vértice como visitado ao enfileirá-lo, e não ao retirá-lo da fila?</summary>
+
+Assim o mesmo vértice não entra na fila várias vezes, por vizinhos diferentes.
+
+</details>
+
+<details>
+<summary>Qual a complexidade da BFS?</summary>
+
+O(V + E) de tempo e O(V) de espaço.
+
+</details>
+
 ## Relacionados
 
 - [Fila (queue)](../../data-structures/queue.md)

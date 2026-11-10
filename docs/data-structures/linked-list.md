@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Lista Ligada"
+sidebar_position: 3
 description: "Sequência de nós em que cada nó aponta para o próximo."
 ---
 
@@ -92,6 +93,29 @@ print(linked)  # Saída: 10 -> 20 -> 30
 
 - Quando há muitas inserções e remoções no início ou no meio
 - Quando o tamanho da coleção muda com frequência
+
+## Perguntas de revisão
+
+<details>
+<summary>Por que o acesso por posição é O(n), e não O(1) como no array?</summary>
+
+Os nós não são contíguos. Para chegar à posição `i`, é preciso seguir os ponteiros a partir da cabeça.
+
+</details>
+
+<details>
+<summary>Quando uma lista ligada é melhor que um array?</summary>
+
+Quando há muitas inserções e remoções no início ou em posições já conhecidas, ou quando o tamanho muda com frequência.
+
+</details>
+
+<details>
+<summary>Por que inserir no final é O(n) sem ponteiro de cauda?</summary>
+
+É preciso percorrer a lista inteira até o último nó. Guardando um ponteiro para a cauda, a operação vira O(1).
+
+</details>
 
 ## Relacionados
 

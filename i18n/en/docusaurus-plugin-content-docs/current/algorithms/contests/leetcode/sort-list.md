@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Sort List"
+sidebar_position: 4
 description: "Sort a linked list in O(n log n) with Merge Sort."
 ---
 
@@ -16,6 +17,10 @@ Sorting a linked list in O(n log n) by adapting [Merge Sort](../../sorting/merge
 ## Problem
 
 Given the `head` of a linked list, return the list sorted in ascending order.
+
+## Key insight
+
+Merge Sort doesn't need index access. Finding the middle with slow and fast pointers and merging by relinking pointers gives O(n log n) without copying nodes.
 
 ## Solution
 
@@ -103,6 +108,14 @@ console.log(toArray(sortList(fromArray([-1, 5, 3, 4, 0])))); // Output: [-1, 0, 
 console.log(toArray(sortList(fromArray([3, 1, 3, 1]))));     // Output: [1, 1, 3, 3]
 console.log(toArray(sortList(fromArray([]))));               // Output: []
 ```
+
+## How to spot the pattern
+
+- Sorting or splitting a linked list
+- Needing the middle of a list without knowing its length: slow and fast pointers
+- O(n log n) with little memory on a linked list: Merge Sort
+
+Patterns: [Divide and conquer](../../patterns/divide-and-conquer.md), [Two pointers](../../patterns/two-pointers.md).
 
 ## Related
 

@@ -1,5 +1,6 @@
 ---
 sidebar_label: "DBMS e RDBMS"
+sidebar_position: 1
 description: "O que são sistemas gerenciadores de banco de dados e a variante relacional."
 ---
 
@@ -53,6 +54,29 @@ Um **DBMS** (*Database Management System*, ou SGBD) é o software que cria, gere
 | Exemplo        | MongoDB                              | PostgreSQL                     |
 
 Todo RDBMS é um DBMS, mas nem todo DBMS é relacional.
+
+## Perguntas de revisão
+
+<details>
+<summary>Todo DBMS é um RDBMS?</summary>
+
+Não. Todo RDBMS é um DBMS, mas existem DBMS não relacionais, como o MongoDB.
+
+</details>
+
+<details>
+<summary>O que significa ACID?</summary>
+
+Atomicidade, consistência, isolamento e durabilidade.
+
+</details>
+
+<details>
+<summary>O que garante a integridade referencial?</summary>
+
+As chaves primárias e estrangeiras: uma chave estrangeira só pode apontar para uma chave primária que existe.
+
+</details>
 
 ## Relacionados
 

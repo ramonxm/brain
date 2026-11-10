@@ -1,5 +1,6 @@
 ---
 sidebar_label: "LIFO"
+sidebar_position: 5
 description: "Last In, First Out: the last element added is the first one removed."
 ---
 
@@ -9,53 +10,51 @@ description: "Last In, First Out: the last element added is the first one remove
 
 ## How it works
 
-The structure that implements LIFO is the [stack](../data-structures/stack.md). Insertions and removals happen at a single end, the **top**:
+The policy only defines **which** element leaves, not how elements are stored. Insertions and removals happen at the same end, so the output order is the **reverse** of the input order: inserting `1, 2, 3` and removing everything returns `3, 2, 1`.
 
-- **Push**: adds an element to the top
-- **Pop**: removes the element from the top
+That makes LIFO the natural policy for anything **nested**: the last thing opened must be the first one closed. The structure that implements it is the [stack](../data-structures/stack.md).
 
-## Complexity
+## Comparison
 
-| Operation | Complexity |
-| :-------- | :--------- |
-| Push      | O(1)       |
-| Pop       | O(1)       |
-
-## Implementation
-
-```python
-class Stack:
-    def __init__(self):
-        self.items = []
-
-    def push(self, item):
-        self.items.append(item)
-
-    def pop(self):
-        return self.items.pop() if self.items else None
-
-    def is_empty(self):
-        return len(self.items) == 0
-
-
-stack = Stack()
-stack.push(1)
-stack.push(2)
-stack.push(3)
-
-print(stack.pop())  # Output: 3
-print(stack.pop())  # Output: 2
-```
+| Characteristic       | LIFO                          | [FIFO](./fifo.md)              |
+| :------------------- | :---------------------------- | :----------------------------- |
+| Leaves first         | The most recent               | The oldest                     |
+| Output order         | Reverse of input              | Same as input                  |
+| Structure            | Stack                         | Queue                          |
+| Graph traversal      | Depth-first search (DFS)      | Breadth-first search (BFS)     |
 
 ## Applications
 
-- Function call stack
-- Undo/redo in editors
-- Expression evaluation and bracket matching
-- Depth-first search (DFS)
+- [Call stack](./memory-stack-heap.md): each function returns before its caller
+- Undo: the last action is the first one undone
+- Parentheses checking: the last one opened is the first one closed
+- Depth-first search (DFS): always explores the most recently discovered vertex
+
+## Review questions
+
+<details>
+<summary>What kind of problem usually calls for LIFO?</summary>
+
+Problems with a nested structure, where the last element opened must be the first one resolved: function calls, parentheses, undo.
+
+</details>
+
+<details>
+<summary>What happens to the order of elements that go through a stack?</summary>
+
+It is reversed: inserting `1, 2, 3` and removing everything returns `3, 2, 1`.
+
+</details>
+
+<details>
+<summary>What traversal do you get if you replace the BFS queue with a stack?</summary>
+
+A depth-first search (DFS), because the next vertex explored becomes the most recently discovered one.
+
+</details>
 
 ## Related
 
-- [FIFO](./fifo.md)
 - [Stack](../data-structures/stack.md)
+- [FIFO](./fifo.md)
 - [Stack and heap memory](./memory-stack-heap.md)
