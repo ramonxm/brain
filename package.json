@@ -14,6 +14,8 @@
     "clear": "docusaurus clear",
     "typecheck": "tsc",
     "i18n:write-en": "docusaurus write-translations --locale en",
+    "new": "node scripts/new-note.mjs",
+    "anki": "node scripts/anki.mjs",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "deploy-gh-pages": "GIT_USER=ramonxm USE_SSH=true yarn deploy",
