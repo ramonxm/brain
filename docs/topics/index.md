@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Visão geral"
+sidebar_position: 1
 description: "Tecnologias do dia a dia de desenvolvimento: computação em nuvem com AWS e bancos de dados."
 ---
 

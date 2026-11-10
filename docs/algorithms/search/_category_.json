@@ -1,0 +1,11 @@
+{
+  "key": "algorithms-search",
+  "label": "Busca",
+  "position": 3,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/algorithms-search",
+    "description": "Algoritmos para localizar elementos em coleções."
+  }
+}

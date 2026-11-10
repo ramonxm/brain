@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Overview"
+sidebar_position: 1
 description: "The principles behind computer science: complexity, memory, concurrency and architecture."
 ---
 
