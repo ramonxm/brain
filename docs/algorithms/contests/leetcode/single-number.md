@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Single Number"
+sidebar_position: 2
 description: "Encontre o elemento que aparece uma única vez usando XOR."
 ---
 
@@ -16,6 +17,10 @@ Encontrar o único elemento sem par em um array, em tempo linear e memória cons
 ## Problema
 
 Dado um array não vazio de inteiros `nums` em que todos os elementos aparecem duas vezes, exceto um, encontre esse elemento. A solução deve ter tempo O(n) e usar apenas O(1) de espaço extra.
+
+## Insight-chave
+
+XOR anula pares (`x ^ x = 0`) e não depende da ordem. Acumular o XOR de todos os elementos deixa apenas o que não tem par.
 
 ## Solução
 
@@ -56,6 +61,12 @@ console.log(singleNumber([4, 1, 2, 1, 2]));  // Saída: 4
 console.log(singleNumber([1]));              // Saída: 1
 console.log(singleNumber([-1, -1, -2]));     // Saída: -2
 ```
+
+## Como reconhecer o padrão
+
+- Todos os elementos aparecem em pares, exceto um
+- O enunciado exige O(1) de memória extra, o que descarta um hash set
+- Pares que se cancelam sugerem uma operação que é sua própria inversa
 
 ## Relacionados
 

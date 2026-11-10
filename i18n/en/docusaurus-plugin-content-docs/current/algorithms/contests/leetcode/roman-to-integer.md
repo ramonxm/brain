@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Roman to Integer"
+sidebar_position: 3
 description: "Convert a Roman numeral to an integer."
 ---
 
@@ -32,6 +33,10 @@ A smaller symbol before a larger one means subtraction, only in these cases:
 - **I** before V and X: 4 and 9
 - **X** before L and C: 40 and 90
 - **C** before D and M: 400 and 900
+
+## Key insight
+
+A symbol only subtracts when it is smaller than the next one. Comparing each symbol with the following one covers every special case at once, without listing `IV`, `IX`, `XL`...
 
 ## Solution
 
@@ -89,6 +94,14 @@ console.log(romanToInt("CM"));       // Output: 900
 console.log(romanToInt("LVIII"));    // Output: 58
 console.log(romanToInt("MCMXCIV"));  // Output: 1994
 ```
+
+## How to spot the pattern
+
+- Converting a notation into a value by processing symbols in sequence
+- A symbol's meaning depends on its neighbor: look one position ahead
+- A fixed symbol → value table replaces a chain of `if`s
+
+Pattern: [Hash map as an index](../../patterns/hash-map-lookup.md).
 
 ## Related
 

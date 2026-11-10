@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Construct Binary Tree"
+sidebar_position: 5
 description: "Rebuild a binary tree from its preorder and inorder traversals."
 ---
 
@@ -16,6 +17,10 @@ Rebuilding a [binary tree](../../../data-structures/binary-tree.md) from two tra
 ## Problem
 
 Given two integer arrays `preorder` and `inorder`, which are, respectively, the preorder and inorder traversals of the same binary tree (with distinct values), construct and return the tree.
+
+## Key insight
+
+Preorder reveals the root; that root's position in inorder tells which values go to each subtree. This reduces the problem to two smaller reconstructions.
 
 ## Solution
 
@@ -86,6 +91,14 @@ console.log(levelOrder(buildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7])));
 console.log(levelOrder(buildTree([-1], [-1])));
 // Output: [-1]
 ```
+
+## How to spot the pattern
+
+- Rebuilding a tree from traversals
+- One traversal identifies the root and the other splits the sides: recurse on the subtrees
+- Repeated position lookups (`indexOf`) inside the recursion: precompute a value → index map
+
+Patterns: [Divide and conquer](../../patterns/divide-and-conquer.md), [Hash map as an index](../../patterns/hash-map-lookup.md).
 
 ## Related
 

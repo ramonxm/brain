@@ -1,5 +1,6 @@
 ---
 sidebar_label: "Roman to Integer"
+sidebar_position: 3
 description: "Converta um número romano em inteiro."
 ---
 
@@ -32,6 +33,10 @@ Um símbolo menor antes de um maior indica subtração, apenas nos casos:
 - **I** antes de V e X: 4 e 9
 - **X** antes de L e C: 40 e 90
 - **C** antes de D e M: 400 e 900
+
+## Insight-chave
+
+Um símbolo só subtrai quando é menor que o seguinte. Comparar cada símbolo com o próximo cobre todos os casos especiais de uma vez, sem listar `IV`, `IX`, `XL`...
 
 ## Solução
 
@@ -89,6 +94,14 @@ console.log(romanToInt("CM"));       // Saída: 900
 console.log(romanToInt("LVIII"));    // Saída: 58
 console.log(romanToInt("MCMXCIV"));  // Saída: 1994
 ```
+
+## Como reconhecer o padrão
+
+- Converter uma notação em valor processando símbolos em sequência
+- O significado de um símbolo depende do vizinho: olhe uma posição à frente
+- Uma tabela fixa símbolo → valor substitui uma cadeia de `if`s
+
+Padrão: [Hash map como índice](../../patterns/hash-map-lookup.md).
 
 ## Relacionados
 
